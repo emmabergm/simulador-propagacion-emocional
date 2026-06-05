@@ -9,4 +9,7 @@ def menu_2():
   ----------
   str: opcion elegida 
   '''
+  pass 
+
+def feedback_emociones(menu_2, archivo_e_n, archivo_e_post): 
   
