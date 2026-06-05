@@ -1,5 +1,4 @@
-import pandas as pd
-
+    
 def cargar_datos_emociones(archivo_neutro, archivo_post):
     """
     Carga los archivos con las emociones neutras y las emociones posteriores
