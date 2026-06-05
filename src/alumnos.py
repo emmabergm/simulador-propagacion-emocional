@@ -36,7 +36,7 @@ def guardar_archivo_neutro(funcion_info):
 def valoracion_comentario(archivo_comentario, archivo_emociones): 
     '''
     Presentarle al estudiante_2 el comentario elegido por el estudiante_1 y preguntarle su valoracion
-    (Van a presentarse 2 comentarios)
+    (Van a presentarse 2 comentarios) (Validar datos)
     Parameters
     ----------
     archivo_comentario : cvs
