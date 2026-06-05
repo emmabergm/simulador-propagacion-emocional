@@ -5,6 +5,7 @@ def menu_2():
    - Grafico neutro y grafico post que compare el cambio 
    - promedio grupal de emcoion a partir de cada comentario 
 
+<<<<<<< HEAD
    Returns: 
    ----------
    str: opcion elegida 
@@ -85,3 +86,6 @@ def promedio_grupal(menu_2, archivo_e_post):
 
     '''
     pass
+=======
+  
+>>>>>>> 9b2d79273403937e26c7c2ee57b70fd068efcdd7
