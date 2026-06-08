@@ -4,9 +4,9 @@ Created on Thu Jun  4 14:01:36 2026
 
 @author: olivi
 """
-def realizar_pregunta(estudiante_1): 
+def situacion(estudiante_1): 
     '''
-    Funcion que pregunta en que contexto se encuentra (parciales/no parciales) y genera la pregunta
+    Funcion que pregunta en que contexto se encuentra (parciales/no parciales) 
     
     Parameters
     ----------
@@ -15,7 +15,7 @@ def realizar_pregunta(estudiante_1):
 
     Returns
     -------
-    situacion, respuesta 
+    situacion
 
     '''
     pass
