@@ -20,7 +20,23 @@ def situacion(estudiante_1):
     '''
     pass
 
-def guardar_comentario(funcion_pregunta, archivo): 
+def realizar_pregunta(archivo): 
+    '''
+    Presentarle la sitaucion al usuario (que el programa presente una situacion random) y preguntar que comentario haria 
+
+    Parameters
+    -----------
+
+    archivo: csv 
+        archivo con situaciones y posibles respuestas 
+
+    Returns
+    --------
+    str: respuesta (a,b,c)
+    '''
+    pass 
+
+def guardar_respuesta(situacion, archivo)
     '''
     Guardar la eleccion de comentario del estudiante en cada situacion
 
