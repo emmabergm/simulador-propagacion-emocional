@@ -12,7 +12,7 @@ def info_estudiante2 (estudiante_2):
 
     Returns
     -------
-    edad, valoracion neutra para cada emocion
+    valoracion neutra para cada emocion
 
     '''
     pass
