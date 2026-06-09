@@ -3,7 +3,61 @@
 
 import matplotlib.pyplot as plt
 
-def grafico(diccionario_promedio_neutro, diccionario_promedio_post): 
+def grafico(df_neutro, df_asociado_1, df_asociado_2, situacion): 
+    emociones = ["estres", "motivacion", "tranquilidad"]
+    
+    valores_neutros = []
+    valores_comentario_1= []
+    valores_comentario_2= []
+    
+    for emocion in emociones:
+        valores_neutros=valores_neutros.append(df_neutro[emocion].mean())
+        valores_comentario_1=valores_comentario_1.append(df_asociado_1[emocion].mean())
+        valores_comentario_2=valores_comentario_2.append(df_asociado_2[emocion].mean())
+        
+    x = range(len(emociones))
+    ancho = 0.2
+
+    plt.figure()
+
+    plt.bar(
+        x,
+        valores_neutros,
+        width=ancho,
+        label="Neutro"
+    )
+
+    plt.bar(
+        [i + ancho for i in x],
+        valores_comentario_1,
+        width=ancho,
+        label="Comentario 1"
+    )
+
+    plt.bar(
+        [i + ancho*2 for i in x],
+        valores_comentario_2,
+        width=ancho,
+        label="Comentario 2"
+    )
+
+    plt.xticks(
+        [i + ancho for i in x],
+        emociones
+    )
+
+    plt.ylabel("Nivel emocional promedio")
+
+    plt.title(
+        "Situacion academica: " + situacion
+    )
+
+    plt.legend()
+
+    plt.ylim(0, 100)
+
+    plt.show()
+        
 
     
    
