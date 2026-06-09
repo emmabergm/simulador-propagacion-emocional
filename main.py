@@ -14,6 +14,6 @@ estudiante_1 = input("Ingrese su nombre: ")
 if menu_1 == "True": 
   estudiante_2 = input("Ingrese su nombre: ")
 else: 
-  print("Muchas gracias por su respuesta!")
+  print("Muchas gracias por su respuesta!") #NO ESTA BIEN 
 edad_e_2 = int(input("Ingrese su edad: ")
 menu_1 = "funcion de menu"
