@@ -1,7 +1,7 @@
 
 
 
-def info_estudiante2 (estudiante_2):
+def info_estudiante2 ():
     '''
     Le pregunta al estudiante por su informacion actual neutra 
 
@@ -15,7 +15,17 @@ def info_estudiante2 (estudiante_2):
     valoracion neutra para cada emocion
 
     '''
-    pass
+    while True: 
+        estres = int(input("Ingrese su estado de estres actual: "))
+        motivacion = int(input("Ingrese su estado de motivacion actual: "))
+        tranquilidad = int(input("Ingrese su estado de tranquilidad actual: "))
+        
+        if (0 > tranquilidad > 100) or (0 > estres > 100) or (0 > motivacion > 100): 
+            raise ValueError("Los valores deben encontrarse dentro del rango (1 - 100) ")
+        else: 
+            break 
+        
+    return estres, motivacion, tranquilidad 
 
 def guardar_archivo_neutro(estudiante_2, edad_e_2, funcion_info): 
     '''
