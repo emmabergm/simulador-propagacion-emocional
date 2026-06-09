@@ -12,25 +12,7 @@ def menu_2():
    ----------
    str: opcion elegida 
    '''
-   1 = Feedback
-   2 = Graficos
-   3 = Promedio de emociones 
-   print("1 - Feedback")
-   print("2 - Graficos")
-   print("3 - Promedio de emociones")
-      
-   while True: 
-      try: 
-         opcion = input("Ingrese la opcion deseada: ")
-      
-         if opcion != ("1", "2", "3"):
-            raise ValueError ("La opcion ingresada no es valida")
-
-         return opcion 
-   
-   except ValueError:
-      print("La opcion ingresada no es valida. Intente nuevamente.")
-         
+   pass 
 
 def feedback_emociones(menu_2, archivo_e_n, archivo_e_post): 
     '''
@@ -50,7 +32,6 @@ def feedback_emociones(menu_2, archivo_e_n, archivo_e_post):
     str: feedback 
 
     '''
-    1 = Feedback 
-    if menu_2 == 1
-   
+    pass
+
 
