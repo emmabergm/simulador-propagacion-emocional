@@ -18,9 +18,16 @@ def situacion(estudiante_1):
     situacion
 
     '''
-    situacion = input("En que situacion academica se encuentra? (parcailes/ no parciales)")
-    if (situacion != "parciales") and (situacion != "no parciales")
-        raise ValueError("La situacion ingresada no existe")
+    while True: 
+        situacion = input("En que situacion academica se encuentra? (parcailes/ no parciales)")
+    
+        if (situacion != "parciales") and (situacion != "no parciales"):
+            raise ValueError("La situacion ingresada no existe")
+        else: 
+            break 
+    
+    return situacion 
+        
 
 def realizar_pregunta(archivo): 
     '''
@@ -38,7 +45,7 @@ def realizar_pregunta(archivo):
     '''
     pass 
 
-def guardar_respuesta(situacion, archivo)
+def guardar_respuesta(situacion, archivo):
     '''
     Guardar la eleccion de comentario del estudiante en cada situacion
 
