@@ -3,7 +3,7 @@
 
 import matplotlib.pyplot as plt
 
-def grafico(df_neutro, df_asociado_1, df_asociado_2, situacion): 
+def grafico(df_neutro, df_asociado_1, df_asociado_2): 
     emociones = ["estres", "motivacion", "tranquilidad"]
     
     valores_neutros = []
@@ -48,9 +48,7 @@ def grafico(df_neutro, df_asociado_1, df_asociado_2, situacion):
 
     plt.ylabel("Nivel emocional promedio")
 
-    plt.title(
-        "Situacion academica: " + situacion
-    )
+    plt.title("cambios emocionales")
 
     plt.legend()
 
