@@ -15,3 +15,9 @@ def menu_parte_1():
     None.
 
     '''
+    pregunta = input("Desea seguir con la segunda parte? ")
+
+    if pregunta == "si": 
+        return True 
+    else: 
+        return False 
