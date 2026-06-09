@@ -18,7 +18,9 @@ def situacion(estudiante_1):
     situacion
 
     '''
-    pass
+    situacion = input("En que situacion academica se encuentra? (parcailes/ no parciales)")
+    if (situacion != "parciales") and (situacion != "no parciales")
+        raise ValueError("La situacion ingresada no existe")
 
 def realizar_pregunta(archivo): 
     '''
