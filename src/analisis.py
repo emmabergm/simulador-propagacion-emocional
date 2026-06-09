@@ -1,6 +1,15 @@
 
 def unir_ideas (situacion, respuesta):
-    
+    df_comparacion = pd.merge(
+        df_neutro,
+        df_post1,
+        on="nombre")
+
+    df_comparacion = df_comparacion.drop(
+        columns=["edad", "situacion"]
+    )
+
+    return df_comparacion
     
 
 def unir_datos_emocionales(df_neutro, df_post1, df_post2):
