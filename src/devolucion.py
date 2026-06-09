@@ -4,8 +4,10 @@ def menu_2():
    - Feedback de como influyen los comentarios 
    - Grafico neutro y grafico post que compare el cambio 
    - promedio grupal de emcoion a partir de cada comentario 
+   
+   Raises
+   ValueError: si la opcion que elige ver no es valida.
 
-<<<<<<< HEAD
    Returns: 
    ----------
    str: opcion elegida 
@@ -32,60 +34,4 @@ def feedback_emociones(menu_2, archivo_e_n, archivo_e_post):
     '''
     pass
 
-def grafico_neutro(menu_2, archivo_e_n): 
-    '''
-    Genera el grafico de emociones neutras 
 
-    Parameters
-    ----------
-    menu_2 : str
-        Si la opcion elegida es feedback, que se desarrolle la funcion 
-    archivo_e_n : csv
-        Archivo de emociones neutras para comparar con el otro archivo
-
-    Returns
-    -------
-    plt: grafico 
-
-    '''
-    pass 
-
-def grafico_e_post(menu_2, archivo_e_post): 
-    '''
-    Genera el grafico de emociones despues del comentario  
-
-    Parameters
-    ----------
-    menu_2 : str
-        Si la opcion elegida es feedback, que se desarrolle la funcion 
-    archivo_e_post : csv
-        Archivo de emociones post para comparar con el otro archivo
-
-    Returns
-    -------
-    plt: grafico 
-
-    '''
-    pass 
-
-
-def promedio_grupal(menu_2, archivo_e_post): 
-    '''
-    Sacar el promedio grupal de las emociones y devolver una valoracion grupal 
-
-    Parameters
-    ----------
-    menu_2 : str
-        Si la opcion elegida es feedback, que se desarrolle la funcion 
-    archivo_e_post : csv
-        Archivo de emociones despues de los comentarios.
-
-    Returns
-    -------
-    float: promedio 
-
-    '''
-    pass
-=======
-  
->>>>>>> 9b2d79273403937e26c7c2ee57b70fd068efcdd7
