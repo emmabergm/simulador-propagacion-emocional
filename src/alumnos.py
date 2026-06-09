@@ -53,12 +53,13 @@ def presentar_comentario(df_comentario, respuesta, indice, situacion ):
         
     Returns
     -------
-    None. 
+    str: comentario elegido por el usuario 1 
 
     '''
     comentario = df_comentario.loc[(df_comentario["id_pregunta"] == 1) &(df_comentario[situacion] == True),"comentario"].iloc[0]
-    
     print(comentario)
+    
+    return comentario
 
 def valoracion_comentario(estudiante_2, edad_e_2, respuesta, df_comentario,  df_e_comentario): 
     '''

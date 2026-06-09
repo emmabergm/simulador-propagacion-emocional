@@ -66,5 +66,78 @@ def feedback_emociones(menu_2, archivo_e_n, archivo_e_post):
     '''
     1 = Feedback 
     if menu_2 == 1
+
+   dicc_promedio_neutro = calcular_promedios_grupales(archivo_e_n)
+   dicc_promedio_post = calcular_promedios_grupales(archivo_e_post)
+
+   if not dicc_promedio_neutro or not dicc_promedio_post:
+      print ("No se pudo calcular el feedback por falta de datos")
+      return??????????
+
+   cambio_estres = dicc_promedio_post["estres"] - dicc_promedio_neutro ["estres"]
+   cambio_motivacion = dicc_promedio_post ["motivacion"] - dicc_promedio_neutro ["motivacion"]
+   cambio_tranquilidad = dicc_promedio_post ["tranquilidad"] - dicc_promedio_neutro ["tranquilidad"]
+
+   cambios = []
+
+   if cambio_estres > 1:
+      cambios.append ("El estres del grupo aumento,")
+   elif cambio_estres < -1:
+      cambios.append ("El estres del grupo bajo, lo cual es positivo,")
+
+   if cambio_motivacion > 1:
+      cambios.append ("la motivacion mejoro,")
+   elif cambio_motivacion < -1:
+      cambios.append ("la motivacion cayo,")
+
+   if cambio_tranquilidad > 1:
+      cambios.append ("el grupo se encuentra mas tranquilo.")
+   elif cambio_tranquilidad < -1:
+      cambios.append ("la tranquilidad disminuyo.")
+
+   if not in partes:
+      feedback = "El clima se mantuvo bastante estable despues del comentario"
+   else: 
+      feedback = (f"Despues del comentario, {cambios}")
+
+   return feedback
+   print (feedback)
+
+#si queremos que diga cual emocion cambio mas
+if cambio_estres>=0:
+   cambio_estres_positivo = cambio_estres
+else:
+   cambio_estres_positivo = cambio_estres * -1
+
+if cambio_motivacion>=0:
+   cambio_motivacion_positivo = cambio_motivacion
+else:
+   cambio_motivacion_positivo = cambio_motivacion * -1
+
+if cambio_tranquilidad>=0:
+   cambio_tranquilidad_positivo = cambio_tranquilidad
+else:
+   cambio_tranquilidad_positivo = cambio_tranquilidad * -1
+
+
+if cambio_estres_positivo >= cambio_motivacion_positivo and cambio_estres_positivo >= cambio_tranquilidad_positivo:
+    emocion_predominante = "Cuidado con lo que decis! Ahora el estado emocional que predomina en el grupo es el estres!"
+elif cambio_motivacion_positivo >= cambio_estres_positivo and cambio_motivacion_positivo >= cambio_tranquilidad_positivo:
+    emocion_predominante = "Buenisimo el comentario! La motivacion esta predominando en el estado emocional del grupo"
+else:
+    emocion_predominante = "Tu mensaje genero tranquilidad en el grupo!"
+
+
+print (feedback)
+print (emocion_predominante)
+
+
+
+
+
+
    
+
+
+
 
