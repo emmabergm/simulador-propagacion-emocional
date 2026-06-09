@@ -3,7 +3,10 @@
 
 import matplotlib.pyplot as plt
 
-def grafico(archivo_comentarios, archivo_e_n, archivo_e_comentario1, archivo_e_comentario2): 
+def grafico(diccionario_promedio_neutro, diccionario_promedio_post): 
+
+    
+   
     '''
     Funcion que crea el grafico a partir de los datos
 
@@ -23,4 +26,5 @@ def grafico(archivo_comentarios, archivo_e_n, archivo_e_comentario1, archivo_e_c
     Grafico 
 
     '''
+   
     pass 
