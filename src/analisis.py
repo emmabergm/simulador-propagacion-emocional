@@ -1,5 +1,6 @@
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 def unir_ideas (situacion, respuesta):
     df_comparacion = pd.merge(
         df_neutro,
@@ -16,6 +17,8 @@ def unir_ideas (situacion, respuesta):
 
 >>>>>>> 3114e40e2fb59d34368718ad23255f5f07000013
 
+=======
+>>>>>>> 9969f89c3bbc436c9628b37ea30b0a341ed1fa95
 def unir_datos_emocionales(df_neutro, df_post1, df_post2):
     '''
     Une la información emocional neutra y posterior de un mismo estudiante.
@@ -36,10 +39,11 @@ def unir_datos_emocionales(df_neutro, df_post1, df_post2):
 
     '''
 
-    pass
+    dicc_alumnos={}
+    
 
 
-def _calcualar_promedios_grupales(df):
+def calcualar_promedios_grupales(df):
     """
     Calcula los promedios emocionales del grupo y los agrega a un diccionario donde la clave es la emocion y el valor la valoracaion emocional 
 
@@ -137,8 +141,12 @@ def feedback_comentario( situacion,comentario, cambio_estres, cambio_tranquilida
         Situacion en la que se da el comentario. 
     comentario : str
         Comentario elegido por el usuario
-    cambio : float
-        Cambio que tuvo cada emocion a partir del comentario. 
+    cambio_estres : float
+        Cambio que tuvo la emocion estres a partir del comentario.
+    cambio_tranquilidad : float
+        Cambio que tuvo la emocion tranquilidad a partir del comentario. 
+    cambio_motivacion : float
+        Cambio que tuvo la emocion motivacion a partir del comentario. 
 
     Returns
     -------
