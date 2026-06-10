@@ -27,27 +27,33 @@ def info_estudiante2 ():
         
     return estres, motivacion, tranquilidad 
 
-def guardar_archivo_neutro(estudiante_2, edad_e_2, funcion_info): 
+def guardar_archivo_neutro(df_neutro, estudiante_2, edad_e_2, estres, motivacion, tranquilidad): 
     '''
     Agregar la informacion del estudiante_2 al archivo de emociones neutras 
 
     Parameters
     ----------
+     df_neutro: DataFrame 
+         Dataframe con la informacion predeterminada de estudiantes en estado neutro 
      estudiante_2 : str
         Nombre del estudiante dos que va a valorar sus emociones a partir de los comentarios 
      edad_e_2: int
          Edad del estudiante 2 
-     funcion_info : int 
-        La funcion va a retornar la edad en int y la valoracion por emocion en int tambien 
-
+     estres : int 
+       valoracion de estres del estudiante 2
+     motivacion: int
+         valoracion de motivacion del estudiante 2
+    tranquilidad: int
+        valoracion de tranquilidad del estudiante 2
     Returns
     -------
     None.
 
     '''
-    pass 
+    df_neutro.loc[len(df_neutro)] = estudiante_2, edad_e_2, estres, motivacion, tranquilidad
+    
 
-def valoracion_comentario(estudiante_2, edad_e_2, archivo_comentario, archivo_emociones): 
+def valoracion_comentario(estudiante_2, edad_e_2, respuesta, df_comentario,  df_e_comentario): 
     '''
     Presentarle al estudiante_2 el comentario elegido por el estudiante_1 y preguntarle su valoracion
     (Van a presentarse 2 comentarios) (Validar datos)
@@ -67,4 +73,16 @@ def valoracion_comentario(estudiante_2, edad_e_2, archivo_comentario, archivo_em
     None.
 
     '''
-    pass
+    valoracion_estres = input("Cual seria tu valoracion emoicional el siguiente comentario:", 
+                       df_comentario["respuesta"],
+                       "Ingresa tu valoracion de estres: ") 
+    valoracion_motivacion = input("Ingresa tu valoracion de la emocion motivacion: ")
+    valoracion_tranquilidad = input("Ingresa tu valoracion de la emocion tranquilidad: ")
+    df_e_comentario.loc[len(df_e_comentario)] = estudiante_2, edad_e_2,valoracion_estres, valoracion_motivacion, valoracion_tranquilidad
+    
+    #ACA va a haber que llamar a la funcion 2 veces, cada vez para un comentario distinto#
+    
+    
+                       
+                       
+    
