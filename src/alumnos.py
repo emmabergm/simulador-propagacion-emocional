@@ -1,18 +1,27 @@
 
 
 
-def info_estudiante2 ():
+def info_estudiante2 (df_neutro, estudiante_2, edad_e_2, ):
     '''
     Le pregunta al estudiante por su informacion actual neutra 
 
     Parameters
     ----------
-    estudiante_2 : str
+    df_neutro: DataFrame 
+        Dataframe con la informacion predeterminada de estudiantes en estado neutro 
+     estudiante_2 : str
         Nombre del estudiante dos que va a valorar sus emociones a partir de los comentarios 
-
+      edad_e_2: int
+          Edad del estudiante 2 
+          
+    Raises 
+    -------
+    ValueError
+        si los valores estan fuera del rango 
+    
     Returns
     -------
-    valoracion neutra para cada emocion
+    None
 
     '''
     while True: 
@@ -25,32 +34,9 @@ def info_estudiante2 ():
         else: 
             break 
         
-    return estres, motivacion, tranquilidad 
-
-def guardar_archivo_neutro(df_neutro, estudiante_2, edad_e_2, estres, motivacion, tranquilidad): 
-    '''
-    Agregar la informacion del estudiante_2 al archivo de emociones neutras 
-
-    Parameters
-    ----------
-     df_neutro: DataFrame 
-         Dataframe con la informacion predeterminada de estudiantes en estado neutro 
-     estudiante_2 : str
-        Nombre del estudiante dos que va a valorar sus emociones a partir de los comentarios 
-     edad_e_2: int
-         Edad del estudiante 2 
-     estres : int 
-       valoracion de estres del estudiante 2
-     motivacion: int
-         valoracion de motivacion del estudiante 2
-    tranquilidad: int
-        valoracion de tranquilidad del estudiante 2
-    Returns
-    -------
-    None.
-
-    '''
     df_neutro.loc[len(df_neutro)] = estudiante_2, edad_e_2, estres, motivacion, tranquilidad
+        
+
     
 
 def valoracion_comentario(estudiante_2, edad_e_2, respuesta, df_comentario,  df_e_comentario): 
@@ -73,13 +59,18 @@ def valoracion_comentario(estudiante_2, edad_e_2, respuesta, df_comentario,  df_
     None.
 
     '''
-    valoracion_estres = input("Cual seria tu valoracion emoicional el siguiente comentario:", 
+    while True: 
+        valoracion_estres = input("Cual seria tu valoracion emoicional el siguiente comentario:", 
                        df_comentario["respuesta"],
                        "Ingresa tu valoracion de estres: ") 
-    valoracion_motivacion = input("Ingresa tu valoracion de la emocion motivacion: ")
-    valoracion_tranquilidad = input("Ingresa tu valoracion de la emocion tranquilidad: ")
-    df_e_comentario.loc[len(df_e_comentario)] = estudiante_2, edad_e_2,valoracion_estres, valoracion_motivacion, valoracion_tranquilidad
+        valoracion_motivacion = input("Ingresa tu valoracion de la emocion motivacion: ")
+        valoracion_tranquilidad = input("Ingresa tu valoracion de la emocion tranquilidad: ")
+        df_e_comentario.loc[len(df_e_comentario)] = estudiante_2, edad_e_2,valoracion_estres, valoracion_motivacion, valoracion_tranquilidad
     
+        if (0 > valoracion_estres > 100) or (0 > valoracion_motivacion > 100) or (0 > valoracion_tranquilidad > 100): 
+            raise ValueError("Los valores deben encontrarse dentro del rango (1 - 100) ")
+        else: 
+            break 
     #ACA va a haber que llamar a la funcion 2 veces, cada vez para un comentario distinto#
     
     
