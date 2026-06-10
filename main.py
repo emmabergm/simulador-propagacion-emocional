@@ -4,7 +4,7 @@ from src.comentarios import situacion
 from src.comentarios import realizar_pregunta
 from src.comentarios import guardar_respuesta
 from src.alumnos import info_estudiante2 
-from src.analisis import cargar_datos_emocionales
+from src.analisis import 
 from src.validacion_datos import 
 from src.graficos import 
 from src.devolucion import 
@@ -13,6 +13,21 @@ from src.devolucion import
 archivo_neutro= "C:/Users/camil/OneDrive/Desktop/Simulador emocional/simulador-propagacion-emocional/archivos/archivo_e_n.xlsx"
 
 archivo_e_comentario1= "C:/Users/camil/OneDrive/Desktop/Simulador emocional/simulador-propagacion-emocional/archivos/archivo_e_post.xlsx"
+
+archivo_comentario = "C:/Users/olivi/OneDrive/Documentos/GitHub/simulador-propagacion-emocional/archivos/archivo_comentario.xlsx"
+
+try: 
+     
+    df_neutro= pd.read_excel(archivo_neutro)
+ 
+    df_comentario = pd.read_excel(archivo_comentario)
+ 
+    df_motivacion= pd.read_excel(archivo_e_comentario1, sheet_name="Comentario_motivacional")
+    df_tranquilidad=pd.read_excel(archivo_e_comentario1, sheet_name="Comentario_tranquilidad")
+    df_estres=pd.read_excel(archivo_e_comentario1, sheet_name= "Comentario_estres")
+ 
+ except FileNotFoundError: 
+         print("El archivo no se encontro")
 
 
 estudiante_1 = input("Ingrese su nombre: ")
