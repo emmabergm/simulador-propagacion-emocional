@@ -122,8 +122,12 @@ def feedback_comentario( situacion,comentario, cambio_estres, cambio_tranquilida
         Situacion en la que se da el comentario. 
     comentario : str
         Comentario elegido por el usuario
-    cambio : float
-        Cambio que tuvo cada emocion a partir del comentario. 
+    cambio_estres : float
+        Cambio que tuvo la emocion estres a partir del comentario.
+    cambio_tranquilidad : float
+        Cambio que tuvo la emocion tranquilidad a partir del comentario. 
+    cambio_motivacion : float
+        Cambio que tuvo la emocion motivacion a partir del comentario. 
 
     Returns
     -------
