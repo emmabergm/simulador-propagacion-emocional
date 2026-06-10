@@ -40,8 +40,22 @@ def calcular_promedios_grupales(df):
     -------
     diccionario_promedio: dicc
         Devuelve el promedio pedido 
+        
     """
-    pass
+    dicc_promedio = {}
+    
+    try: 
+        promedio_estres = df.groupby["estres"].mean()
+        promedio_motivacion = df.groupby["motivacion"].mean()
+        promedio_tranquilidad = df.groupby["tranquilidad"].mean()
+    
+        dicc_promedio["estres"] = promedio_estres 
+        dicc_promedio["motivacion"] = promedio_motivacion 
+        dicc_promedio["tranquilidad"] = promedio_tranquilidad
+    except ZeroDivisionError :
+        print("Error: Sucedio una division por cero")
+    
+    return dicc_promedio 
 
 def comparar_promedios(diccionario_promedio_neutro, diccionario_promedio_post): 
    """
