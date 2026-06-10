@@ -60,6 +60,37 @@ def realizar_pregunta(df_comentario):
     return respuesta 
         
     
+def asociacion(respuesta, df_tranquilidad, df_motivacion, df_estres): 
+    '''
+    
+
+    Parameters
+    ----------
+    respuesta : str
+        a, b, c, dependiendo lo que elige el usuario 1
+    df_tranquilidad : DataFrame 
+        Tabla con cambios emocionales predeterminados a partir de el comentario asociado a la emocion
+    df_motivacion : DataFrame 
+        Tabla con cambios emocionales predeterminados a partir de el comentario asociado a la emocion
+    df_estres : DataFrame
+        Tabla con cambios emocionales predeterminados a partir de el comentario asociado a la emocion
+
+    Returns
+    -------
+    DataFrame asociado a la respuesta 
+
+    '''
+    
+    if respuesta == "a": 
+        df_asociado = df_tranquilidad
+    
+    elif respuesta == "b": 
+        df_asociado = df_motivacion 
+    
+    else: 
+        df_asociado = df_estres
+        
+    return df_asociado 
     
     
     
