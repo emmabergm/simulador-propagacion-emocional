@@ -2,9 +2,9 @@ import pandas as pd
 
 from src.comentarios import situacion
 from src.comentarios import realizar_pregunta
-from src.comentarios import guardar_respuesta
 from src.alumnos import info_estudiante2 
-from src.analisis import 
+from src.alumnos import valoracion_comentario
+from src.analisis import  
 from src.validacion_datos import 
 from src.graficos import 
 from src.devolucion import 
