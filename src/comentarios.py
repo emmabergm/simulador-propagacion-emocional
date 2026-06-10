@@ -1,26 +1,29 @@
 import random 
 
-def situacion(estudiante_1): 
+def situacion(): 
     '''
     Funcion que pregunta en que contexto se encuentra (parciales/no parciales) 
-    
-    Parameters
-    ----------
-    estudiante_1 : str
-        nombre del estudiante que responde la pregunta 
 
     Returns
     -------
     situacion
 
     '''
+    situaciones = []
+    
     while True: 
         situacion = input("En que situacion academica se encuentra? (parcailes/ no parciales)")
-    
+        situaciones.append(situacion)
+        
         if (situacion != "parciales") and (situacion != "no parciales"):
             raise ValueError("La situacion ingresada no existe")
         else: 
             break 
+        
+        if situacion in situaciones: 
+            raise ValueError("La situacion ya fue ingresada")
+        else: 
+            break
     
     return situacion 
         
