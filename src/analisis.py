@@ -1,35 +1,5 @@
-    
-# import pandas as pd 
 
-def cargar_datos_emociones(archivo_neutro, archivo_e_comentario1):
-    '''
-    Abre los archivos con las emociones neutras y las emociones posteriores
-    al comentario.
 
-    Parameters
-    ----------
-    archivo_neutro : xlsx
-        Archivo con las valoraciones de las emociones neutras
-    archivo_e_coemntario1 : xlsx
-        Archivo con las valoraciones de las emociones post coemntario 1
-        
-    Raises
-    -------
-    FileNotFound
-        Si el archivo no existe o la ruta es incorrecta 
-    Returns
-    -------
-    None.
-
-    '''
-  
-    df_neutro= pd.read_excel("archivo_e_n.xlsx")
-  
-    df_motivacion= pd.read_excel(archivo_e_comentario1, sheet_name="Comentario_motivacional")
-    df_tranquilidad=pd.read_excel(archivo_e_comentario1, sheet_name="Comentario_tranquilidad")
-    df_estres=pd.read_excel(archivo_e_comentario1, sheet_name="Comentario_estres")
-    
-    return df_neutro, df_motivacion, df_tranquilidad, df_estres
 
 def unir_datos_emocionales(df_neutro, df_post1, df_post2):
     '''
