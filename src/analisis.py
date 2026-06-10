@@ -1,5 +1,7 @@
 
-
+def unir_ideas (situacion, respuesta):
+    
+    
 
 def unir_datos_emocionales(df_neutro, df_post1, df_post2):
     '''
@@ -24,7 +26,7 @@ def unir_datos_emocionales(df_neutro, df_post1, df_post2):
     pass
 
 
-def _calcualar_promedios_grupales(df):
+def calcualar_promedios_grupales(df):
     """
     Calcula los promedios emocionales del grupo y los agrega a un diccionario donde la clave es la emocion y el valor la valoracaion emocional 
 
