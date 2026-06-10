@@ -24,7 +24,7 @@ def unir_datos_emocionales(df_neutro, df_post1, df_post2):
     pass
 
 
-def calcular_promedios_grupales(df):
+def _calcualar_promedios_grupales(df):
     """
     Calcula los promedios emocionales del grupo y los agrega a un diccionario donde la clave es la emocion y el valor la valoracaion emocional 
 
@@ -44,11 +44,14 @@ def calcular_promedios_grupales(df):
     """
     dicc_promedio = {}
     
+    
     try: 
+        
         promedio_estres = df.groupby["estres"].mean()
         promedio_motivacion = df.groupby["motivacion"].mean()
         promedio_tranquilidad = df.groupby["tranquilidad"].mean()
-    
+        
+        
         dicc_promedio["estres"] = promedio_estres 
         dicc_promedio["motivacion"] = promedio_motivacion 
         dicc_promedio["tranquilidad"] = promedio_tranquilidad
@@ -69,7 +72,7 @@ def comparar_promedios(diccionario_promedio_neutro, diccionario_promedio_post):
     diccionario_promedio_neutro : dicc
         Diccionario con los estados emocionales neutros
     diccionario_promedio_post : dicc
-        Diccionario con los estados emocionales depues del comebario.
+        Diccionario con los estados emocionales depues del comentario.
 
     Returns
     -------
@@ -77,7 +80,21 @@ def comparar_promedios(diccionario_promedio_neutro, diccionario_promedio_post):
         Devuelve la diferencia entre los promedios; para ver el cambio de lso estados emocionales en el grupo. 
 
     """
-   pass
+
+   cambio_estres= diccionario_promedio_post["estres"] - diccionario_promedio_neutro["estres"] 
+   cambio_tranquilidad= diccionario_promedio_post["tranquilidad"] - diccionario_promedio_neutro["tranquilidad"]
+   cambio_motivacion= diccionario_promedio_post["motivacion"] - diccionario_promedio_neutro["motivacion"]
+   
+   #print("El cambio en el estres fue: ", cambio_estres)
+   #print("El cambio en la tranquilidad fue: ", cambio_tranquilidad)
+   #print("El cambio en la motivacion fue: ", cambio_motivacion)
+   
+   return cambio_estres, cambio_tranquilidad, cambio_motivacion
+
+       
+   
+
+   
 
 
 
@@ -94,19 +111,23 @@ def comparar_promedios(diccionario_promedio_neutro, diccionario_promedio_post):
 #Agregar para complejizar: PREGUNTAR
 
 
-def feedback_emociones( situacion,comentario, cambio ): 
+def feedback_comentario( situacion,comentario, cambio_estres, cambio_tranquilidad, cambio_motivacion ): 
     """
     Ante el comentario, que va a depender de la situacion academica, el cambio va a ser disitno. 
-    Esta fucnion analiza el cambio en cada caso. 
+    Esta funcion analiza el cambio en cada caso. 
 
     Parameters
     ----------
     situacion: str
         Situacion en la que se da el comentario. 
     comentario : str
-        COmentario elegido por el usuario
-    cambio : float
-        Cambio que tuvo cada emocion a partir del comentario. 
+        Comentario elegido por el usuario
+    cambio_estres : float
+        Cambio que tuvo la emocion estres a partir del comentario.
+    cambio_tranquilidad : float
+        Cambio que tuvo la emocion tranquilidad a partir del comentario. 
+    cambio_motivacion : float
+        Cambio que tuvo la emocion motivacion a partir del comentario. 
 
     Returns
     -------
@@ -114,3 +135,24 @@ def feedback_emociones( situacion,comentario, cambio ):
         Analisis del comentario
 
     """
+    
+    if situacion == "parciales": 
+        if (cambio_estres > cambio_motivacion) and ( cambio_estres > cambio_tranquilidad): 
+            mensaje= "En parciales no esta bueno hacer ese comentario porque genera mucho estres en el grupo"
+        elif (cambio_motivacion > cambio_tranquilidad) and (cambio_motivacion > cambio_estres): 
+            mensaje= "El comentario fue positivo ya que ayudo a motivar a mucha gente para sus proximos examenes!!"
+        else: 
+            mensaje= "Gracias por tu comentario, este ayudo a tranquilizar a tus companeros de clase"
+            
+    elif situacion == "no parciales": 
+        if (cambio_estres > cambio_motivacion) and ( cambio_estres > cambio_tranquilidad): 
+            mensaje= "Intenta eviatr un comentario asi ya que estresa al grupo"
+        elif (cambio_motivacion > cambio_tranquilidad) and (cambio_motivacion > cambio_estres): 
+            mensaje= "Esta buenisimo este tipo de comentario durante la cursada ya que motiva a los alumnos a seguir enfocados"
+        else: 
+            mensaje= "Comentar algo asi siempre es bienvenido porque tranquiliza el estres!!"
+            
+    return mensaje 
+            
+        
+    
