@@ -24,7 +24,7 @@ def unir_datos_emocionales(df_neutro, df_post1, df_post2):
     pass
 
 
-def calcular_promedios_grupales(df):
+def _calcualar_promedios_grupales(df):
     """
     Calcula los promedios emocionales del grupo y los agrega a un diccionario donde la clave es la emocion y el valor la valoracaion emocional 
 
@@ -44,11 +44,14 @@ def calcular_promedios_grupales(df):
     """
     dicc_promedio = {}
     
+    
     try: 
+        
         promedio_estres = df.groupby["estres"].mean()
         promedio_motivacion = df.groupby["motivacion"].mean()
         promedio_tranquilidad = df.groupby["tranquilidad"].mean()
-    
+        
+        
         dicc_promedio["estres"] = promedio_estres 
         dicc_promedio["motivacion"] = promedio_motivacion 
         dicc_promedio["tranquilidad"] = promedio_tranquilidad
@@ -69,7 +72,7 @@ def comparar_promedios(diccionario_promedio_neutro, diccionario_promedio_post):
     diccionario_promedio_neutro : dicc
         Diccionario con los estados emocionales neutros
     diccionario_promedio_post : dicc
-        Diccionario con los estados emocionales depues del comebario.
+        Diccionario con los estados emocionales depues del comentario.
 
     Returns
     -------
@@ -77,7 +80,21 @@ def comparar_promedios(diccionario_promedio_neutro, diccionario_promedio_post):
         Devuelve la diferencia entre los promedios; para ver el cambio de lso estados emocionales en el grupo. 
 
     """
-   pass
+
+   cambio_estres= diccionario_promedio_post["estres"] - diccionario_promedio_neutro["estres"] 
+   cambio_tranquilidad= diccionario_promedio_post["tranquilidad"] - diccionario_promedio_neutro["tranquilidad"]
+   cambio_motivacion= diccionario_promedio_post["motivacion"] - diccionario_promedio_neutro["motivacion"]
+   
+   #print("El cambio en el estres fue: ", cambio_estres)
+   #print("El cambio en la tranquilidad fue: ", cambio_tranquilidad)
+   #print("El cambio en la motivacion fue: ", cambio_motivacion)
+   
+   return cambio_estres, cambio_tranquilidad, cambio_motivacion
+
+       
+   
+
+   
 
 
 
