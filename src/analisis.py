@@ -111,7 +111,7 @@ def comparar_promedios(diccionario_promedio_neutro, diccionario_promedio_post):
 #Agregar para complejizar: PREGUNTAR
 
 
-def feedback_emociones( situacion,comentario, cambio_estres, cambio_tranquilidad, cambio_motivacion ): 
+def feedback_comentario( situacion,comentario, cambio_estres, cambio_tranquilidad, cambio_motivacion ): 
     """
     Ante el comentario, que va a depender de la situacion academica, el cambio va a ser disitno. 
     Esta funcion analiza el cambio en cada caso. 
