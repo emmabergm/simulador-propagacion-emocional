@@ -55,7 +55,7 @@ def realizar_pregunta(df_comentario):
         respuesta=input("Ante esta situacion, que comentario le harias a la clase?: ", a, b, c, "ingresar en minuscula")
     except ValueError: 
         print('Opcion invalida')
-        respuesta = input("Ante esta situacion, que comentario le harias a la clase?: (a,b,c) ingresar en minuscula")
+        respuesta = input("Ante esta situacion, que comentario le harias a la clase?:" , a, b, c, "ingresar en minuscula")
     
     return respuesta 
         
