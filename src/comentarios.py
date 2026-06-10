@@ -1,4 +1,5 @@
 import random 
+
 def situacion(estudiante_1): 
     '''
     Funcion que pregunta en que contexto se encuentra (parciales/no parciales) 
