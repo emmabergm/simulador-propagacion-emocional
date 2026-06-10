@@ -1,9 +1,4 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Thu Jun  4 14:01:36 2026
-
-@author: olivi
-"""
+import random 
 def situacion(estudiante_1): 
     '''
     Funcion que pregunta en que contexto se encuentra (parciales/no parciales) 
@@ -29,7 +24,7 @@ def situacion(estudiante_1):
     return situacion 
         
 
-def realizar_pregunta(archivo): 
+def realizar_pregunta(df_comentario): 
     '''
     Presentarle la sitaucion al usuario (que el programa presente una situacion random) y preguntar que comentario haria 
 
@@ -43,24 +38,50 @@ def realizar_pregunta(archivo):
     --------
     str: respuesta (a,b,c)
     '''
-    pass 
-
-def guardar_respuesta(situacion, archivo):
-    '''
-    Guardar la eleccion de comentario del estudiante en cada situacion
-
-    Parameters
-    ----------
-    funcion_pregunta: str
-        La situacion y respuesta que ingreso el estudiante 
+    #llamar archivo 
     
-    archivo: cvs
-        Archivo en donde se encuntran las opciones de comentarios y se guarda la elegida
+    indice= random.randint(0, len(df_comentario)-1)
+    
+    situacion= df_comentario.iloc[indice]["comentario profesora"]
+    
+    a= df_comentario.iloc[indice]["a"]
+    b= df_comentario.iloc[indice]["b"]
+    c= df_comentario.iloc[indice]["c"]
+    
+    
+    print("Ante esta situacion: ", situacion)
+    try: 
+        respuesta=input("Ante esta situacion, que comentario le harias a la clase?: (a,b,c) ingresar en minuscula")
+    except ValueError: 
+        print('Opcion invalida')
+        respuesta=input("Ante esta situacion, que comentario le harias a la clase?: (a,b,c) ingresar en minuscula")
+    
+    return respuesta 
         
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+   
+        
+        
+    
+        
+        
+        
+    
+          
+        
+        
+    
+     
 
-    Returns
-    -------
-    archivo
-
-    '''
-    pass 
