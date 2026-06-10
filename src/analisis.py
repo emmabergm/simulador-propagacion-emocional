@@ -97,7 +97,7 @@ def comparar_promedios(diccionario_promedio_neutro, diccionario_promedio_post):
 def feedback_emociones( situacion,comentario, cambio ): 
     """
     Ante el comentario, que va a depender de la situacion academica, el cambio va a ser disitno. 
-    Esta fucnion analiza el cambio en cada caso. 
+    Esta funcion analiza el cambio en cada caso. 
 
     Parameters
     ----------
