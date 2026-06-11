@@ -25,11 +25,12 @@ def menu_2():
       
          if opcion != ("1", "2", "3"):
             raise ValueError ("La opcion ingresada no es valida")
- 
-      except ValueError:
-         print("La opcion ingresada no es valida. Intente nuevamente.")
+
+         return opcion 
+   
+   except ValueError:
+      print("La opcion ingresada no es valida. Intente nuevamente.")
          
-   return opcion 
 
 def feedback_emociones(menu_2, archivo_e_n, archivo_e_post): 
     '''
@@ -49,6 +50,7 @@ def feedback_emociones(menu_2, archivo_e_n, archivo_e_post):
     str: feedback 
 
     '''
-    pass
-
+    1 = Feedback 
+    if menu_2 == 1
+   
 
