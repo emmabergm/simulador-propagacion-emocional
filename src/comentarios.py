@@ -28,13 +28,9 @@ def situacion():
             situacion = "no_parciales"
     
     return situacion 
-<<<<<<< HEAD
+
 
 def numero_random(df_comentario): 
-=======
-        
-def realizar_pregunta(df_comentario): 
->>>>>>> f959e81776846d35fcef0b223abbce7fc4a7a7a7
     '''
     Genera un numero random. Este numero representa una situacion academica distinta. 
 
@@ -51,6 +47,7 @@ def realizar_pregunta(df_comentario):
     id_situacion= random.randint(0, len(df_comentario)-1)
     
     return id_situacion 
+    
 
 def realizar_pregunta(df_comentario, id_situacion ): 
     '''
@@ -76,8 +73,7 @@ def realizar_pregunta(df_comentario, id_situacion ):
     '''
     
     opciones = df_comentario[df_comentario["id_situacion"] == id_situacion]
-    
-<<<<<<< HEAD
+
     for i in range(len(opciones)): 
         print(
             opciones.iloc[i]["opcion"],
@@ -90,19 +86,6 @@ def realizar_pregunta(df_comentario, id_situacion ):
     except ValueError: 
         print('Opcion invalida')
         respuesta=input("Que comentario le harias a tu clase? (a,b,c) porfavor ingresar en minusculas: ")
-=======
-    a= df_comentario.iloc[indice]["a"]
-    b= df_comentario.iloc[indice]["b"]
-    c= df_comentario.iloc[indice]["c"]
-    
-    
-    print("Si te encontras en el siguiente contexto: ", situacion)
-    try: 
-        respuesta=input("Que comentario le harias a tu grupo de estudio?: ", a, b, c, "ingresar en minuscula")
-    except ValueError: 
-        print('Opcion invalida')
-        respuesta = input("Que comentario le harias a tu grupo de estudio?:" , a, b, c, "ingresar en minuscula")
->>>>>>> f959e81776846d35fcef0b223abbce7fc4a7a7a7
     
     return respuesta 
 
