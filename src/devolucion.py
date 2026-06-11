@@ -64,19 +64,6 @@ def feedback_emociones(menu_2, archivo_e_n, archivo_e_post):
     str: feedback 
 
     '''
-    1 = Feedback 
-    if menu_2 == 1
-
-   dicc_promedio_neutro = calcular_promedios_grupales(archivo_e_n)
-   dicc_promedio_post = calcular_promedios_grupales(archivo_e_post)
-
-   if not dicc_promedio_neutro or not dicc_promedio_post:
-      print ("No se pudo calcular el feedback por falta de datos")
-      return??????????
-
-   cambio_estres = dicc_promedio_post["estres"] - dicc_promedio_neutro ["estres"]
-   cambio_motivacion = dicc_promedio_post ["motivacion"] - dicc_promedio_neutro ["motivacion"]
-   cambio_tranquilidad = dicc_promedio_post ["tranquilidad"] - dicc_promedio_neutro ["tranquilidad"]
 
    cambios = []
 
