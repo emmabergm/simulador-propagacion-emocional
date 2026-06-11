@@ -17,11 +17,10 @@ def situacion():
         
         if (situacion != "parciales") and (situacion != "no parciales"):
             raise ValueError("La situacion ingresada no existe")
-        else: 
-            break 
         
-        if situacion in situaciones: 
+        elif situacion in situaciones: 
             raise ValueError("La situacion ya fue ingresada")
+            
         else: 
             break
     
@@ -53,12 +52,12 @@ def realizar_pregunta(df_comentario):
     c= df_comentario.iloc[indice]["c"]
     
     
-    print("Ante esta situacion: ", situacion)
+    print("Si te encontras en el siguiente contexto: ", situacion)
     try: 
-        respuesta=input("Ante esta situacion, que comentario le harias a la clase?: ", a, b, c, "ingresar en minuscula")
+        respuesta=input("Que comentario le harias a tu grupo de estudio?: ", a, b, c, "ingresar en minuscula")
     except ValueError: 
         print('Opcion invalida')
-        respuesta = input("Ante esta situacion, que comentario le harias a la clase?:" , a, b, c, "ingresar en minuscula")
+        respuesta = input("Que comentario le harias a tu grupo de estudio?:" , a, b, c, "ingresar en minuscula")
     
     return respuesta 
         
