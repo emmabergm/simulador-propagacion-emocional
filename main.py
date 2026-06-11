@@ -35,6 +35,20 @@ except FileNotFoundError:
     print("El archivo no se encontro")
 
 
+<<<<<<< HEAD
+#Parte 1: 
+
+estudiante_1 = input("Ingrese su nombre: ")
+
+situacion_estudiante = situacion()
+planteo_situacion_1 = realizar_pregunta(df_comentario)
+primer_comentario = funcion(situacion_estudiante, planteo_situacion_1)
+
+situacion_estudiante = situacion()
+planteo_situacion_2 = realizar_pregunta(df_comentario)
+
+respuesta_1 = realizar_pregunta(df_comentario) 
+=======
 # Parte 1 (interaccion con estudiante 1)
 
 estudiante_1 = input("Ingrese su nombre: ")
@@ -57,10 +71,18 @@ df_asociado_2 = asociado(respuesta_1, df_tranquilidad, df_motivacion, df_estres)
 menu_1 = menu_parte_1()
 
 # Parte 2 (interaccion con estudiante 2)
+>>>>>>> d3a5af79fdbeb750269292902e5c1731406fe1e3
 
 
 if menu_1 == "True": 
   estudiante_2 = input("Ingrese su nombre: ")
+<<<<<<< HEAD
+  
+else: 
+  print("Muchas gracias por su respuesta!") #NO ESTA BIEN 
+edad_e_2 = int(input("Ingrese su edad: ")
+menu_1 = "funcion de menu"
+=======
   edad_e_2 = int(input("Ingrese su edad: "))
 
 informacion_estudiante2 = info_estudiante2 (df_neutro, estudiante_2, edad_e_2 )
@@ -87,3 +109,4 @@ feedback_2 =  feedback_comentario( situacion_2, presentar_comentario, cambio_est
 
 # Parte 4 (devolucion) 
 
+>>>>>>> d3a5af79fdbeb750269292902e5c1731406fe1e3

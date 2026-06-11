@@ -49,12 +49,28 @@ def realizar_pregunta(df_comentario):
     
     situacion= df_comentario.iloc[indice]["comentario profesora"]
     
+<<<<<<< HEAD
+    opciones = df_comentario[df_comentario["id_situacion"] == id_situacion]
+<<<<<<< HEAD
+
+=======
+    
+>>>>>>> 3114e40e2fb59d34368718ad23255f5f07000013
+    for i in range(len(opciones)): 
+        print(
+            opciones.iloc[i]["opcion"],
+            opciones.iloc[i]["comentario"])
+        
+    print("Ante esta situacion: ", id_situacion)
+   
+=======
     a= df_comentario.iloc[indice]["a"]
     b= df_comentario.iloc[indice]["b"]
     c= df_comentario.iloc[indice]["c"]
     
     
     print("Si te encontras en el siguiente contexto: ", situacion)
+>>>>>>> d3a5af79fdbeb750269292902e5c1731406fe1e3
     try: 
         respuesta=input("Que comentario le harias a tu grupo de estudio?: ", a, b, c, "ingresar en minuscula")
     except ValueError: 

@@ -1,4 +1,24 @@
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+def unir_ideas (situacion, respuesta):
+    df_comparacion = pd.merge(
+        df_neutro,
+        df_post1,
+        on="nombre")
+
+    df_comparacion = df_comparacion.drop(
+        columns=["edad", "situacion"]
+    )
+
+    return df_comparacion
+    
+=======
+
+>>>>>>> 3114e40e2fb59d34368718ad23255f5f07000013
+
+=======
+>>>>>>> 9969f89c3bbc436c9628b37ea30b0a341ed1fa95
 def unir_datos_emocionales(df_neutro, df_post1, df_post2):
     '''
     Une la información emocional neutra y posterior de un mismo estudiante.
@@ -19,7 +39,8 @@ def unir_datos_emocionales(df_neutro, df_post1, df_post2):
 
     '''
 
-    pass
+    dicc_alumnos={}
+    
 
 
 def calcualar_promedios_grupales(df):

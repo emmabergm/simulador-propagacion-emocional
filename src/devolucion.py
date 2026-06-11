@@ -12,7 +12,39 @@ def menu_2():
    ----------
    str: opcion elegida 
    '''
-   pass 
+   1 == "Feedback"
+   2 == "Graficos"
+   3 == "Promedio de emociones" 
+   print("===== MENÚ DE RESULTADOS =====")
+
+   print("1 - Feedback personalizado")
+   print("    Para obtener una devolución sobre cómo su comentario")
+   print("    impactó en las emociones de sus compañeros según")
+   print("    el contexto académico seleccionado.\n")
+
+   print("2 - Visualización de emociones")
+   print("    Para ver gráficos comparando las emociones antes")
+   print("    y después del comentario realizado.\n")
+
+   print("3 - Promedios emocionales")
+   print("    Para ver los niveles promedio de estrés,")
+   print("    motivación y tranquilidad del grupo.\n")
+
+   
+   
+   while True:
+    try:
+        opcion = input("Ingrese la opción deseada: ")
+
+        if opcion != 1 or opcion != 2 or opcion != 3:
+            raise ValueError("La opción ingresada no es válida")
+
+        return opcion
+
+    except ValueError:
+        print("La opción ingresada no es válida. Intente nuevamente.")
+    
+         
 
 def feedback_emociones(menu_2, archivo_e_n, archivo_e_post): 
     '''
@@ -32,6 +64,7 @@ def feedback_emociones(menu_2, archivo_e_n, archivo_e_post):
     str: feedback 
 
     '''
-    pass
-
+    1 = Feedback 
+    if menu_2 == 1
+   
 
