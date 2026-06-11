@@ -23,10 +23,12 @@ def situacion():
             
         else: 
             break
+        
+        if situacion == "no parciales": 
+            situacion = "no_parciales"
     
     return situacion 
         
-
 def realizar_pregunta(df_comentario): 
     '''
     Presentarle la sitaucion al usuario (que el programa presente una situacion random) y preguntar que comentario haria 
@@ -60,7 +62,30 @@ def realizar_pregunta(df_comentario):
         respuesta = input("Que comentario le harias a tu grupo de estudio?:" , a, b, c, "ingresar en minuscula")
     
     return respuesta 
-        
+
+def guardar_respuesta (respuesta, indice, df, situacion):
+    '''
+    Funcion que guarda la respuesta en el Dataframe 
+
+    Parameters
+    ----------
+    respuesta : str
+        a,b,c 
+    indice : int
+        Numero random generado por la computadora
+    df : DataFrame
+        Dataframe que contiene la inofrmacion de los comentarios, es decir la situacion y las posibles respuestas
+    situacion : str
+        situacion en la que se encuentra el estudiante 1, parciales o no parciales 
+
+    Returns
+    -------
+    None.
+
+    '''
+    
+    df.loc[(df["id_pregunta"] == indice) & (df["opcion"] == respuesta), situacion] = True
+    
     
 def asociacion(respuesta, df_tranquilidad, df_motivacion, df_estres): 
     '''
