@@ -1,7 +1,7 @@
 
 
 
-def info_estudiante2 (df_neutro, estudiante_2, edad_e_2, ):
+def info_estudiante2 (df_neutro, estudiante_2, edad_e_2):
     '''
     Le pregunta al estudiante por su informacion actual neutra 
 
@@ -36,8 +36,29 @@ def info_estudiante2 (df_neutro, estudiante_2, edad_e_2, ):
         
     df_neutro.loc[len(df_neutro)] = estudiante_2, edad_e_2, estres, motivacion, tranquilidad
         
+def presentar_comentario(df_comentario, respuesta, indice, situacion ): 
+    '''
+    La funcion se encarga de encontrar en el DataFrame y presentarle el comentario al usuario 2 que va a valorar su estado emocional a partir de eso 
 
+    Parameters
+    ----------
+    df_comentario : DataFrame
+        DESCRIPTION.
+    respuesta : str
+        respuesta del usuario, es decir a,b,c
+    indice : int
+        numero random elegido por la computadora
+    situacion : str
+        situacion 1 en la que se encuentra el usuario 1
+        
+    Returns
+    -------
+    None. 
+
+    '''
+    comentario = df_comentario.loc[(df_comentario["id_pregunta"] == 1) &(df_comentario[situacion] == True),"comentario"].iloc[0]
     
+    print(comentario)
 
 def valoracion_comentario(estudiante_2, edad_e_2, respuesta, df_comentario,  df_e_comentario): 
     '''
