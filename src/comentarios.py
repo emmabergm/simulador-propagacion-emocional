@@ -13,6 +13,7 @@ def situacion():
     
     while True: 
         situacion = input("En que situacion academica se encuentra? (parcailes/ no parciales)")
+        situacion = situacion.lower()
         situaciones.append(situacion)
         
         if (situacion != "parciales") and (situacion != "no parciales"):
@@ -28,7 +29,10 @@ def situacion():
             situacion = "no_parciales"
     
     return situacion 
-        
+
+
+    
+    
 def realizar_pregunta(df_comentario): 
     '''
     Presentarle la sitaucion al usuario (que el programa presente una situacion random) y preguntar que comentario haria 
