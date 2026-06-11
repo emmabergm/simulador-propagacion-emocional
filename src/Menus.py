@@ -81,21 +81,53 @@ def menu_situacion(situacion):
         return situacion 
     
 
-def menu_parte_1(info_estudiante2, presentar_comentario,valoracion_comentario,grafico,calcular_promedios_grupales,comparar_promedios,feedback_comentario): 
+def menu_parte_1(info_estudiante2, presentar_comentario,valoracion_comentario,grafico,calcular_promedios_grupales,comparar_promedios,feedback_comentario):
     '''
-    Pregunta si desea salir o seguir con la Parte 2, si desea salir 
-    se imprime un mensaje agradeciendo la participacion y se corta el programa
+    Muestra un menu sobre las opciones que puede realizar con el programa. 
+
+     Parameters
+    ----------
+    info_estudiante2 : function
+        Función que solicita y devuelve las emociones iniciales de un
+        nuevo estudiante.
+
+    presentar_comentario : function
+        Función que presenta una situación académica y permite seleccionar
+        un comentario.
+
+    valoracion_comentario : function
+        Función que registra las emociones del estudiante luego de
+        visualizar el comentario.
+
+    grafico : function
+        Función que genera y muestra gráficos con los cambios emocionales.
+
+    calcular_promedios_grupales : function
+        Función que calcula los promedios grupales de estrés,
+        motivación y tranquilidad.
+
+    comparar_promedios : function
+        Función que compara los promedios emocionales antes y después
+        de los comentarios.
+
+    feedback_comentario : function
+        Función que genera una devolución sobre el impacto emocional
+        de los comentarios seleccionados.
     
-    Raises 
-    -------
+    Raises
+    ------
     ValueError
-        Si la palabra no es seguir 
+        Si el usuario ingresa una opción no válida en alguno de los
+        menús interactivos.
 
     Returns
     -------
-    bool: devuelve True si desea seguir 
-
+    None.
+        
+    
     '''
+    
+    
     while True:
         try: 
             continuar=input("Desea continuar con el programa? (si/no)")
