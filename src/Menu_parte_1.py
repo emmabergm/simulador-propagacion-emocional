@@ -9,20 +9,30 @@ def menu_parte_1():
     '''
     Pregunta si desea salir o seguir con la Parte 2, si desea salir 
     se imprime un mensaje agradeciendo la participacion y se corta el programa
+    
+    Raises 
+    -------
+    ValueError
+        Si la palabra no es seguir 
 
     Returns
     -------
-    None.
+    bool: devuelve True si desea seguir 
 
     '''
 
+    while True:
+
+        opcion = input(
+            "Escriba 'seguir' para continuar con la parte 2: ").lower()
+
+        if opcion == "seguir":
+            return True
+            break
+        
+        else:
+            raise ValueError("Debe ingresar 'seguir' para poder continuar con la parte 2")
     
-    pregunta = input("Desea seguir con la segunda parte? ")
-    if pregunta == "si": 
-        return True 
-    else: 
-        print("Muchas gracias por su mensaje!")
-        print("Ingrese "seguir" para continuar con la parte 2")    
-        return False 
-            
+    
+
             
