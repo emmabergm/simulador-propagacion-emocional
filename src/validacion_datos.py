@@ -19,6 +19,8 @@ def validar_comentario(respuesta_comentario):
     bool: True or False dependiendo si la letra es valida o no
 
     '''
+    pass
+
 def validar_edad(edad_e_2): 
     '''
     Validar que la edad ingresada sea valida
@@ -39,6 +41,7 @@ def validar_edad(edad_e_2):
         True or False dependiendo si el numero es valido o no 
 
     '''
+    pass
 
 def validar_emociones(valoracion_emocion): 
     '''
@@ -59,3 +62,4 @@ def validar_emociones(valoracion_emocion):
     bool: True or False depende si es valido o no 
 
     '''
+    pass
