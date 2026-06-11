@@ -1,5 +1,21 @@
 
-def unir_ideas (situacion, respuesta):
+def unir_ideas (df_neutro, df_post1, df_post2):
+    '''
+    Se une la informacion de cada estudiante segun la emocion. 
+
+    Parameters
+    ----------
+    situacion : str
+        Contexto academico, parciales no parciales.
+    respuesta : str
+        Letra que representa el comentario.
+
+    Returns
+    -------
+    df_comparacion : xlsx
+        Las emociones, respectivamnete, de cada estudiante.
+
+    '''
     df_comparacion = pd.merge(
         df_neutro,
         df_post1,
@@ -10,29 +26,6 @@ def unir_ideas (situacion, respuesta):
     )
 
     return df_comparacion
-    
-
-def unir_datos_emocionales(df_neutro, df_post1, df_post2):
-    '''
-    Une la información emocional neutra y posterior de un mismo estudiante.
-
-    Parameters
-    ----------
-    df_neutro : DataFrame
-        Dataframe que contiene los datos neutros de las emociones  
-    df_post1 : DataFrame
-        Dataframe que contiene los datos leugo del comentario 1 de las emociones 
-    df_post2: DataFrame
-        Dataframe que contiene los datos leugo del comentario 2 de las emociones 
-    
-
-    Returns
-    -------
-    None.
-
-    '''
-
-    dicc_alumnos={}
     
 
 
@@ -66,8 +59,7 @@ def calcualar_promedios_grupales(df):
         
         dicc_promedio["estres"] = promedio_estres 
         dicc_promedio["motivacion"] = promedio_motivacion 
-        dicc_promedio["tranquilidad"] = 
-        
+        dicc_promedio["tranquilidad"] = promedio_tranquilidad
     except ZeroDivisionError :
         print("Error: Sucedio una division por cero")
     
