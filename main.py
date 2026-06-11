@@ -15,6 +15,7 @@ from src.analisis import feedback_comentario
 from src.Menu_parte_1 import menu_parte_1
 from src.devolucion import menu_2
 from src.devolucion import feedback_emociones
+from src.grafico import grafico 
 
 #from src.validacion_datos import 
 #from src.graficos import 
@@ -41,27 +42,21 @@ except FileNotFoundError:
     print("El archivo no se encontro")
 
 
-#Parte 1: 
-
-estudiante_1 = input("Ingrese su nombre: ")
-
-situacion_estudiante = situacion()
-planteo_situacion_1 = realizar_pregunta(df_comentario)
-
-situacion_estudiante = situacion()
-planteo_situacion_2 = realizar_pregunta(df_comentario)
-
-respuesta_1 = realizar_pregunta(df_comentario) 
-
-# Parte 1 (interaccion con estudiante 1)
-
-estudiante_1 = input("Ingrese su nombre: ")
-
+#Parte 1 (interaccion con estudiante 1)
+    
+nombre_grupo = input("Ingrese el nombre de su grupo experimental: ")
 situacion_1 = situacion()
-indice = numero_random()
-respuesta_1 = realizar_pregunta(indice, df_comentario)
-df_respuesta = guardar_respuesta(respuesta_1, indice, df_comentario, situacion_1 )
-df_asociado_1 = asociacion(respuesta_1, df_tranquilidad, df_motivacion, df_estres)
+
+try:
+    menu_principal = menu_inicio(nombre_grupo, situacion)
+    if menu_principal == "no": 
+        
+        indice = numero_random()
+        respuesta_1 = realizar_pregunta(indice, df_comentario)
+        df_respuesta = guardar_respuesta(respuesta_1, indice, df_comentario, situacion_1 )
+        df_asociado_1 = asociacion(respuesta_1, df_tranquilidad, df_motivacion, df_estres)
+
+    else: 
 
 # Parte 1.2 
 
@@ -87,39 +82,45 @@ edad_e_2 = int(input("Ingrese su edad: "))
 menu_1 = "funcion de menu"
 edad_e_2 = int(input("Ingrese su edad: "))
 
-informacion_estudiante2 = info_estudiante2 (df_neutro, estudiante_2, edad_e_2 )
-print(presentar_comentario = presentar_comentario(df_comentario, respuesta_1, indice, situacion_1)) 
-valoracion_1 = valoracion_comentario(estudiante_2, edad_e_2, respuesta_1, df_comentario,  df_asociado_1)
+try:
+    informacion_estudiante2 = info_estudiante2 (df_neutro, estudiante_2, edad_e_2 )
+    print(presentar_comentario = presentar_comentario(df_comentario, respuesta_1, indice, situacion_1)) 
+    valoracion_1 = valoracion_comentario(estudiante_2, edad_e_2, respuesta_1, df_comentario,  df_asociado_1)
 
 #Parte 2.1 
-presentar_comentario(df_comentario, respuesta_2, indice, situacion_2)
-valoracion_2 = valoracion_comentario(estudiante_2, edad_e_2, respuesta_2, df_comentario,  df_asociado_2)
+    presentar_comentario(df_comentario, respuesta_2, indice, situacion_2)
+ 
+    valoracion_2 = valoracion_comentario(estudiante_2, edad_e_2, respuesta_2, df_comentario,  df_asociado_2)
 
+    
 # Parte 3 (analisis)
 
-union_df = unir_datos_emocionales(df_neutro, df_asociado_1, df_asociado_2)
+    union_df = unir_datos_emocionales(df_neutro, df_asociado_1, df_asociado_2)
 
-promedio_neutro = calcualar_promedios_grupales(df_neutro)
-promedio_asociado_1 = calcualar_promedios_grupales(df_asociado_1)
-promedio_asociado_2 = calcualar_promedios_grupales(df_asociado_2)
+    promedio_neutro = calcualar_promedios_grupales(df_neutro)
+    promedio_asociado_1 = calcualar_promedios_grupales(df_asociado_1)
+    promedio_asociado_2 = calcualar_promedios_grupales(df_asociado_2)
 
 
-cambio_estres_1, cambio_tranquilidad_1, cambio_motivacion_1 = comparar_promedios(promedio_neutro, promedio_asociado_1)
-cambio_estres_2, cambio_tranquilidad_2, cambio_motivacion_2 = comparar_promedios(promedio_neutro, promedio_asociado_2)
+    cambio_estres_1, cambio_tranquilidad_1, cambio_motivacion_1 = comparar_promedios(promedio_neutro, promedio_asociado_1)
+    cambio_estres_2, cambio_tranquilidad_2, cambio_motivacion_2 = comparar_promedios(promedio_neutro, promedio_asociado_2)
 
-feedback_1 = feedback_comentario( situacion_1, presentar_comentario, cambio_estres_1, cambio_tranquilidad_1, cambio_motivacion_1 )
-feedback_2 =  feedback_comentario( situacion_2, presentar_comentario, cambio_estres_2, cambio_tranquilidad_2, cambio_motivacion_2 )
+    feedback_1 = feedback_comentario( situacion_1, presentar_comentario, cambio_estres_1, cambio_tranquilidad_1, cambio_motivacion_1 )
+    feedback_2 =  feedback_comentario( situacion_2, presentar_comentario, cambio_estres_2, cambio_tranquilidad_2, cambio_motivacion_2 )
 
 # Parte 4 (devolucion) 
 
 # Menu 2 
 
-menu_parte_2 = menu_2()
+    menu_parte_2 = menu_2()
 
-devolucion = feedback_emociones(menu_parte_2, df_neutro, df_asociado_1)
-devolucion = feedback_emociones(menu_parte_2, df_neutro, df_asociado_2)
+    devolucion_feedback_1 = feedback_emociones(menu_parte_2, df_neutro, df_asociado_1)
+    devolucion_feedback_2 = feedback_emociones(menu_parte_2, df_neutro, df_asociado_2)
+
+    devolucion_grafico = grafico(df_neutro, df_asociado_1, df_asociado_2)
 
 #Validacion de dato 
 
-
+except ValueError as e:
+    print("Error", e)
 
