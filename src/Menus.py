@@ -5,7 +5,7 @@ Created on Fri Jun  5 12:02:31 2026
 @author: olivi
 """
 
-def menu_inicio(nombre): 
+def menu_inicio(nombre, situacion): 
     '''
     Agrega los nombres a una lista, para guardar los datos de los usuarios que ingresan 
 
@@ -21,11 +21,12 @@ def menu_inicio(nombre):
 
     '''
     
-    nombres = []
+    dicc_cargados = {}
+    
     
     
     while True: 
-        if nombre in nombres: 
+        if nombre in dicc_cargados: 
             eleccion = input("Desea continuar con la informacion ya cargada?: ")
             eleccion = eleccion.lower()
             return eleccion 
@@ -35,7 +36,7 @@ def menu_inicio(nombre):
             raise ValueError ("Debe responder con si o con no")
            
         else: 
-            nombres.append(nombre)
+            dicc_cargados[situacion] = nombre 
             return "si"
             break
     
@@ -76,7 +77,9 @@ def menu_situacion(situacion):
         
         if situacion == "no parciales": 
             situacion = "no_parciales"
-        
+            
+        return situacion 
+    
 
 def menu_parte_1(): 
     '''
