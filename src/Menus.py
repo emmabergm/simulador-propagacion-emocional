@@ -81,7 +81,7 @@ def menu_situacion(situacion):
         return situacion 
     
 
-def menu_parte_1(): 
+def menu_parte_1(info_estudiante2, presentar_comentario,valoracion_comentario,grafico,calcular_promedios_grupales,comparar_promedios,feedback_comentario): 
     '''
     Pregunta si desea salir o seguir con la Parte 2, si desea salir 
     se imprime un mensaje agradeciendo la participacion y se corta el programa
@@ -96,18 +96,67 @@ def menu_parte_1():
     bool: devuelve True si desea seguir 
 
     '''
-
     while True:
-
-        opcion = input(
-            "Escriba 'seguir' para continuar con la parte 2: ").lower()
-
-        if opcion == "seguir":
-            return True
-            break
+        try: 
+            continuar=input("Desea continuar con el programa? (si/no)")
+            
+            
+            if continuar=="no": 
+                print("Gracias por participar")
+                break
+            
+            elif continuar=="si":
+                
+                print("1. Agregar otro estudiante.","\n", "Permite cargar el estado emocional inicial, presentar una situacion y valorar el comentario",'\n')
+                print("2. Visualizar grafico","\n","Muestra los cambios emocionales generados a partir de los comentario")
+                print("3.Ver metricas", "\n", "muestra promedios grupales, cambios emocionales y feedback del comentario",'\n')
+                
+                accion=input("Que quiere realizar? : ")
+                
+                try: 
+                    if accion =="1": 
+                        while True: 
+                            agregar_estudiante=input("Desea agregar la informacion de otro estudiante? (si/no) ")
+                            if agregar_estudiante=="si": 
+                                estres_neutro2,tranquilidad_neutro2,motivacion_neutro2= info_estudiante2()
+                                comentario2=presentar_comentario()
+                                estres_e2,tranquilidad_e2,motivacion_e2=valoracion_comentario()
+                            if agregar_estudiante=="no": 
+                                print("Se termino la carga de estudiantes")
+                                break
+                        
+                   
+                    elif accion=="2": 
+                        ver_grafico= grafico()
+                        
+                    elif accion=="3": 
+                        print("Promedios grupales: ", calcular_promedios_grupales(), "/n", 
+                              "Cambios de las emociones: ", comparar_promedios(), "/n", 
+                              "Feedback del comentario: ", feedback_comentario())
+                except ValueError as e: 
+                    print("La opcion es invalida")
+                    accion=input("Que quiere realizar?: x: agregar otro estudiante, y:visualizar grafico, z:ver metricas")
+            
+        except ValueError as e: 
+                    print("Debe ingresar si o no")
+                    continuar=input("Desea continuar con el programa? (si/no)")
+                    
+                            
+                    
+               
+                   
+       
         
-        else:
-            raise ValueError("Debe ingresar 'seguir' para poder continuar con la parte 2")
+
+    
+    
+    
+            
+        
+        
+        
+       
+        
     
     
 
