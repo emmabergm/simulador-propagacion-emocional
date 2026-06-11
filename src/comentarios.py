@@ -28,50 +28,28 @@ def situacion():
             situacion = "no_parciales"
     
     return situacion 
-
-
-def numero_random(df_comentario): 
-    '''
-    Genera un numero random. Este numero representa una situacion academica distinta. 
-
-    Parameters
-    ----------
-    df_comentario : xlsx
-        Archivo donde estan guardados las situaciones que plantea la profesora y las opciones de comentario que se puedan hacer.
-
-    Returns
-    -------
-    int: el numero random que representa la situacion. 
-
-    '''
-    id_situacion= random.randint(0, len(df_comentario)-1)
-    
-    return id_situacion 
-    
-
-def realizar_pregunta(df_comentario, id_situacion ): 
-    '''
-    Ante la situacion generada por el prgrama, la idea es que el usuario sea presentado con tres alternativas de comentario que le puede hacer a su grupo de clase. 
-    Su respuesta va a estar condicionada por el conetexto academico en el que esta. 
-
-    Parameters
-    ----------
-    df_comentario : xlsx
-        Archivo en el que se presentan las distintas situaciones que presenta una profesora y los comentarios posibles que puede hacer el estudiante.
-    id_situacion : int
-        Es un numero que representa una situacion (academica) planteada por la profesora.
         
-    Raises
-    ------
-    ValueError si la opcion no es valida, es decir, si no ingresa a,b o c. 
+def realizar_pregunta(df_comentario): 
+    '''
+    Presentarle la sitaucion al usuario (que el programa presente una situacion random) y preguntar que comentario haria 
+
+    Parameters
+    -----------
+
+    archivo: csv 
+        archivo con situaciones y posibles respuestas 
 
     Returns
-    -------
-    respuesta : str
-        Letra que representa un comentario elegido por el estudiante.
-
+    --------
+    str: respuesta (a,b,c)
     '''
+    #llamar archivo 
     
+    indice= random.randint(0, len(df_comentario)-1)
+    
+    situacion= df_comentario.iloc[indice]["comentario profesora"]
+    
+<<<<<<< HEAD
     opciones = df_comentario[df_comentario["id_situacion"] == id_situacion]
 <<<<<<< HEAD
 
@@ -85,11 +63,19 @@ def realizar_pregunta(df_comentario, id_situacion ):
         
     print("Ante esta situacion: ", id_situacion)
    
+=======
+    a= df_comentario.iloc[indice]["a"]
+    b= df_comentario.iloc[indice]["b"]
+    c= df_comentario.iloc[indice]["c"]
+    
+    
+    print("Si te encontras en el siguiente contexto: ", situacion)
+>>>>>>> d3a5af79fdbeb750269292902e5c1731406fe1e3
     try: 
-        respuesta=input("Que comentario le harias a tu clase? (a,b,c) porfavor ingresar en minusculas: ")
+        respuesta=input("Que comentario le harias a tu grupo de estudio?: ", a, b, c, "ingresar en minuscula")
     except ValueError: 
         print('Opcion invalida')
-        respuesta=input("Que comentario le harias a tu clase? (a,b,c) porfavor ingresar en minusculas: ")
+        respuesta = input("Que comentario le harias a tu grupo de estudio?:" , a, b, c, "ingresar en minuscula")
     
     return respuesta 
 
@@ -110,12 +96,13 @@ def guardar_respuesta (respuesta, indice, df, situacion):
 
     Returns
     -------
-    None.
+    DataFrame: Dataframe con la informacion actualizada, la respuesta elegida aparece como True
 
     '''
     
-    df.loc[(df["id_pregunta"] == indice) & (df["opcion"] == respuesta), situacion] = True
+    df_respuesta = df.loc[(df["id_pregunta"] == indice) & (df["opcion"] == respuesta), situacion] = True
     
+    return df_respuesta
     
 def asociacion(respuesta, df_tranquilidad, df_motivacion, df_estres): 
     '''
