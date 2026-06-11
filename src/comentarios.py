@@ -1,30 +1,40 @@
 import random 
 
-def situacion(estudiante_1): 
+def situacion(): 
     '''
     Funcion que pregunta en que contexto se encuentra (parciales/no parciales) 
-    
-    Parameters
-    ----------
-    estudiante_1 : str
-        nombre del estudiante que responde la pregunta 
 
     Returns
     -------
     situacion
 
     '''
+    situaciones = []
+    
     while True: 
         situacion = input("En que situacion academica se encuentra? (parcailes/ no parciales)")
-    
+        situaciones.append(situacion)
+        
         if (situacion != "parciales") and (situacion != "no parciales"):
             raise ValueError("La situacion ingresada no existe")
+        
+        elif situacion in situaciones: 
+            raise ValueError("La situacion ya fue ingresada")
+            
         else: 
-            break 
+            break
+        
+        if situacion == "no parciales": 
+            situacion = "no_parciales"
     
     return situacion 
+<<<<<<< HEAD
 
 def numero_random(df_comentario): 
+=======
+        
+def realizar_pregunta(df_comentario): 
+>>>>>>> f959e81776846d35fcef0b223abbce7fc4a7a7a7
     '''
     Genera un numero random. Este numero representa una situacion academica distinta. 
 
@@ -67,6 +77,7 @@ def realizar_pregunta(df_comentario, id_situacion ):
     
     opciones = df_comentario[df_comentario["id_situacion"] == id_situacion]
     
+<<<<<<< HEAD
     for i in range(len(opciones)): 
         print(
             opciones.iloc[i]["opcion"],
@@ -79,10 +90,77 @@ def realizar_pregunta(df_comentario, id_situacion ):
     except ValueError: 
         print('Opcion invalida')
         respuesta=input("Que comentario le harias a tu clase? (a,b,c) porfavor ingresar en minusculas: ")
+=======
+    a= df_comentario.iloc[indice]["a"]
+    b= df_comentario.iloc[indice]["b"]
+    c= df_comentario.iloc[indice]["c"]
+    
+    
+    print("Si te encontras en el siguiente contexto: ", situacion)
+    try: 
+        respuesta=input("Que comentario le harias a tu grupo de estudio?: ", a, b, c, "ingresar en minuscula")
+    except ValueError: 
+        print('Opcion invalida')
+        respuesta = input("Que comentario le harias a tu grupo de estudio?:" , a, b, c, "ingresar en minuscula")
+>>>>>>> f959e81776846d35fcef0b223abbce7fc4a7a7a7
     
     return respuesta 
-        
+
+def guardar_respuesta (respuesta, indice, df, situacion):
+    '''
+    Funcion que guarda la respuesta en el Dataframe 
+
+    Parameters
+    ----------
+    respuesta : str
+        a,b,c 
+    indice : int
+        Numero random generado por la computadora
+    df : DataFrame
+        Dataframe que contiene la inofrmacion de los comentarios, es decir la situacion y las posibles respuestas
+    situacion : str
+        situacion en la que se encuentra el estudiante 1, parciales o no parciales 
+
+    Returns
+    -------
+    None.
+
+    '''
     
+    df.loc[(df["id_pregunta"] == indice) & (df["opcion"] == respuesta), situacion] = True
+    
+    
+def asociacion(respuesta, df_tranquilidad, df_motivacion, df_estres): 
+    '''
+    
+
+    Parameters
+    ----------
+    respuesta : str
+        a, b, c, dependiendo lo que elige el usuario 1
+    df_tranquilidad : DataFrame 
+        Tabla con cambios emocionales predeterminados a partir de el comentario asociado a la emocion
+    df_motivacion : DataFrame 
+        Tabla con cambios emocionales predeterminados a partir de el comentario asociado a la emocion
+    df_estres : DataFrame
+        Tabla con cambios emocionales predeterminados a partir de el comentario asociado a la emocion
+
+    Returns
+    -------
+    DataFrame asociado a la respuesta 
+
+    '''
+    
+    if respuesta == "a": 
+        df_asociado = df_tranquilidad
+    
+    elif respuesta == "b": 
+        df_asociado = df_motivacion 
+    
+    else: 
+        df_asociado = df_estres
+        
+    return df_asociado 
     
     
     
