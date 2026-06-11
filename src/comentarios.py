@@ -73,7 +73,11 @@ def realizar_pregunta(df_comentario, id_situacion ):
     '''
     
     opciones = df_comentario[df_comentario["id_situacion"] == id_situacion]
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 3114e40e2fb59d34368718ad23255f5f07000013
     for i in range(len(opciones)): 
         print(
             opciones.iloc[i]["opcion"],
