@@ -18,16 +18,16 @@ def menu_2():
    print("===== MENÚ DE RESULTADOS =====")
 
    print("1 - Feedback personalizado")
-   print("    Obtenga una devolución sobre cómo su comentario")
+   print("    Para obtener una devolución sobre cómo su comentario")
    print("    impactó en las emociones de sus compañeros según")
    print("    el contexto académico seleccionado.\n")
 
    print("2 - Visualización de emociones")
-   print("    Observe gráficos comparando las emociones antes")
+   print("    Para ver gráficos comparando las emociones antes")
    print("    y después del comentario realizado.\n")
 
    print("3 - Promedios emocionales")
-   print("    Consulte los niveles promedio de estrés,")
+   print("    Para ver los niveles promedio de estrés,")
    print("    motivación y tranquilidad del grupo.\n")
 
    
