@@ -21,7 +21,8 @@ def unir_datos_emocionales(df_neutro, df_post1, df_post2):
 
     '''
 
-    pass
+    dicc_alumnos={}
+    
 
 
 def _calcualar_promedios_grupales(df):
