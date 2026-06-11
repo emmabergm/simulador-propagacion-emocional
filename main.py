@@ -64,13 +64,26 @@ if menu_1 == "True":
   edad_e_2 = int(input("Ingrese su edad: "))
 
 informacion_estudiante2 = info_estudiante2 (df_neutro, estudiante_2, edad_e_2 )
-presentar_comentario(df_comentario, respuesta_1, indice, situacion_1) 
+print(presentar_comentario = presentar_comentario(df_comentario, respuesta_1, indice, situacion_1)) 
 valoracion_1 = valoracion_comentario(estudiante_2, edad_e_2, respuesta, df_comentario,  df_asociado_1)
 
 #Parte 2.1 
 presentar_comentario(df_comentario, respuesta_2, indice, situacion_2)
-valoracion_2 = valoracion_comentario(estudiante_2, edad_e_2, respuesta, df_comentario,  df_asociado)
+valoracion_2 = valoracion_comentario(estudiante_2, edad_e_2, respuesta, df_comentario,  df_asociado_2)
 
 # Parte 3 (analisis)
 
+union_df = unir_datos_emocionales(df_neutro, df_asociado_1, df_asociado_2)
+
+promedio_neutro = calcualar_promedios_grupales(df_neutro)
+promedio_asociado_1 = calcualar_promedios_grupales(df_asociado_1)
+promedio_asociado_2 = calcualar_promedios_grupales(df_asociado_2)
+
+cambio_estres_1, cambio_tranquilidad_1, cambio_motivacion_1 = comparar_promedios(promedio_neutro, promedio_asociado_1)
+cambio_estres_2, cambio_tranquilidad_2, cambio_motivacion_2 = comparar_promedios(promedio_neutro, promedio_asociado_2)
+
+feedback_1 = feedback_comentario( situacion_1, presentar_comentario, cambio_estres_1, cambio_tranquilidad_1, cambio_motivacion_1 )
+feedback_2 =  feedback_comentario( situacion_2, presentar_comentario, cambio_estres_2, cambio_tranquilidad_2, cambio_motivacion_2 )
+
+# Parte 4 (devolucion) 
 
