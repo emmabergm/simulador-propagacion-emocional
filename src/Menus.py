@@ -53,7 +53,7 @@ def menu_parte2():
             return eleccion     
 
 
-def menu_parte_3(df_neutro, df_asociado_1, df_asociado_2, situacion, df_comentario, parte_1_sit1, parte_1_sit2, indice):
+def menu_parte_3(df_neutro, df_asociado_1, df_asociado_2, situacion, df_comentario, parte_1_sit1, parte_1_sit2, indice, comentario):
     '''
      Parameters
     ----------
