@@ -42,8 +42,6 @@ try:
     
     situacion = situacion()
     
-
-    try:
        
 
     menu_principal = menu_inicio(nombre_grupo, situacion)
@@ -59,13 +57,18 @@ try:
         
         
     
-        if menu_principal == "si": 
-            parte_1_sit1 = parte_1(situacion, indice, df_comentario)
-            df_asociado_1 = asociado(parte_1_sit1, df_tranquilidad, df_motivacion, df_estres)
-            parte_1_sit_2 = parte_1(situacion, indice, df_comentario)
-            df_asociado_2 = asociado(parte_1_sit2, df_tranquilidad, df_motivacion, df_estres)
+    if menu_principal == "si": 
+        parte_1_sit1 = parte_1(situacion, indice, df_comentario)
+        df_asociado_1 = asociado(parte_1_sit1, df_tranquilidad, df_motivacion, df_estres)
+        parte_1_sit_2 = parte_1(situacion, indice, df_comentario)
+        df_asociado_2 = asociado(parte_1_sit2, df_tranquilidad, df_motivacion, df_estres)
     
-    parte_2 = 
+    
+    if menu_parte_2 == "si": 
+        parte_2_com1 = parte_2(df_neutro, df_comentario, parte_1_sit1, indice, situacion, df_asociado_1) #COMO LE PASAMOS LA SITUACION?????
+        parte_2_com2 = parte_2(df_neutro, df_comentario, parte_1_sit2, indice, situacion, df_asociado_2)
+        
+        
 
 # Parte 1 (interaccion con estudiante 1)
 
