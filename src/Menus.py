@@ -171,6 +171,28 @@ def menu_parte_1(info_estudiante2, presentar_comentario,valoracion_comentario,gr
 
                     
                             
+def menu_parte2(): 
+     
+    eleccion=input("Desea seguir con la parte 2? (si/no): ").lower
+    
+    while True: 
+        try: 
+            if eleccion=="si": 
+                return eleccion
+            elif eleccion=="no": 
+                print("Muchas gracias por las respuesta!")
+                break
+           elif (eleccion != "si") or (eleccion != "no"): 
+                   raise ValueError ("Debe responder con si o con no")
+                   
+    return eleccion 
+    
+            
+        
+            
+        
+        
+    
                     
                
                    
