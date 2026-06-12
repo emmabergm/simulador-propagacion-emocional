@@ -21,8 +21,8 @@ def menu_inicio(nombre, situacion):
     
     dicc_cargados = {}
     
-if dicc_cargados[situacion][nombre] in dicc_cargados:   
-    while True: 
+    if dicc_cargados[situacion][nombre] in dicc_cargados:   
+        while True: 
             eleccion = input("Desea continuar con la informacion ya cargada?: ")
             eleccion = eleccion.lower()
             return eleccion
