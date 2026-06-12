@@ -1,8 +1,6 @@
 import pandas as pd
 
 from src.comentarios import situacion
-from src.comentarios import realizar_pregunta
-from src.comentarios import asociacion
 from src.alumnos import info_estudiante2 
 from src.alumnos import valoracion_comentario
 from src.analisis import  unir_datos_emocionales
@@ -45,81 +43,44 @@ try:
        
 
     menu_principal = menu_inicio(nombre_grupo, situacion)
-    indice = numero_random()
-    respuesta = realizar_pregunta(indice, df_comentario)
-    guardar_rta = guardar_respuesta(respuesta, indice, df_comentario, situacion )
-    df_respuesta = guardar_respuesta(respuesta_1, indice, df_comentario, situacion_1 )
-    df_asociado_1 = asociado(respuesta_1, df_tranquilidad, df_motivacion, df_estres)
-    comentario=realizar_pregunta(df_comentario)
+   
+  
     
     
 
         
+# Parte 1 (interaccion con estudiante 1)
         
     
-    if menu_principal == "si": 
+    if menu_principal == "si":  
+        indice = numero_random()
         parte_1_sit1 = parte_1(situacion, indice, df_comentario)
         df_asociado_1 = asociado(parte_1_sit1, df_tranquilidad, df_motivacion, df_estres)
         parte_1_sit_2 = parte_1(situacion, indice, df_comentario)
         df_asociado_2 = asociado(parte_1_sit2, df_tranquilidad, df_motivacion, df_estres)
     
-    
-    if menu_parte_2 == "si": 
+#Parte 2   
+
+    menu_2 = menu_parte_2() 
+    if menu_2 == "si": 
         parte_2_com1 = parte_2(df_neutro, df_comentario, parte_1_sit1, indice, situacion, df_asociado_1) #COMO LE PASAMOS LA SITUACION?????
         parte_2_com2 = parte_2(df_neutro, df_comentario, parte_1_sit2, indice, situacion, df_asociado_2)
         
-        
+    
+# Parte 3
 
-# Parte 1 (interaccion con estudiante 1)
+    menu_3 = menu_parte_3(df_neutro, df_asociado_1, df_asociado_2, situacion, df_comentario, parte_1_sit1, parte_1_sit2, indice)
 
+except ValueError as e:
+    ("Error: ")
 
-
-
-
-
-# Parte 1.2 
-
-situacion_2 = situacion()
-respuesta_2 = realizar_pregunta(indice, df_comentario)
-df_respuesta = guardar_respuesta(respuesta_2, indice, df_comentario, situacion_2 )
-df_asociado_2 = asociado(respuesta_1, df_tranquilidad, df_motivacion, df_estres)
-
-# Menu 1 
-
-menu_1 = menu_parte_1()
-
-# Parte 2 (interaccion con estudiante 2)
+    
 
 
 
-if menu_1 == "True": 
- 
-  
-else: 
-  print("Muchas gracias por su respuesta!") #NO ESTA BIEN 
 
-edad_e_2 = int(input("Ingrese su edad: "))
 
-edad_e_2 = int(input("Ingrese su edad: "))
 
-menu_1 = "funcion de menu"
-
-edad_e_2 = int(input("Ingrese su edad: "))
-
-informacion_estudiante2 = info_estudiante2 (df_neutro, estudiante_2, edad_e_2 )
-presentar_comentario(df_comentario, respuesta_1, indice, situacion_1) 
-valoracion_1 = valoracion_comentario(estudiante_2, edad_e_2, respuesta, df_comentario,  df_asociado_1)
-
-#Parte 2.1 
-presentar_comentario(df_comentario, respuesta_2, indice, situacion_2)
-valoracion_2 = valoracion_comentario(estudiante_2, edad_e_2, respuesta, df_comentario,  df_asociado)
-
-# Parte 3 (analisis)
-#unir idea
-
-promedio=calcular_promedios_grupales()
-cambio_estres, cambio_motivacion, cambio_tranquilidad= comparar_promedios(promedio)
-feedback=feedback_comentario(situacion, comentario, cambio_estres, cambio_tranquilidad, cambio_motivacion)
 
 
 
