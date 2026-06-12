@@ -40,45 +40,7 @@ def menu_inicio(nombre, situacion):
             return "si"
             break
     
-def menu_situacion(situacion):   
-    '''
-    
 
-    Parameters
-    ----------
-
-   situacion: str
-       Situacion en la que se encuentra, parciales o no parciales 
-
-    Raises
-    ------
-    ValueError
-        DESCRIPTION.
-
-    Returns
-    -------
-    None.
-
-    '''
-    situaciones = []
-    
-    while True: 
-        situaciones.append(situacion)
-        
-        if (situacion != "parciales") and (situacion != "no parciales"):
-            raise ValueError("La situacion ingresada no existe")
-            
-        
-        elif situacion in situaciones: 
-            raise ValueError("La situacion ya fue ingresada")
-            
-        else: 
-            break
-        
-        if situacion == "no parciales": 
-            situacion = "no_parciales"
-            
-        return situacion 
     
 
 def menu_parte_1(info_estudiante2, presentar_comentario,valoracion_comentario,grafico,calcular_promedios_grupales,comparar_promedios,feedback_comentario):
@@ -130,7 +92,7 @@ def menu_parte_1(info_estudiante2, presentar_comentario,valoracion_comentario,gr
     
     while True:
         try: 
-            continuar=input("Desea continuar con el programa? (si/no)")
+            continuar=input("Desea continuar con el programa? (si/no)").lower()
             
             
             if continuar=="no": 
@@ -140,36 +102,38 @@ def menu_parte_1(info_estudiante2, presentar_comentario,valoracion_comentario,gr
             elif continuar=="si":
                 
                 print("1. Agregar otro estudiante.","\n", "Permite cargar el estado emocional inicial, presentar una situacion y valorar el comentario",'\n')
-                print("2. Visualizar grafico","\n","Muestra los cambios emocionales generados a partir de los comentario")
-                print("3.Ver metricas", "\n", "muestra promedios grupales, cambios emocionales y feedback del comentario",'\n')
+                print("2. Visualizar grafico","\n","Muestra los cambios emocionales generados a partir de los comentario (Esto va a incluir datos simulados)")
+                print("3.Ver metricas", "\n", "muestra promedios grupales, cambios emocionales y feedback del comentario (Esto va a incluir datos simulados)",'\n')
                 
-                accion=input("Que quiere realizar? : ")
+                accion = int(input("Que quiere realizar? : "))
                 
                 try: 
-                    if accion =="1": 
+                    if accion == 1: 
                         while True: 
                             agregar_estudiante=input("Desea agregar la informacion de otro estudiante? (si/no) ")
                             if agregar_estudiante=="si": 
                                 estres_neutro2,tranquilidad_neutro2,motivacion_neutro2= info_estudiante2()
-                                comentario2=presentar_comentario()
+                                comentario2 = presentar_comentario()
                                 estres_e2,tranquilidad_e2,motivacion_e2=valoracion_comentario()
+                                return comentario2 
                             if agregar_estudiante=="no": 
                                 print("Se termino la carga de estudiantes")
                                 break
                         
                    
-                    elif accion=="2": 
+                    elif accion == 2: 
                         ver_grafico= grafico()
+                        return ver_grafico
                         
-                    elif accion=="3": 
+                    elif accion == 3: 
                         print("Promedios grupales: ", calcular_promedios_grupales(), "/n", 
                               "Cambios de las emociones: ", comparar_promedios(), "/n", 
                               "Feedback del comentario: ", feedback_comentario())
-                except ValueError as e: 
+                except ValueError: 
                     print("La opcion es invalida")
                     accion=input("Que quiere realizar?: x: agregar otro estudiante, y:visualizar grafico, z:ver metricas")
             
-        except ValueError as e: 
+        except ValueError: 
                     print("Debe ingresar si o no")
                     continuar=input("Desea continuar con el programa? (si/no)")
                     
