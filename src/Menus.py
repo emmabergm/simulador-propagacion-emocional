@@ -113,7 +113,7 @@ def menu_parte_1(info_estudiante2, presentar_comentario,valoracion_comentario,gr
                                 estres_neutro2,tranquilidad_neutro2,motivacion_neutro2= info_estudiante2()
                                 comentario2 = presentar_comentario()
                                 estres_e2,tranquilidad_e2,motivacion_e2=valoracion_comentario()
-                                return comentario2 
+                                
                             if agregar_estudiante=="no": 
                                 print("Se termino la carga de estudiantes")
                                 break
