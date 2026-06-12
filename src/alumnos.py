@@ -1,7 +1,7 @@
 
 
 
-def info_estudiante2 (df_neutro, estudiante_2, edad_e_2):
+def info_estudiante2 (df_neutro):
     '''
     Le pregunta al estudiante por su informacion actual neutra 
 
@@ -9,21 +9,24 @@ def info_estudiante2 (df_neutro, estudiante_2, edad_e_2):
     ----------
     df_neutro: DataFrame 
         Dataframe con la informacion predeterminada de estudiantes en estado neutro 
-     estudiante_2 : str
-        Nombre del estudiante dos que va a valorar sus emociones a partir de los comentarios 
-      edad_e_2: int
-          Edad del estudiante 2 
           
     Raises 
     -------
     ValueError
-        si los valores estan fuera del rango 
+        si los valores emocionales estan fuera del rango 
+        si la edad es menor a 0  
     
     Returns
     -------
     None
 
     '''
+    
+    estudiante_2 = input("Ingrese su nombre: ")
+    edad_e_2 = int(input("Ingrese su edad: "))
+    if edad_e_2 < 0: 
+        raise ValueError("La edad debe ser un numero positivo")
+        
     while True: 
         estres = int(input("Ingrese su estado de estres actual: "))
         motivacion = int(input("Ingrese su estado de motivacion actual: "))
