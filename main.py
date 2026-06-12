@@ -37,21 +37,17 @@ except FileNotFoundError:
 
 
 #Parte 1: 
-
-estudiante_1 = input("Ingrese su nombre: ")
-
-situacion_estudiante = situacion()
-planteo_situacion_1 = realizar_pregunta(df_comentario)
-primer_comentario = funcion(situacion_estudiante, planteo_situacion_1)
-
-situacion_estudiante = situacion()
-planteo_situacion_2 = realizar_pregunta(df_comentario)
-
-respuesta_1 = realizar_pregunta(df_comentario) 
+try: 
+    nombre_grupo = input("Ingrese el nombre de su grupo: ")
+    situacion_1 = situacion()
+    
+    menu_principal = menu_inicio(nombre_grupo, situacion)
+    
+    
+    
 
 # Parte 1 (interaccion con estudiante 1)
 
-estudiante_1 = input("Ingrese su nombre: ")
 
 situacion_1 = situacion()
 indice = numero_random()
@@ -75,12 +71,11 @@ menu_1 = menu_parte_1()
 
 
 if menu_1 == "True": 
-  estudiante_2 = input("Ingrese su nombre: ")
-
+ 
   
 else: 
   print("Muchas gracias por su respuesta!") #NO ESTA BIEN 
-edad_e_2 = int(input("Ingrese su edad: ")
+
 menu_1 = "funcion de menu"
 
   edad_e_2 = int(input("Ingrese su edad: "))
