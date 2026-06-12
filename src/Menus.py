@@ -116,30 +116,31 @@ def menu_parte_3(df_neutro, df_asociado_1, df_asociado_2, situacion, df_comentar
             
         if eleccion == 1: 
                          
-            print("El promedio de las emociones al inciar, es decir las neutras es: " promedio_neutro, "\n"
-                  "El promedio por emocion luego del primer comentario es el siguiente: "promedio_comentario1, "\n",
-                  "Por ultimo el promedio por emocion luego del segundo comentario es el siguiente: "promedio_comentario2)
+            print("El promedio de las emociones al inciar, es decir las neutras es: ", promedio_neutro, "\n"
+                  "El promedio por emocion luego del primer comentario es el siguiente: ", promedio_comentario1, "\n",
+                  "Por ultimo el promedio por emocion luego del segundo comentario es el siguiente: ", promedio_comentario2)
             break
                         
         elif eleccion == 2:   
                          
             print("Los cambios emcoionales entre la valoracion neutra y luego del primer comentario son los siguientes: " ,"\n",
-                  "Cambio estres: " cambio_estres1,"\n",
-                  "Cambio motivacion" cambio_motivacion1, "\n", 
-                  "Cambio tranquilidad" cambio_tranquilidad1, "\n",
+                  "Cambio estres: " , cambio_estres1,"\n",
+                  "Cambio motivacion" , cambio_motivacion1, "\n", 
+                  "Cambio tranquilidad" , cambio_tranquilidad1, "\n",
                   "Los cambios emcoionales entre la valoracion neutra y luego del segundo comentario son los siguientes:" , "\n",  
-                  "Cambio estres: " cambio_estres2,"\n", 
-                  "Cambio motivacion" cambio_motivacion2, "\n",
-                  "Cambio tranquilidad" cambio_tranquilidad2)
+                  "Cambio estres: " , cambio_estres2,"\n", 
+                  "Cambio motivacion" , cambio_motivacion2, "\n",
+                  "Cambio tranquilidad" , cambio_tranquilidad2)
             break
                      
         elif eleccion == 3: 
-            print("El feedback leugo del comentario 1 es: " feedback1,"\n", 
-                  "El feedback luego del comentario 2 es: " feedback2)
+            print("El feedback leugo del comentario 1 es: " , feedback1,"\n", 
+                  "El feedback luego del comentario 2 es: " , feedback2)
             break 
                     
         elif eleccion == 4: 
             ver_grafico = grafico(df_neutro, df_asociado_1, df_asociado_2) #CHEQUEAR SI HAY QUE RENEAR PARA QUE SE VEA
+            return ver_grafico
             break
                     
         else:
