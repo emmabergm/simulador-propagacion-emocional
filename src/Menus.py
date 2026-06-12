@@ -43,7 +43,7 @@ def menu_inicio(nombre, situacion):
 
     
 
-def menu_parte_1(info_estudiante2, presentar_comentario,valoracion_comentario,grafico,calcular_promedios_grupales,comparar_promedios,feedback_comentario):
+def menu_parte_1(info_estudiante2, df_neutro, presentar_comentario, valoracion_comentario):
     '''
     Muestra un menu sobre las opciones que puede realizar con el programa. 
 
@@ -52,6 +52,9 @@ def menu_parte_1(info_estudiante2, presentar_comentario,valoracion_comentario,gr
     info_estudiante2 : function
         Función que solicita y devuelve las emociones iniciales de un
         nuevo estudiante.
+    
+    df_neutro: DataFrame 
+        DataFrame con informacion de las emociones neutras
 
     presentar_comentario : function
         Función que presenta una situación académica y permite seleccionar
@@ -61,20 +64,6 @@ def menu_parte_1(info_estudiante2, presentar_comentario,valoracion_comentario,gr
         Función que registra las emociones del estudiante luego de
         visualizar el comentario.
 
-    grafico : function
-        Función que genera y muestra gráficos con los cambios emocionales.
-
-    calcular_promedios_grupales : function
-        Función que calcula los promedios grupales de estrés,
-        motivación y tranquilidad.
-
-    comparar_promedios : function
-        Función que compara los promedios emocionales antes y después
-        de los comentarios.
-
-    feedback_comentario : function
-        Función que genera una devolución sobre el impacto emocional
-        de los comentarios seleccionados.
     
     Raises
     ------
@@ -92,7 +81,7 @@ def menu_parte_1(info_estudiante2, presentar_comentario,valoracion_comentario,gr
     
     while True:
         try: 
-            continuar=input("Desea continuar con el programa? (si/no)").lower()
+            continuar = input("Desea continuar con el programa? (si/no)").lower()
             
             
             if continuar=="no": 
@@ -102,20 +91,20 @@ def menu_parte_1(info_estudiante2, presentar_comentario,valoracion_comentario,gr
             elif continuar=="si":
                 
                 print("1. Agregar otro estudiante.","\n", "Permite cargar el estado emocional inicial, presentar una situacion y valorar el comentario",'\n')
-                print("2. Visualizar grafico","\n","Muestra los cambios emocionales generados a partir de los comentario (Esto va a incluir datos simulados)")
-                print("3.Ver metricas", "\n", "muestra promedios grupales, cambios emocionales y feedback del comentario (Esto va a incluir datos simulados)",'\n')
-                
+                print("2. Seguir a la parte de devoluciones de metricas (Esto va a contener datos simulados)")
+                    
                 accion = int(input("Que quiere realizar? : "))
                 
                 try: 
                     if accion == 1: 
-                        while True: 
-                            agregar_estudiante=input("Desea agregar la informacion de otro estudiante? (si/no) ")
+                                
+                        while True:       
+                            agregar_estudiante = input("Desea agregar la informacion de otro estudiante? (si/no) ")
                             if agregar_estudiante=="si": 
-                                estres_neutro2,tranquilidad_neutro2,motivacion_neutro2= info_estudiante2()
+                                estres_neutro2,tranquilidad_neutro2,motivacion_neutro2= info_estudiante2(df_neutro)
                                 comentario2 = presentar_comentario()
-                                estres_e2,tranquilidad_e2,motivacion_e2=valoracion_comentario()
-                                return comentario2 
+                                estres_e2,tranquilidad_e2,motivacion_e2 = valoracion_comentario()
+            
                             if agregar_estudiante=="no": 
                                 print("Se termino la carga de estudiantes")
                                 break
