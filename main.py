@@ -36,14 +36,26 @@ except FileNotFoundError:
 
 
 
-#Parte 1 (interaccion con estudiante 1)
+#Parte 1 (interaccion con estudiante 1) - comentarios
 try: 
     nombre_grupo = input("Ingrese el nombre de su grupo: ")
     
     situacion = situacion()
     
+<<<<<<< HEAD
     try:
        
+=======
+    menu_principal = menu_inicio(nombre_grupo, situacion)
+    indice = numero_random()
+    respuesta = realizar_pregunta(indice, df_comentario)
+    guardar_rta = guardar_respuesta(respuesta, indice, df_comentario, situacion )
+    df_respuesta = guardar_respuesta(respuesta_1, indice, df_comentario, situacion_1 )
+    df_asociado_1 = asociado(respuesta_1, df_tranquilidad, df_motivacion, df_estres)
+    comentario=realizar_pregunta(df_comentario)
+    
+    
+>>>>>>> 34e6c16e5776684109931f1814d426634c75d814
         
         
     
@@ -56,6 +68,7 @@ try:
     parte_2 = 
 
 # Parte 1 (interaccion con estudiante 1)
+
 
 
 
@@ -81,11 +94,11 @@ if menu_1 == "True":
   
 else: 
   print("Muchas gracias por su respuesta!") #NO ESTA BIEN 
-<<<<<<< HEAD
-edad_e_2 = int(input("Ingrese su edad: "))
-=======
 
->>>>>>> d7ecc86d198be304d1ac7c7104bb4a9c2eba9eae
+edad_e_2 = int(input("Ingrese su edad: "))
+
+edad_e_2 = int(input("Ingrese su edad: "))
+
 menu_1 = "funcion de menu"
 
 edad_e_2 = int(input("Ingrese su edad: "))
@@ -99,5 +112,11 @@ presentar_comentario(df_comentario, respuesta_2, indice, situacion_2)
 valoracion_2 = valoracion_comentario(estudiante_2, edad_e_2, respuesta, df_comentario,  df_asociado)
 
 # Parte 3 (analisis)
+#unir idea
+
+promedio=calcular_promedios_grupales()
+cambio_estres, cambio_motivacion, cambio_tranquilidad= comparar_promedios(promedio)
+feedback=feedback_comentario(situacion, comentario, cambio_estres, cambio_tranquilidad, cambio_motivacion)
+
 
 
