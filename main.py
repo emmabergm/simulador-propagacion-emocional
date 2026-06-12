@@ -36,24 +36,32 @@ except FileNotFoundError:
 
 
 
-#Parte 1: 
+#Parte 1 (interaccion con estudiante 1)
 try: 
     nombre_grupo = input("Ingrese el nombre de su grupo: ")
-    situacion_1 = situacion()
     
-    menu_principal = menu_inicio(nombre_grupo, situacion)
-    
+    situacion = situacion()
     
     
+        menu_principal = menu_inicio(nombre_grupo, situacion)
+        indice = numero_random()
+        respuesta = realizar_pregunta(indice, df_comentario)
+        guardar_rta = guardar_respuesta(respuesta, indice, df_comentario, situacion )
+        df_respuesta = guardar_respuesta(respuesta_1, indice, df_comentario, situacion_1 )
+        df_asociado_1 = asociado(respuesta_1, df_tranquilidad, df_motivacion, df_estres)
+        
+    
+    if menu_principal == "si": 
+        parte_1_sit1 = parte_1(parametros)
+        parte_1_sit_2 = parte_1(parametros)
+    
+    parte_2 = 
 
 # Parte 1 (interaccion con estudiante 1)
 
 
-situacion_1 = situacion()
-indice = numero_random()
-respuesta_1 = realizar_pregunta(indice, df_comentario)
-df_respuesta = guardar_respuesta(respuesta_1, indice, df_comentario, situacion_1 )
-df_asociado_1 = asociado(respuesta_1, df_tranquilidad, df_motivacion, df_estres)
+
+
 
 # Parte 1.2 
 
