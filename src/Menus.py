@@ -99,13 +99,13 @@ def menu_parte_1(info_estudiante2, presentar_comentario,valoracion_comentario,gr
                 print("Gracias por participar")
                 break
             
-            elif continuar=="si":
-                
-                print("1. Agregar otro estudiante.","\n", "Permite cargar el estado emocional inicial, presentar una situacion y valorar el comentario",'\n')
-                print("2. Visualizar grafico","\n","Muestra los cambios emocionales generados a partir de los comentario (Esto va a incluir datos simulados)")
-                print("3.Ver metricas", "\n", "muestra promedios grupales, cambios emocionales y feedback del comentario (Esto va a incluir datos simulados)",'\n')
-                
-                accion = int(input("Que quiere realizar? : "))
+           elif continuar=="si":
+               
+               print("1. Agregar otro estudiante.","\n", "Permite cargar el estado emocional inicial, presentar una situacion y valorar el comentario",'\n')
+               print("2. Visualizar grafico","\n","Muestra los cambios emocionales generados a partir de los comentario (Esto va a incluir datos simulados)")
+               print("3.Ver metricas", "\n", "muestra promedios grupales, cambios emocionales y feedback del comentario (Esto va a incluir datos simulados)",'\n')
+               
+               accion = int(input("Que quiere realizar? : "))
                 
                 try: 
                     if accion == 1: 
