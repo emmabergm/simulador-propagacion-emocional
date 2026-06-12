@@ -1,4 +1,7 @@
-
+from src.analisis import calcular_promedios_grupales
+from src.analisis import comparar_promedios
+from src.analisis import feedback_comentario 
+from src.graficos import grafico
 
 def menu_inicio(nombre, situacion): 
     '''
@@ -34,39 +37,28 @@ if dicc_cargados[situacion][nombre] in dicc_cargados:
             return "si"
             break
     
+def menu_parte2(): 
+     
+    eleccion=input("Desea seguir con la parte 2? (si/no): ").lower
     
+    while True: 
+        try: 
+            if eleccion=="si": 
+                return eleccion
+            elif eleccion=="no": 
+                print("Muchas gracias por las respuesta!")
+                break
+            elif (eleccion != "si") or (eleccion != "no"): 
+                   raise ValueError ("Debe responder con si o con no")
+                   
+            return eleccion     
 
-def menu_parte_1(info_estudiante2, presentar_comentario,valoracion_comentario,grafico,calcular_promedios_grupales,comparar_promedios,feedback_comentario):
+
+def menu_parte_3(df_neutro, df_asociado_1, df_asociado_2, situacion, df_comentario, parte_1_sit1, parte_1_sit2, indice):
     '''
      Parameters
     ----------
-    info_estudiante2 : function
-        Función que solicita y devuelve las emociones iniciales de un
-        nuevo estudiante.
-
-    presentar_comentario : function
-        Función que presenta una situación académica y permite seleccionar
-        un comentario.
-
-    valoracion_comentario : function
-        Función que registra las emociones del estudiante luego de
-        visualizar el comentario.
-
-    grafico : function
-        Función que genera y muestra gráficos con los cambios emocionales.
-
-    calcular_promedios_grupales : function
-        Función que calcula los promedios grupales de estrés,
-        motivación y tranquilidad.
-
-    comparar_promedios : function
-        Función que compara los promedios emocionales antes y después
-        de los comentarios.
-
-    feedback_comentario : function
-        Función que genera una devolución sobre el impacto emocional
-        de los comentarios seleccionados.
-    
+   
     Raises
     ------
     ValueError
@@ -78,10 +70,7 @@ def menu_parte_1(info_estudiante2, presentar_comentario,valoracion_comentario,gr
     None.
     
     '''
-    
-    
-    
-    
+
     while True:
         try: 
             continuar=input("Desea continuar con el programa? (si/no)").lower()
@@ -94,98 +83,72 @@ def menu_parte_1(info_estudiante2, presentar_comentario,valoracion_comentario,gr
             elif continuar=="si":
                
                print("1. Agregar otro estudiante.","\n", "Permite cargar el estado emocional inicial, presentar una situacion y valorar el comentario",'\n')
-               print("2. Visualizar grafico","\n","Muestra los cambios emocionales generados a partir de los comentario (Esto va a incluir datos simulados)")
-               print("3.Ver metricas", "\n", "muestra promedios grupales, cambios emocionales y feedback del comentario (Esto va a incluir datos simulados)",'\n')
+               print("2. Quiere ver las metricas del experimento (Estas van a incluir datos simulados)")
                
                accion = int(input("Que quiere realizar? : "))
                 
 
             try:
-                 if accion == 1:
-                     while True:
-                         agregar_estudiante = input(
-                             "¿Desea agregar la información de otro estudiante? (si/no): "
-                         ).lower()
-
-                         if agregar_estudiante == "si":
-                             estres_neutro2, tranquilidad_neutro2, motivacion_neutro2 = info_estudiante2()
-                             comentario2 = presentar_comentario()
-                             estres_e2, tranquilidad_e2, motivacion_e2 = valoracion_comentario()
-                             return comentario2
-
-                         elif agregar_estudiante == "no":
-                             print("Se terminó la carga de estudiantes")
-                             break
-
-                         else:
-                             print("Debe ingresar si o no")
+                
+                promedio_neutro = calcular_promedios_grupales(df_neutro)
+                promedio_comentario1 = calcular_promedios_grupales(df_asociado_1)
+                promedio_comentario2 = calcular_promedios_grupales(df_asociado_2)
+                
+                cambio_estres1, cambio_motivacion1, cambio_tranquilidad1 = comparar_promedios(promedio_neutro, promedio_comentario1) 
+                cambio_estres2, cambio_motivacion2, cambio_tranquilidad2 = comparar_promedios(promedio_neutro, promedio_comentario2)
+                
+                feedback1 = feedback_comentario(situacion, comentario, cambio_estres1, cambio_motivacion1, cambio_tranquilidad1)
+                feedback2 = feedback_comentario(situacion, comentario, cambio_estres2, cambio_motivacion2, cambio_tranquilidad2)
+                 
+                if accion == 1:
+                     agrego_estudiante = parte_2(df_neutro, df_comentario, parte_1_sit1, indice, situacion, df_asociado_1) #COMO LE PASAMOS LA SITUACION?????
+                     agrego_estudiante_s2 = parte_2(df_neutro, df_comentario, parte_1_sit2, indice, situacion, df_asociado_2)
+                    
 
                  elif accion == 2:
-                     ver_grafico = grafico()
-                     return ver_grafico
-
-                 elif accion == 3:
-                     print(
-                         "Promedios grupales: ", calcular_promedios_grupales(), "\n",
-                         "Cambios de las emociones: ", comparar_promedios(), "\n",
-                         "Feedback del comentario: ", feedback_comentario()
-                     )
-
-                 else:
-                     print("La opción es inválida")
-
-            except ValueError:
-                 print("Ocurrió un error con los datos ingresados")
-    
-
-
-                try: 
-                    if accion == 1: 
-                        while True: 
-                            agregar_estudiante=input("Desea agregar la informacion de otro estudiante? (si/no) ")
-                            if agregar_estudiante=="si": 
-                                estres_neutro2,tranquilidad_neutro2,motivacion_neutro2= info_estudiante2()
-                                comentario2 = presentar_comentario()
-                                estres_e2,tranquilidad_e2,motivacion_e2=valoracion_comentario()
-                                
-                            if agregar_estudiante=="no": 
-                                print("Se termino la carga de estudiantes")
-                                break
+                     print("1. Promedios grupales. ",  "/n", 
+                           "2. Cambios de las emociones. ","/n", 
+                           "3. Feedback del comentario. ", "/n",
+                           "4. Grafico que compara las emociones neutras y despues de cada comentario. ")
+               
+                while True: 
+                     eleccion = int(input("Que metrica desea ver? (elija una opcion, luego puede ingresar otra):  "))
+                     
+                     if eleccion == 1: 
+                         
+                         print("El promedio de las emociones al inciar, es decir las neutras es: " promedio_neutro, "\n"
+                               "El promedio por emocion luego del primer comentario es el siguiente: "promedio_comentario1, "\n",
+                               "Por ultimo el promedio por emocion luego del segundo comentario es el siguiente: "promedio_comentario2)
+                         break
                         
-                   
-                    elif accion == 2: 
-                        ver_grafico= grafico()
-                        return ver_grafico
-                        
-                    elif accion == 3: 
-                        print("Promedios grupales: ", calcular_promedios_grupales(), "/n", 
-                              "Cambios de las emociones: ", comparar_promedios(), "/n", 
-                              "Feedback del comentario: ", feedback_comentario())
-                except ValueError: 
-                    print("La opcion es invalida")
-                    accion=input("Que quiere realizar?: x: agregar otro estudiante, y:visualizar grafico, z:ver metricas")
-            
-        except ValueError: 
-                    print("Debe ingresar si o no")
-                    continuar=input("Desea continuar con el programa? (si/no)")
+                        elif eleccion == 2:   
+                         
+                         print("Los cambios emcoionales entre la valoracion neutra y luego del primer comentario son los siguientes: " ,"\n",
+                               "Cambio estres: " cambio_estres1,"\n",
+                               "Cambio motivacion" cambio_motivacion1, "\n", 
+                               "Cambio tranquilidad" cambio_tranquilidad1, "\n",
+                               "Los cambios emcoionales entre la valoracion neutra y luego del segundo comentario son los siguientes:" , "\n",  
+                               "Cambio estres: " cambio_estres2,"\n", 
+                               "Cambio motivacion" cambio_motivacion2, "\n",
+                               "Cambio tranquilidad" cambio_tranquilidad2)
+                         break
+                     
+                     elif eleccion == 3: 
+                        print("El feedback leugo del comentario 1 es: " feedback1,"\n", 
+                              "El feedback luego del comentario 2 es: " feedback2)
+                        break 
+                    
+                     elif eleccion == 4: 
+                         ver_grafico = grafico(df_neutro, df_asociado_1, df_asociado_2) #CHEQUEAR SI HAY QUE RENEAR PARA QUE SE VEA
+                         break
+                    
+                     else:
+                       raise ValueError("La opción es inválida")
+
 
                     
                             
-def menu_parte2(): 
-     
-    eleccion=input("Desea seguir con la parte 2? (si/no): ").lower
-    
-    while True: 
-        try: 
-            if eleccion=="si": 
-                return eleccion
-            elif eleccion=="no": 
-                print("Muchas gracias por las respuesta!")
-                break
-           elif (eleccion != "si") or (eleccion != "no"): 
-                   raise ValueError ("Debe responder con si o con no")
-                   
-    return eleccion 
+
     
             
         
