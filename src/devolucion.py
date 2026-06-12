@@ -122,9 +122,20 @@ print (emocion_predominante)
 
 
 
+################
+   print("2. Visualizar grafico","\n","Muestra los cambios emocionales generados a partir de los comentario (Esto va a incluir datos simulados)")
+   print("3.Ver metricas", "\n", "muestra promedios grupales, cambios emocionales y feedback del comentario (Esto va a incluir datos simulados)",'\n')
 
-   
 
+
+ elif accion == 2: 
+     ver_grafico= grafico()
+     return ver_grafico
+     
+ elif accion == 3: 
+     print("Promedios grupales: ", calcular_promedios_grupales(), "/n", 
+           "Cambios de las emociones: ", comparar_promedios(), "/n", 
+           "Feedback del comentario: ", feedback_comentario())
 
 
 
