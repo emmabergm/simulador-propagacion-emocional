@@ -99,6 +99,7 @@ def menu_parte_1(info_estudiante2, presentar_comentario,valoracion_comentario,gr
                
                accion = int(input("Que quiere realizar? : "))
                 
+
             try:
                  if accion == 1:
                      while True:
@@ -136,6 +137,37 @@ def menu_parte_1(info_estudiante2, presentar_comentario,valoracion_comentario,gr
             except ValueError:
                  print("Ocurrió un error con los datos ingresados")
     
+
+
+                try: 
+                    if accion == 1: 
+                        while True: 
+                            agregar_estudiante=input("Desea agregar la informacion de otro estudiante? (si/no) ")
+                            if agregar_estudiante=="si": 
+                                estres_neutro2,tranquilidad_neutro2,motivacion_neutro2= info_estudiante2()
+                                comentario2 = presentar_comentario()
+                                estres_e2,tranquilidad_e2,motivacion_e2=valoracion_comentario()
+                                
+                            if agregar_estudiante=="no": 
+                                print("Se termino la carga de estudiantes")
+                                break
+                        
+                   
+                    elif accion == 2: 
+                        ver_grafico= grafico()
+                        return ver_grafico
+                        
+                    elif accion == 3: 
+                        print("Promedios grupales: ", calcular_promedios_grupales(), "/n", 
+                              "Cambios de las emociones: ", comparar_promedios(), "/n", 
+                              "Feedback del comentario: ", feedback_comentario())
+                except ValueError: 
+                    print("La opcion es invalida")
+                    accion=input("Que quiere realizar?: x: agregar otro estudiante, y:visualizar grafico, z:ver metricas")
+            
+        except ValueError: 
+                    print("Debe ingresar si o no")
+                    continuar=input("Desea continuar con el programa? (si/no)")
 
                     
                             
