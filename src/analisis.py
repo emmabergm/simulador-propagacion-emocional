@@ -47,21 +47,24 @@ def calcualar_promedios_grupales(df):
         Devuelve el promedio pedido 
         
     """
+    
+    
+    if df.empty:
+        raise ValueError ("No hay datos para calcular el promedio")
+        
     dicc_promedio = {}
     
+    promedio_estres = df.groupby["estres"].mean()
+    promedio_motivacion = df.groupby["motivacion"].mean()
+    promedio_tranquilidad = df.groupby["tranquilidad"].mean()
     
-    try: 
-        
-        promedio_estres = df.groupby["estres"].mean()
-        promedio_motivacion = df.groupby["motivacion"].mean()
-        promedio_tranquilidad = df.groupby["tranquilidad"].mean()
-        
-        
-        dicc_promedio["estres"] = promedio_estres 
-        dicc_promedio["motivacion"] = promedio_motivacion 
-        dicc_promedio["tranquilidad"] = promedio_tranquilidad
-    except ZeroDivisionError :
-        print("Error: Sucedio una division por cero")
+    
+    dicc_promedio["estres"] = promedio_estres 
+    dicc_promedio["motivacion"] = promedio_motivacion 
+    dicc_promedio["tranquilidad"] = promedio_tranquilidad
+    
+     
+            
     
     return dicc_promedio 
 
