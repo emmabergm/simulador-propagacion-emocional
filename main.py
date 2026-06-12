@@ -42,10 +42,10 @@ try:
     
     situacion = situacion()
     
-<<<<<<< HEAD
+
     try:
        
-=======
+
     menu_principal = menu_inicio(nombre_grupo, situacion)
     indice = numero_random()
     respuesta = realizar_pregunta(indice, df_comentario)
@@ -55,7 +55,7 @@ try:
     comentario=realizar_pregunta(df_comentario)
     
     
->>>>>>> 34e6c16e5776684109931f1814d426634c75d814
+
         
         
     
