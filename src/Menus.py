@@ -1,9 +1,4 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Fri Jun  5 12:02:31 2026
 
-@author: olivi
-"""
 
 def menu_inicio(nombre, situacion): 
     '''
@@ -43,8 +38,6 @@ if nombre in dicc_cargados:
 
 def menu_parte_1(info_estudiante2, presentar_comentario,valoracion_comentario,grafico,calcular_promedios_grupales,comparar_promedios,feedback_comentario):
     '''
-    Muestra un menu sobre las opciones que puede realizar con el programa. 
-
      Parameters
     ----------
     info_estudiante2 : function
@@ -83,9 +76,10 @@ def menu_parte_1(info_estudiante2, presentar_comentario,valoracion_comentario,gr
     Returns
     -------
     None.
-        
     
     '''
+    
+    
     
     
     while True:
@@ -97,7 +91,7 @@ def menu_parte_1(info_estudiante2, presentar_comentario,valoracion_comentario,gr
                 print("Gracias por participar")
                 break
             
-           elif continuar=="si":
+            elif continuar=="si":
                
                print("1. Agregar otro estudiante.","\n", "Permite cargar el estado emocional inicial, presentar una situacion y valorar el comentario",'\n')
                print("2. Visualizar grafico","\n","Muestra los cambios emocionales generados a partir de los comentario (Esto va a incluir datos simulados)")
@@ -105,6 +99,46 @@ def menu_parte_1(info_estudiante2, presentar_comentario,valoracion_comentario,gr
                
                accion = int(input("Que quiere realizar? : "))
                 
+
+            try:
+                 if accion == 1:
+                     while True:
+                         agregar_estudiante = input(
+                             "¿Desea agregar la información de otro estudiante? (si/no): "
+                         ).lower()
+
+                         if agregar_estudiante == "si":
+                             estres_neutro2, tranquilidad_neutro2, motivacion_neutro2 = info_estudiante2()
+                             comentario2 = presentar_comentario()
+                             estres_e2, tranquilidad_e2, motivacion_e2 = valoracion_comentario()
+                             return comentario2
+
+                         elif agregar_estudiante == "no":
+                             print("Se terminó la carga de estudiantes")
+                             break
+
+                         else:
+                             print("Debe ingresar si o no")
+
+                 elif accion == 2:
+                     ver_grafico = grafico()
+                     return ver_grafico
+
+                 elif accion == 3:
+                     print(
+                         "Promedios grupales: ", calcular_promedios_grupales(), "\n",
+                         "Cambios de las emociones: ", comparar_promedios(), "\n",
+                         "Feedback del comentario: ", feedback_comentario()
+                     )
+
+                 else:
+                     print("La opción es inválida")
+
+            except ValueError:
+                 print("Ocurrió un error con los datos ingresados")
+    
+
+
                 try: 
                     if accion == 1: 
                         while True: 
@@ -134,6 +168,7 @@ def menu_parte_1(info_estudiante2, presentar_comentario,valoracion_comentario,gr
         except ValueError: 
                     print("Debe ingresar si o no")
                     continuar=input("Desea continuar con el programa? (si/no)")
+
                     
                             
                     
