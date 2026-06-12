@@ -5,14 +5,16 @@ Created on Fri Jun 12 12:18:42 2026
 @author: olivi
 """
 
-def parte_1(situacion, menu_principal respuesta, guardar_rta, asociacion): 
+from src.comentario import realizar_pregunta
+from src.comentario import guardar_respuesta
+ 
+
+def parte_1(situacion, indice, df_comentario): 
     
-        rta = respuesta 
-        guardar_respuesta = guardar_rta
-        df_respuesta = guardar_respuesta(respuesta_1, indice, df_comentario, situacion_1 )
-        df_asociado_1 = asociado(respuesta_1, df_tranquilidad, df_motivacion, df_estres)
-        
-        return df_respuesta 
+        respuesta = realizar_pregunta(indice, df_comentario)
+        df_respuesta = guardar_respuesta(respuesta, indice, df_comentario, situacion )
+    
+        return respuesta  
     
         
         
