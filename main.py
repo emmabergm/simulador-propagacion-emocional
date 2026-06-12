@@ -36,28 +36,36 @@ except FileNotFoundError:
 
 
 
-#Parte 1: 
-
-estudiante_1 = input("Ingrese su nombre: ")
-
-situacion_estudiante = situacion()
-planteo_situacion_1 = realizar_pregunta(df_comentario)
-primer_comentario = funcion(situacion_estudiante, planteo_situacion_1)
-
-situacion_estudiante = situacion()
-planteo_situacion_2 = realizar_pregunta(df_comentario)
-
-respuesta_1 = realizar_pregunta(df_comentario) 
+#Parte 1 (interaccion con estudiante 1) - comentarios
+try: 
+    nombre_grupo = input("Ingrese el nombre de su grupo: ")
+    
+    situacion = situacion()
+    
+    menu_principal = menu_inicio(nombre_grupo, situacion)
+    indice = numero_random()
+    respuesta = realizar_pregunta(indice, df_comentario)
+    guardar_rta = guardar_respuesta(respuesta, indice, df_comentario, situacion )
+    df_respuesta = guardar_respuesta(respuesta_1, indice, df_comentario, situacion_1 )
+    df_asociado_1 = asociado(respuesta_1, df_tranquilidad, df_motivacion, df_estres)
+    comentario=realizar_pregunta(df_comentario)
+    
+    
+        
+        
+    
+    if menu_principal == "si": 
+        parte_1_sit1 = parte_1(parametros)
+        parte_1_sit_2 = parte_1(parametros)
+    
+    parte_2 = 
 
 # Parte 1 (interaccion con estudiante 1)
 
-estudiante_1 = input("Ingrese su nombre: ")
 
-situacion_1 = situacion()
-indice = numero_random()
-respuesta_1 = realizar_pregunta(indice, df_comentario)
-df_respuesta = guardar_respuesta(respuesta_1, indice, df_comentario, situacion_1 )
-df_asociado_1 = asociado(respuesta_1, df_tranquilidad, df_motivacion, df_estres)
+
+
+
 
 # Parte 1.2 
 
@@ -75,12 +83,15 @@ menu_1 = menu_parte_1()
 
 
 if menu_1 == "True": 
-  estudiante_2 = input("Ingrese su nombre: ")
-
+ 
   
 else: 
   print("Muchas gracias por su respuesta!") #NO ESTA BIEN 
+
 edad_e_2 = int(input("Ingrese su edad: "))
+
+edad_e_2 = int(input("Ingrese su edad: "))
+
 menu_1 = "funcion de menu"
 
 edad_e_2 = int(input("Ingrese su edad: "))
@@ -94,9 +105,11 @@ presentar_comentario(df_comentario, respuesta_2, indice, situacion_2)
 valoracion_2 = valoracion_comentario(estudiante_2, edad_e_2, respuesta, df_comentario,  df_asociado)
 
 # Parte 3 (analisis)
+#unir idea
+
+promedio=calcular_promedios_grupales()
+cambio_estres, cambio_motivacion, cambio_tranquilidad= comparar_promedios(promedio)
+feedback=feedback_comentario(situacion, comentario, cambio_estres, cambio_tranquilidad, cambio_motivacion)
 
 
->>>>>>> d3a5af79fdbeb750269292902e5c1731406fe1e3
-
-#MENUS
 

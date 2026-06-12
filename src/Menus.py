@@ -1,9 +1,4 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Fri Jun  5 12:02:31 2026
 
-@author: olivi
-"""
 
 def menu_inicio(nombre, situacion): 
     '''
@@ -23,64 +18,124 @@ def menu_inicio(nombre, situacion):
     
     dicc_cargados = {}
     
-    
-    
+if nombre in dicc_cargados:   
     while True: 
-        if nombre in dicc_cargados: 
             eleccion = input("Desea continuar con la informacion ya cargada?: ")
             eleccion = eleccion.lower()
-            return eleccion 
+            return eleccion
             break 
-       
-        if (eleccion != "si") or (eleccion != "no"): 
+        
+    if (eleccion != "si") or (eleccion != "no"): 
             raise ValueError ("Debe responder con si o con no")
-           
-        else: 
+    
+            
+    else: 
             dicc_cargados[situacion] = nombre 
             return "si"
             break
     
-def menu_situacion(situacion):   
-    '''
     
 
-    Parameters
+def menu_parte_1(info_estudiante2, presentar_comentario,valoracion_comentario,grafico,calcular_promedios_grupales,comparar_promedios,feedback_comentario):
+    '''
+     Parameters
     ----------
+    info_estudiante2 : function
+        Función que solicita y devuelve las emociones iniciales de un
+        nuevo estudiante.
 
-   situacion: str
-       Situacion en la que se encuentra, parciales o no parciales 
+    presentar_comentario : function
+        Función que presenta una situación académica y permite seleccionar
+        un comentario.
 
+    valoracion_comentario : function
+        Función que registra las emociones del estudiante luego de
+        visualizar el comentario.
+
+    grafico : function
+        Función que genera y muestra gráficos con los cambios emocionales.
+
+    calcular_promedios_grupales : function
+        Función que calcula los promedios grupales de estrés,
+        motivación y tranquilidad.
+
+    comparar_promedios : function
+        Función que compara los promedios emocionales antes y después
+        de los comentarios.
+
+    feedback_comentario : function
+        Función que genera una devolución sobre el impacto emocional
+        de los comentarios seleccionados.
+    
     Raises
     ------
     ValueError
-        DESCRIPTION.
+        Si el usuario ingresa una opción no válida en alguno de los
+        menús interactivos.
 
     Returns
     -------
     None.
-
+    
     '''
-    situaciones = []
     
-    while True: 
-        situaciones.append(situacion)
-        
-        if (situacion != "parciales") and (situacion != "no parciales"):
-            raise ValueError("La situacion ingresada no existe")
-            
-        
-        elif situacion in situaciones: 
-            raise ValueError("La situacion ya fue ingresada")
-            
-        else: 
-            break
-        
-        if situacion == "no parciales": 
-            situacion = "no_parciales"
-            
-        return situacion 
     
+    
+    
+    while True:
+        try: 
+            continuar=input("Desea continuar con el programa? (si/no)").lower()
+            
+            
+            if continuar=="no": 
+                print("Gracias por participar")
+                break
+            
+            elif continuar=="si":
+               
+               print("1. Agregar otro estudiante.","\n", "Permite cargar el estado emocional inicial, presentar una situacion y valorar el comentario",'\n')
+               print("2. Visualizar grafico","\n","Muestra los cambios emocionales generados a partir de los comentario (Esto va a incluir datos simulados)")
+               print("3.Ver metricas", "\n", "muestra promedios grupales, cambios emocionales y feedback del comentario (Esto va a incluir datos simulados)",'\n')
+               
+               accion = int(input("Que quiere realizar? : "))
+                
+            try:
+                 if accion == 1:
+                     while True:
+                         agregar_estudiante = input(
+                             "¿Desea agregar la información de otro estudiante? (si/no): "
+                         ).lower()
 
+                         if agregar_estudiante == "si":
+                             estres_neutro2, tranquilidad_neutro2, motivacion_neutro2 = info_estudiante2()
+                             comentario2 = presentar_comentario()
+                             estres_e2, tranquilidad_e2, motivacion_e2 = valoracion_comentario()
+                             return comentario2
+
+                         elif agregar_estudiante == "no":
+                             print("Se terminó la carga de estudiantes")
+                             break
+
+                         else:
+                             print("Debe ingresar si o no")
+
+                 elif accion == 2:
+                     ver_grafico = grafico()
+                     return ver_grafico
+
+                 elif accion == 3:
+                     print(
+                         "Promedios grupales: ", calcular_promedios_grupales(), "\n",
+                         "Cambios de las emociones: ", comparar_promedios(), "\n",
+                         "Feedback del comentario: ", feedback_comentario()
+                     )
+
+                 else:
+                     print("La opción es inválida")
+
+            except ValueError:
+                 print("Ocurrió un error con los datos ingresados")
+    
 
                     
                             

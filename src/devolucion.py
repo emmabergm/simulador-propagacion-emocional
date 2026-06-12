@@ -1,5 +1,10 @@
 
-def feedback_emociones(cambio_estres, cambio_motivacion,cambio_tranquilidad): 
+
+
+         
+
+def feedback_emociones(cambio_estres, cambio_tranquilidad, cambio_motivacion): 
+
     '''
     Funcion que devuelve un feedback a partir de lo que sucedio con las emociones 
 
@@ -71,18 +76,11 @@ def feedback_emociones(cambio_estres, cambio_motivacion,cambio_tranquilidad):
     print (feedback)
     print (emocion_predominante)
  
-
-      
-
-   
+ 
+  
 
 
 
-
-
-
-   
-
-
+    
 
 
