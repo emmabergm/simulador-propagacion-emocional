@@ -42,7 +42,6 @@ def menu_parte2():
     eleccion=input("Desea seguir con la parte 2? (si/no): ").lower
     
     while True: 
-        try: 
             if eleccion=="si": 
                 return eleccion
             elif eleccion=="no": 
