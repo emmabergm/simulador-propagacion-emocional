@@ -1,52 +1,5 @@
-def menu_2(): 
-   '''
-   Le da opciones al usuario de que devolucion quiere ver: 
-   - Feedback de como influyen los comentarios 
-   - Grafico neutro y grafico post que compare el cambio 
-   - promedio grupal de emocion a partir de cada comentario 
-   
-   Raises
-   ValueError: si la opcion que elige ver no es valida.
 
-   Returns: 
-   ----------
-   str: opcion elegida 
-   '''
-   1 == "Feedback"
-   2 == "Graficos"
-   3 == "Promedio de emociones" 
-   print("===== MENÚ DE RESULTADOS =====")
-
-   print("1 - Feedback personalizado")
-   print("    Para obtener una devolución sobre cómo su comentario")
-   print("    impactó en las emociones de sus compañeros según")
-   print("    el contexto académico seleccionado.\n")
-
-   print("2 - Visualización de emociones")
-   print("    Para ver gráficos comparando las emociones antes")
-   print("    y después del comentario realizado.\n")
-
-   print("3 - Promedios emocionales")
-   print("    Para ver los niveles promedio de estrés,")
-   print("    motivación y tranquilidad del grupo.\n")
-
-   
-   
-   while True:
-    try:
-        opcion = input("Ingrese la opción deseada: ")
-
-        if opcion != 1 or opcion != 2 or opcion != 3:
-            raise ValueError("La opción ingresada no es válida")
-
-        return opcion
-
-    except ValueError:
-        print("La opción ingresada no es válida. Intente nuevamente.")
-    
-         
-
-def feedback_emociones(menu_2, archivo_e_n, archivo_e_post): 
+def feedback_emociones(cambio_estres, cambio_motivacion,cambio_tranquilidad): 
     '''
     Funcion que devuelve un feedback a partir de lo que sucedio con las emociones 
 
@@ -64,59 +17,64 @@ def feedback_emociones(menu_2, archivo_e_n, archivo_e_post):
     str: feedback 
 
     '''
+    cambios = []
+    
+    if cambio_estres > 1:
+       cambios.append ("El estres del grupo aumento,")
+    elif cambio_estres < -1:
+       cambios.append ("El estres del grupo bajo, lo cual es positivo,")
 
-   cambios = []
+    if cambio_motivacion > 1:
+       cambios.append ("la motivacion mejoro,")
+    elif cambio_motivacion < -1:
+       cambios.append ("la motivacion cayo,")
 
-   if cambio_estres > 1:
-      cambios.append ("El estres del grupo aumento,")
-   elif cambio_estres < -1:
-      cambios.append ("El estres del grupo bajo, lo cual es positivo,")
+    if cambio_tranquilidad > 1:
+       cambios.append ("el grupo se encuentra mas tranquilo.")
+    elif cambio_tranquilidad < -1:
+       cambios.append ("la tranquilidad disminuyo.")
 
-   if cambio_motivacion > 1:
-      cambios.append ("la motivacion mejoro,")
-   elif cambio_motivacion < -1:
-      cambios.append ("la motivacion cayo,")
+    if cambios==[]:
+       feedback = ("El clima se mantuvo bastante estable despues del comentario")
+    else: 
+       feedback = (f"Despues del comentario, {cambios}")
 
-   if cambio_tranquilidad > 1:
-      cambios.append ("el grupo se encuentra mas tranquilo.")
-   elif cambio_tranquilidad < -1:
-      cambios.append ("la tranquilidad disminuyo.")
+    return feedback
+    print (feedback)
 
-   if not in partes:
-      feedback = "El clima se mantuvo bastante estable despues del comentario"
-   else: 
-      feedback = (f"Despues del comentario, {cambios}")
+ #si queremos que diga cual emocion cambio mas
+     
+    if cambio_estres>=0:
+        cambio_estres_positivo = cambio_estres
+    else:
+        cambio_estres_positivo = cambio_estres * -1
 
-   return feedback
-   print (feedback)
+    if cambio_motivacion>=0:
+        cambio_motivacion_positivo = cambio_motivacion
+    else:
+        cambio_motivacion_positivo = cambio_motivacion * -1
 
-#si queremos que diga cual emocion cambio mas
-if cambio_estres>=0:
-   cambio_estres_positivo = cambio_estres
-else:
-   cambio_estres_positivo = cambio_estres * -1
-
-if cambio_motivacion>=0:
-   cambio_motivacion_positivo = cambio_motivacion
-else:
-   cambio_motivacion_positivo = cambio_motivacion * -1
-
-if cambio_tranquilidad>=0:
-   cambio_tranquilidad_positivo = cambio_tranquilidad
-else:
-   cambio_tranquilidad_positivo = cambio_tranquilidad * -1
-
-
-if cambio_estres_positivo >= cambio_motivacion_positivo and cambio_estres_positivo >= cambio_tranquilidad_positivo:
-    emocion_predominante = "Cuidado con lo que decis! Ahora el estado emocional que predomina en el grupo es el estres!"
-elif cambio_motivacion_positivo >= cambio_estres_positivo and cambio_motivacion_positivo >= cambio_tranquilidad_positivo:
-    emocion_predominante = "Buenisimo el comentario! La motivacion esta predominando en el estado emocional del grupo"
-else:
-    emocion_predominante = "Tu mensaje genero tranquilidad en el grupo!"
+    if cambio_tranquilidad>=0:
+        cambio_tranquilidad_positivo = cambio_tranquilidad
+    else:
+        cambio_tranquilidad_positivo = cambio_tranquilidad * -1
 
 
-print (feedback)
-print (emocion_predominante)
+    if cambio_estres_positivo >= cambio_motivacion_positivo and cambio_estres_positivo >= cambio_tranquilidad_positivo:
+         emocion_predominante = "Cuidado con lo que decis! Ahora el estado emocional que predomina en el grupo es el estres!"
+    elif cambio_motivacion_positivo >= cambio_estres_positivo and cambio_motivacion_positivo >= cambio_tranquilidad_positivo:
+         emocion_predominante = "Buenisimo el comentario! La motivacion esta predominando en el estado emocional del grupo"
+    else:
+         emocion_predominante = "Tu mensaje genero tranquilidad en el grupo!"
+
+
+    print (feedback)
+    print (emocion_predominante)
+ 
+
+      
+
+   
 
 
 
