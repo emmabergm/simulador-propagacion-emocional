@@ -83,10 +83,14 @@ if menu_1 == "True":
   
 else: 
   print("Muchas gracias por su respuesta!") #NO ESTA BIEN 
+<<<<<<< HEAD
+edad_e_2 = int(input("Ingrese su edad: "))
+=======
 
+>>>>>>> d7ecc86d198be304d1ac7c7104bb4a9c2eba9eae
 menu_1 = "funcion de menu"
 
-  edad_e_2 = int(input("Ingrese su edad: "))
+edad_e_2 = int(input("Ingrese su edad: "))
 
 informacion_estudiante2 = info_estudiante2 (df_neutro, estudiante_2, edad_e_2 )
 presentar_comentario(df_comentario, respuesta_1, indice, situacion_1) 
@@ -99,4 +103,3 @@ valoracion_2 = valoracion_comentario(estudiante_2, edad_e_2, respuesta, df_comen
 # Parte 3 (analisis)
 
 
->>>>>>> d3a5af79fdbeb750269292902e5c1731406fe1e3

@@ -12,9 +12,9 @@ def menu_2():
    ----------
    str: opcion elegida 
    '''
-   1 == "Feedback"
-   2 == "Graficos"
-   3 == "Promedio de emociones" 
+   1 == "Feedback de los comentarios"
+   2 == "Graficos de cambios de emociones"
+   3 == "Promedio de las emociones" 
    print("===== MENÚ DE RESULTADOS =====")
 
    print("1 - Feedback personalizado")
@@ -43,7 +43,8 @@ def menu_2():
 
     except ValueError:
         print("La opción ingresada no es válida. Intente nuevamente.")
-    
+
+
          
 
 def feedback_emociones(menu_2, archivo_e_n, archivo_e_post): 
@@ -120,22 +121,20 @@ print (emocion_predominante)
 
 
 
-
-
-################
-   print("2. Visualizar grafico","\n","Muestra los cambios emocionales generados a partir de los comentario (Esto va a incluir datos simulados)")
-   print("3.Ver metricas", "\n", "muestra promedios grupales, cambios emocionales y feedback del comentario (Esto va a incluir datos simulados)",'\n')
+########  
+  print("2. Visualizar grafico","\n","Muestra los cambios emocionales generados a partir de los comentario (Esto va a incluir datos simulados)")
+  print("3.Ver metricas", "\n", "muestra promedios grupales, cambios emocionales y feedback del comentario (Esto va a incluir datos simulados)",'\n')
 
 
 
- elif accion == 2: 
-     ver_grafico= grafico()
-     return ver_grafico
-     
- elif accion == 3: 
-     print("Promedios grupales: ", calcular_promedios_grupales(), "/n", 
-           "Cambios de las emociones: ", comparar_promedios(), "/n", 
-           "Feedback del comentario: ", feedback_comentario())
+elif accion == 2: 
+    ver_grafico= grafico()
+    return ver_grafico
+    
+elif accion == 3: 
+    print("Promedios grupales: ", calcular_promedios_grupales(), "/n", 
+          "Cambios de las emociones: ", comparar_promedios(), "/n", 
+          "Feedback del comentario: ", feedback_comentario())
 
 
 
