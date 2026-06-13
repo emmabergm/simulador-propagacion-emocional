@@ -1,10 +1,7 @@
-
-
-
 def info_estudiante2 (df_neutro):
     '''
-    Le pregunta al estudiante por su informacion actual neutra 
-
+    Le solicita la informacion personal y el estado emocional inicial de un estudiante, valida los datos ingresados y los almacena en el DataFrame de emociones neutras
+    
     Parameters
     ----------
     df_neutro: DataFrame 
@@ -13,16 +10,16 @@ def info_estudiante2 (df_neutro):
     Raises 
     -------
     ValueError
-        Si los valores ingresados estan fuera del rango 
+        Si la edad ingresada es negativa o si alguna de las valoraciones emocionales se encuentra fuera del rango permitido
     
     Returns
     -------
     estudiante_2 : str
         Nombre del estudiante dos que va a valorar sus emociones a partir de los comentarios 
-      edad_e_2: int
-          Edad del estudiante 2 
-
+    edad_e_2: int
+        Edad del estudiante 2 
     '''
+    
     estudiante_2 = input("Ingrese su nombre: ")
     edad_e_2 = int(input("Ingrese su edad: "))
     
@@ -48,19 +45,19 @@ def presentar_comentario(df_comentario, respuesta, indice, situacion ):
     La funcion se encarga de encontrar en el DataFrame el comentario y presentarselo al usuario 2 que va a valorar su estado emocional a partir de eso
     Parameters
     ----------
-    df_comentario : DataFrame
-        DataFrame que contiene los comentarios.
+    df_comentario : pandas.DataFrame
+        DataFrame que contiene los comentarios de las distintas situaciones
     respuesta : str
         Respuesta seleccionada por el usuario en la primera parte de la actividad
     indice : int
         Numero random elegido por el programa correspondiente a la opcion a elegir de las respuestas
     situacion : str
-        Situacion 1 en la que se encuentra el usuario 1
+        Situacion para la cual se desea obtener el comentario asociado
         
     Returns
     -------
     str: 
-        Comentario elegido por el usuario 1.
+        Comentario del DataFrame elegido por el usuario 1.
 
     '''
     comentario = df_comentario.loc[(df_comentario["id_pregunta"] == 1) &(df_comentario[situacion] == True),"comentario"].iloc[0]
