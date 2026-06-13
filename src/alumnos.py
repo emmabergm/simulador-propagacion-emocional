@@ -8,20 +8,19 @@ def info_estudiante2 (df_neutro):
     Parameters
     ----------
     df_neutro: DataFrame 
-        Dataframe con la informacion predeterminada de estudiantes en estado neutro 
-     estudiante_2 : str
-        Nombre del estudiante dos que va a valorar sus emociones a partir de los comentarios 
-      edad_e_2: int
-          Edad del estudiante 2 
+        Dataframe con la informacion predeterminada de estudiantes en estado neutro  
           
     Raises 
     -------
     ValueError
-        si los valores estan fuera del rango 
+        Si los valores ingresados estan fuera del rango 
     
     Returns
     -------
-    None
+    estudiante_2 : str
+        Nombre del estudiante dos que va a valorar sus emociones a partir de los comentarios 
+      edad_e_2: int
+          Edad del estudiante 2 
 
     '''
     estudiante_2 = input("Ingrese su nombre: ")
