@@ -1,5 +1,4 @@
 import pandas as pd
-import os 
 
 from src.comentario import situacion
 from src.comentario import numero_random
@@ -16,22 +15,15 @@ from src.Partes import parte_2
 #from src.devolucion import 
 
 
-BASE = os.path.dirname(os.path.abspath(__file__))
-
-archivo_neutro = os.path.join(BASE, "archivos", "archivo_e_n.xlsx")
-archivo_e_comentario1 = os.path.join(BASE, "archivos", "archivo_e_post.xlsx")
-archivo_comentario = os.path.join(BASE, "archivos", "archivo_comentario (1).xlsx")
-
 # Abrir archivos: 
 archivo_neutro= "archivos/archivo_e_n.xlsx"
 
 archivo_e_comentario1= "archivos/archivo_e_post.xlsx"
 
-<<<<<<< HEAD
 archivo_comentario = "archivos\archivo_comentario (1).xlsx"
-=======
+
 archivo_comentario = "C:/Users/camil/OneDrive/Documents/GitHub/simulador-propagacion-emocional/archivos/archivo_comentario (1).xlsx"
->>>>>>> 774a8d346fa76244fe10bbb380c72c3db419e48c
+
 
 try: 
      
