@@ -59,7 +59,7 @@ try:
 # Parte 1 (interaccion con estudiante 1)
         
     
-    if menu_principal == "si":  
+    if menu_principal == "no":  
         indice = numero_random(df_comentario)
         parte_1_sit1 = parte_1(situacion, indice, df_comentario)
         df_asociado_1 = asociacion(parte_1_sit1, df_tranquilidad, df_motivacion, df_estres)
@@ -69,10 +69,12 @@ try:
     
 #Parte 2   
 
-    menu_2 = menu_parte2() 
-    if menu_2 == "si": 
-        parte_2_com1 = parte_2(df_neutro, df_comentario, parte_1_sit1, indice, situacion, df_asociado_1) #COMO LE PASAMOS LA SITUACION?????
-        parte_2_com2 = parte_2(df_neutro, df_comentario, parte_1_sit2, indice, situacion_2, df_asociado_2)
+    elif menu_principal == "si": 
+
+        menu_2 = menu_parte2() 
+        if menu_2 == "si": 
+            parte_2_com1 = parte_2(df_neutro, df_comentario, parte_1_sit1, indice, situacion, df_asociado_1) #COMO LE PASAMOS LA SITUACION?????
+            parte_2_com2 = parte_2(df_neutro, df_comentario, parte_1_sit2, indice, situacion_2, df_asociado_2)
         
     
 # Parte 3
