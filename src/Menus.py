@@ -3,7 +3,7 @@ from src.analisis import comparar_promedios
 from src.analisis import feedback_comentario 
 from src.graficos import grafico
 from src.Partes import parte_2
-
+dicc_cargados = {}
 def menu_inicio(nombre, situacion): 
     '''
     Agrega los nombres a una lista, para guardar los datos de los usuarios que ingresan 
@@ -27,7 +27,7 @@ def menu_inicio(nombre, situacion):
 
     '''
     
-    dicc_cargados = {}
+    
     if dicc_cargados=={}: 
         dicc_cargados[situacion]=nombre
         
