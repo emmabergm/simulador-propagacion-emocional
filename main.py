@@ -1,5 +1,7 @@
 import pandas as pd
 
+from src.comentario import realizar_pregunta
+from src.comentario import guardar_respuesta
 from src.comentario import situacion
 from src.comentario import numero_random
 from src.comentario import asociacion
@@ -49,7 +51,7 @@ try:
        
 
     menu_principal = menu_inicio(nombre_grupo, situacion)
-
+    
     
     
 
