@@ -12,11 +12,18 @@ def menu_inicio(nombre, situacion):
     ----------
     nombre : str
         Nombre de un grupo experimental
+    situacion : str
+        Situacion en la que se encuentra el usuario (parcial/no parcial)
 
-
+    Raises
+    ------
+    ValueError
+        Se produce si la respuesta ingresada por el usuario no es "si" ni "no"
+        
     Returns
     -------
-    None.
+    str
+       La respuesta ingresada por el usuario, y "si" cuando se crea un nuevo registro
 
     '''
     
@@ -39,6 +46,20 @@ def menu_inicio(nombre, situacion):
 
     
 def menu_parte2(): 
+    """
+    Consulta al usuario si desea seguir con la segunda parte del programa.
+
+    Raises
+    ------
+    ValueError
+        Se produce cuando la respuesta ingresada no es "si" ni "no"
+
+    Returns
+    -------
+    str : eleccion 
+        Devuelve "si" si el usuario desea continuar con la segunda parte.
+        Devuelve "no" si el usuario decide finalizar con el programa
+    """
      
     eleccion=input("Desea seguir con la parte 2? (si/no): ").lower
     
@@ -56,9 +77,27 @@ def menu_parte2():
 
 def menu_parte_3(df_neutro, df_asociado_1, df_asociado_2, situacion, df_comentario, parte_1_sit1, parte_1_sit2, indice, comentario):
     '''
-     Parameters
+    Parameters
     ----------
-   
+    df_neutro : pandas.DataFrame
+       DataFrame que contiene las valoraciones emocionales iniciales de los participantes
+    df_asociado_1: pandas.DataFrame
+       DataFrame que contiene las valoraciones emocionales luego del primer comentario
+    df_asociado_2: pandas.DataFrame
+       DataFrame que contiene las valoraciones emocionales luego del segundo comentario
+    situacion : str
+        Situacion seleccionada por el participante durante el programa
+    df.comentario : pandas.DataFrame
+        DataFrame que contiene los comentarios asociados a cada situacion
+    parte_1_sit1 : pandas.DataFrame
+        Datos correspondientes a la primera situacion elegida para agregar nuevos registros
+    parte_1_sit2 : pandas.DataFrame
+        Datos correspondientes a la segunda situacion elegida para agregar nuevos registros
+    indice : int
+        Indice de la situacion o comentario seleccionado
+    Comentario : str
+        Comentario evaluado por el participabnte
+        
     Raises
     ------
     ValueError
