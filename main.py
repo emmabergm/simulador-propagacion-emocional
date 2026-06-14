@@ -14,12 +14,16 @@ from src.Partes import parte_2
 #from src.graficos import 
 #from src.devolucion import 
 
-# Abrir archivos: 
-archivo_neutro= "C:/Users/camil/OneDrive/Desktop/Simulador emocional/simulador-propagacion-emocional/archivos/archivo_e_n.xlsx"
 
-archivo_e_comentario1= "C:/Users/camil/OneDrive/Desktop/Simulador emocional/simulador-propagacion-emocional/archivos/archivo_e_post.xlsx"
+# Abrir archivos: 
+archivo_neutro= "archivos/archivo_e_n.xlsx"
+
+archivo_e_comentario1= "archivos/archivo_e_post.xlsx"
+
+archivo_comentario = "archivos\archivo_comentario (1).xlsx"
 
 archivo_comentario = "C:/Users/camil/OneDrive/Documents/GitHub/simulador-propagacion-emocional/archivos/archivo_comentario (1).xlsx"
+
 
 try: 
      
@@ -45,8 +49,7 @@ try:
        
 
     menu_principal = menu_inicio(nombre_grupo, situacion)
-    print(menu_principal)
-  
+
     
     
 
