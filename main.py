@@ -1,12 +1,14 @@
 import pandas as pd
 
 from src.comentarios import situacion
-from src.alumnos import info_estudiante2 
-from src.alumnos import valoracion_comentario
-from src.analisis import  unir_datos_emocionales
-from src.analisis import calcualar_promedios_grupales
-from src.analisis import comparar_promedios
-from src.analisis import feedback_comentario
+from src.comentarios import numero_random 
+from src.comentarios import asociacion
+from src.menus import menu_inicio
+from src.menus import menu_parte_2 
+from src.menus import menu_parte_3
+from src.partes import parte_1
+from src.partes import parte_2
+
 
 #from src.validacion_datos import 
 #from src.graficos import 
@@ -55,16 +57,17 @@ try:
     if menu_principal == "si":  
         indice = numero_random()
         parte_1_sit1 = parte_1(situacion, indice, df_comentario)
-        df_asociado_1 = asociado(parte_1_sit1, df_tranquilidad, df_motivacion, df_estres)
-        parte_1_sit_2 = parte_1(situacion, indice, df_comentario)
-        df_asociado_2 = asociado(parte_1_sit2, df_tranquilidad, df_motivacion, df_estres)
+        df_asociado_1 = asociacion(parte_1_sit1, df_tranquilidad, df_motivacion, df_estres)
+        situacion_2 = situacion()
+        parte_1_sit2 = parte_1(situacion_2, indice, df_comentario)
+        df_asociado_2 = asociacion(parte_1_sit2, df_tranquilidad, df_motivacion, df_estres)
     
 #Parte 2   
 
     menu_2 = menu_parte_2() 
     if menu_2 == "si": 
         parte_2_com1 = parte_2(df_neutro, df_comentario, parte_1_sit1, indice, situacion, df_asociado_1) #COMO LE PASAMOS LA SITUACION?????
-        parte_2_com2 = parte_2(df_neutro, df_comentario, parte_1_sit2, indice, situacion, df_asociado_2)
+        parte_2_com2 = parte_2(df_neutro, df_comentario, parte_1_sit2, indice, situacion_2, df_asociado_2)
         
     
 # Parte 3
@@ -72,7 +75,7 @@ try:
     menu_3 = menu_parte_3(df_neutro, df_asociado_1, df_asociado_2, situacion, df_comentario, parte_1_sit1, parte_1_sit2, indice)
 
 except ValueError as e:
-    ("Error: ")
+    ("Error: ", e)
 
     
 
