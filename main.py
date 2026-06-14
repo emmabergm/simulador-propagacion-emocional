@@ -19,7 +19,7 @@ archivo_neutro= "C:/Users/camil/OneDrive/Desktop/Simulador emocional/simulador-p
 
 archivo_e_comentario1= "C:/Users/camil/OneDrive/Desktop/Simulador emocional/simulador-propagacion-emocional/archivos/archivo_e_post.xlsx"
 
-archivo_comentario = "C:/Users\camil\OneDrive\Documents\GitHub\simulador-propagacion-emocional\archivos\archivo_comentario (1).xlsx"
+archivo_comentario = "C:/Users/camil/OneDrive/Documents/GitHub/simulador-propagacion-emocional/archivos/archivo_comentario (1).xlsx"
 
 try: 
      
