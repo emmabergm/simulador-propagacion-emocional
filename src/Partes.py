@@ -13,7 +13,7 @@ from src.alumnos import valoracion_comentario
 
 def parte_1(situacion, indice, df_comentario): 
     
-        respuesta = realizar_pregunta(indice, df_comentario)
+        respuesta = realizar_pregunta(df_comentario,indice)
         df_respuesta = guardar_respuesta(respuesta, indice, df_comentario, situacion )
     
         return respuesta  
