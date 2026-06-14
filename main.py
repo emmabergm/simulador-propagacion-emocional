@@ -1,7 +1,7 @@
 import pandas as pd
 
 from src.comentario import situacion
-from src.comentario import numero_random 
+from src.comentario import numero_random
 from src.comentario import asociacion
 from src.menus import menu_inicio
 from src.menus import menu_parte_2 
