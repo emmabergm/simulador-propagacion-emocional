@@ -71,23 +71,7 @@ def comparar_promedios(diccionario_promedio_neutro, diccionario_promedio_post):
    return cambio_estres, cambio_tranquilidad, cambio_motivacion
 
        
-   
 
-   
-
-
-
-#def identificar_emocion_mas_afectada(df_cambios):
-    #"""
-    #Identifica cuál fue la emoción que más cambió después del comentario.
-
-    #Esta función analiza los cambios emocionales calculados y determina si el
-    #comentario afectó principalmente el estrés, la calma, la motivación, la
-    #ansiedad u otra emoción medida.
-  
-    #"""
-    #pass
-#Agregar para complejizar: PREGUNTAR
 
 
 def feedback_comentario( situacion,comentario, cambio_estres, cambio_tranquilidad, cambio_motivacion ): 
