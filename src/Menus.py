@@ -37,6 +37,7 @@ def menu_inicio(nombre, situacion):
         while True: 
             eleccion = input("Desea continuar con la informacion ya cargada?: ")
             eleccion = eleccion.lower()
+            print(dicc_cargados)
             return eleccion
             break 
         
@@ -48,7 +49,8 @@ def menu_inicio(nombre, situacion):
             dicc_cargados[situacion] = nombre 
             return "si"
 
-    
+#
+   
 def menu_parte2(): 
     """
     Consulta al usuario si desea seguir con la segunda parte del programa.
