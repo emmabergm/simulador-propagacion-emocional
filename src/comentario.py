@@ -30,10 +30,15 @@ def situacion():
     
     return situacion 
 
+def numero_random(df_comentario): 
+    indice= random.randint(0, len(df_comentario)-1)
+    return indice 
+    
+
 
     
     
-def realizar_pregunta(df_comentario): 
+def realizar_pregunta(df_comentario, indice): 
     '''
     Presentarle la sitaucion al usuario (que el programa presente una situacion random) y preguntar que comentario haria 
 
@@ -49,7 +54,7 @@ def realizar_pregunta(df_comentario):
     '''
      
     
-    indice= random.randint(0, len(df_comentario)-1)
+   
     
     situacion= df_comentario.iloc[indice]["comentario profesora"]
     
