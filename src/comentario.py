@@ -9,18 +9,17 @@ def situacion():
     situacion
 
     '''
-    situaciones = []
+    
     
     while True: 
         situacion = input("En que situacion academica se encuentra? (parcailes/ no parciales)")
         situacion = situacion.lower()
-        situaciones.append(situacion)
+        
         
         if (situacion != "parciales") and (situacion != "no parciales"):
             raise ValueError("La situacion ingresada no existe")
         
-        elif situacion in situaciones: 
-            raise ValueError("La situacion ya fue ingresada")
+        
             
         else: 
             break
