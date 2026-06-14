@@ -54,14 +54,14 @@ def realizar_pregunta(df_comentario):
     situacion= df_comentario.iloc[indice]["comentario profesora"]
     
 
-    opciones = df_comentario[df_comentario["id_situacion"] == id_situacion]
+    opciones = df_comentario[df_comentario["id_situacion"] == situacion]
 
     for i in range(len(opciones)): 
         print(
             opciones.iloc[i]["opcion"],
             opciones.iloc[i]["comentario"])
         
-    print("Ante esta situacion: ", id_situacion)
+    print("Ante esta situacion: ", situacion)
    
 
     a= df_comentario.iloc[indice]["a"]
