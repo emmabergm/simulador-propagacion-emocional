@@ -1,8 +1,8 @@
-from src.analisis import calcular_promedios_grupales
+from src.analisis import calcualar_promedios_grupales
 from src.analisis import comparar_promedios
 from src.analisis import feedback_comentario 
 from src.graficos import grafico
-from src.partes import parte_2
+from src.Partes import parte_2
 
 def menu_inicio(nombre, situacion): 
     '''
@@ -130,9 +130,9 @@ def menu_parte_3(df_neutro, df_asociado_1, df_asociado_2, situacion, df_comentar
 
         
                 
-    promedio_neutro = calcular_promedios_grupales(df_neutro)
-    promedio_comentario1 = calcular_promedios_grupales(df_asociado_1)
-    promedio_comentario2 = calcular_promedios_grupales(df_asociado_2)
+    promedio_neutro = calcualar_promedios_grupales(df_neutro)
+    promedio_comentario1 = calcualar_promedios_grupales(df_asociado_1)
+    promedio_comentario2 = calcualar_promedios_grupales(df_asociado_2)
                 
     cambio_estres1, cambio_motivacion1, cambio_tranquilidad1 = comparar_promedios(promedio_neutro, promedio_comentario1) 
     cambio_estres2, cambio_motivacion2, cambio_tranquilidad2 = comparar_promedios(promedio_neutro, promedio_comentario2)
