@@ -2,6 +2,7 @@ from src.analisis import calcular_promedios_grupales
 from src.analisis import comparar_promedios
 from src.analisis import feedback_comentario 
 from src.graficos import grafico
+from src.partes import parte_2
 
 def menu_inicio(nombre, situacion): 
     '''
@@ -42,7 +43,7 @@ def menu_inicio(nombre, situacion):
     else: 
             dicc_cargados[situacion] = nombre 
             return "si"
-            break
+
     
 def menu_parte2(): 
     """

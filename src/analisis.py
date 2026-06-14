@@ -1,33 +1,4 @@
 
-def unir_ideas (df_neutro, df_post1, df_post2):
-    '''
-    Se une la informacion de cada estudiante segun la emocion. 
-
-    Parameters
-    ----------
-    situacion : str
-        Contexto academico, parciales no parciales.
-    respuesta : str
-        Letra que representa el comentario.
-
-    Returns
-    -------
-    df_comparacion : xlsx
-        Las emociones, respectivamnete, de cada estudiante.
-
-    '''
-    df_comparacion = pd.merge(
-        df_neutro,
-        df_post1,
-        on="nombre")
-
-    df_comparacion = df_comparacion.drop(
-        columns=["edad", "situacion"]
-    )
-
-    return df_comparacion
-    
-
 
 def calcualar_promedios_grupales(df):
     """
