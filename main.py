@@ -3,11 +3,11 @@ import pandas as pd
 from src.comentario import situacion
 from src.comentario import numero_random
 from src.comentario import asociacion
-from src.menus import menu_inicio
-from src.menus import menu_parte_2 
-from src.menus import menu_parte_3
-from src.partes import parte_1
-from src.partes import parte_2
+from src.Menus import menu_inicio
+from src.Menus import menu_parte2 
+from src.Menus import menu_parte_3
+from src.Partes import parte_1
+from src.Partes import parte_2
 
 
 #from src.validacion_datos import 
@@ -45,7 +45,7 @@ try:
        
 
     menu_principal = menu_inicio(nombre_grupo, situacion)
-   
+    print(menu_principal)
   
     
     
@@ -64,7 +64,7 @@ try:
     
 #Parte 2   
 
-    menu_2 = menu_parte_2() 
+    menu_2 = menu_parte2() 
     if menu_2 == "si": 
         parte_2_com1 = parte_2(df_neutro, df_comentario, parte_1_sit1, indice, situacion, df_asociado_1) #COMO LE PASAMOS LA SITUACION?????
         parte_2_com2 = parte_2(df_neutro, df_comentario, parte_1_sit2, indice, situacion_2, df_asociado_2)
