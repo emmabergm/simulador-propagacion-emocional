@@ -58,7 +58,7 @@ try:
         
     
     if menu_principal == "si":  
-        indice = numero_random()
+        indice = numero_random(df_comentario)
         parte_1_sit1 = parte_1(situacion, indice, df_comentario)
         df_asociado_1 = asociacion(parte_1_sit1, df_tranquilidad, df_motivacion, df_estres)
         situacion_2 = situacion()
