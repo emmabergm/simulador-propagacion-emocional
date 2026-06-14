@@ -1,8 +1,8 @@
 import pandas as pd
 
-from src.comentarios import situacion
-from src.comentarios import numero_random 
-from src.comentarios import asociacion
+from src.comentario import situacion
+from src.comentario import numero_random 
+from src.comentario import asociacion
 from src.menus import menu_inicio
 from src.menus import menu_parte_2 
 from src.menus import menu_parte_3
