@@ -1,7 +1,7 @@
 import pandas as pd
 
 from src.comentario import situacion
-from src.comentario import indice
+from src.comentario import numero_random
 from src.comentario import asociacion
 from src.menus import menu_inicio
 from src.menus import menu_parte_2 
@@ -55,7 +55,7 @@ try:
         
     
     if menu_principal == "si":  
-        indice = indice()
+        indice = numero_random()
         parte_1_sit1 = parte_1(situacion, indice, df_comentario)
         df_asociado_1 = asociacion(parte_1_sit1, df_tranquilidad, df_motivacion, df_estres)
         situacion_2 = situacion()
