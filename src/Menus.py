@@ -30,9 +30,16 @@ def menu_inicio(nombre, situacion):
     '''
     
     
+
+    if dicc_cargados=={}: 
+        dicc_cargados[situacion]=nombre
+        return "si"
+        
+
     if situacion not in dicc_cargados:
         dicc_cargados[situacion] = nombre
         return "no"  
+
     
     elif dicc_cargados[situacion] == nombre:
         while True:
@@ -62,7 +69,7 @@ def menu_parte2():
         Devuelve "no" si el usuario decide finalizar con el programa
     """
      
-    eleccion=input("Desea seguir con la parte 2? (si/no): ").lower
+    eleccion=input("Desea seguir con la parte 2? (si/no): ").lower()
     
     while True: 
             if eleccion=="si": 
