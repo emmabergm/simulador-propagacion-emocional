@@ -58,7 +58,7 @@ def realizar_pregunta(df_comentario, indice):
     situacion= df_comentario.iloc[indice]["comentario profesora"]
     
 
-    opciones = df_comentario[df_comentario["id_situacion"] == situacion]
+    opciones = df_comentario[df_comentario["situacion"] == situacion]
 
     for i in range(len(opciones)): 
         print(
