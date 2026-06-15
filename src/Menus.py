@@ -30,16 +30,16 @@ def menu_inicio(nombre, situacion):
     '''
     
     
-<<<<<<< HEAD
+
     if dicc_cargados=={}: 
         dicc_cargados[situacion]=nombre
         return "si"
         
-=======
+
     if situacion not in dicc_cargados:
         dicc_cargados[situacion] = nombre
         return "no"  
->>>>>>> 0b7c20820e179f21f70f6b4f9b6a55add8fb3fed
+
     
     elif dicc_cargados[situacion] == nombre:
         while True:
