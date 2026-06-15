@@ -30,6 +30,7 @@ archivo_comentario = "archivos/archivo_comentario (1).xlsx"
 try: 
      
     df_neutro= pd.read_excel(archivo_neutro)
+    
  
     df_comentario = pd.read_excel(archivo_comentario)
     df_comentario.columns = df_comentario.columns.str.strip()
@@ -37,9 +38,9 @@ try:
     df_motivacion= pd.read_excel(archivo_e_comentario1, sheet_name="Comentario_motivacional")
     df_tranquilidad=pd.read_excel(archivo_e_comentario1, sheet_name="Comentario_tranquilidad")
     df_estres=pd.read_excel(archivo_e_comentario1, sheet_name= "Comentario_estres")
+    
 
-    print(df_comentario.columns.tolist())
-    print(df_comentario.head())
+    
 
 
  
@@ -50,35 +51,36 @@ except FileNotFoundError:
 
 try: 
     nombre_grupo = input("Ingrese el nombre de su grupo: ")
-    situacion = situacion()
-    menu_principal = menu_inicio(nombre_grupo, situacion)
+    tipo_situacion = situacion()
+    menu_principal = menu_inicio(nombre_grupo, tipo_situacion)
     
     if menu_principal == "no":  
         indice = numero_random(df_comentario)
-        parte_1_sit1 = parte_1(situacion, indice, df_comentario)
+        parte_1_sit1 = parte_1(tipo_situacion, indice, df_comentario)
         df_asociado_1 = asociacion(parte_1_sit1, df_tranquilidad, df_motivacion, df_estres)
-        situacion_2 = situacion()
-        parte_1_sit2 = parte_1(situacion_2, indice, df_comentario)
+        tipo_situacion_2 = situacion()
+        parte_1_sit2 = parte_1(tipo_situacion_2, indice, df_comentario)
         df_asociado_2 = asociacion(parte_1_sit2, df_tranquilidad, df_motivacion, df_estres)
         
 # Parte 2 
         menu_2 = menu_parte2() 
         if menu_2 == "si": 
-            parte_2_com1 = parte_2(df_neutro, df_comentario, parte_1_sit1, indice, situacion, df_asociado_1)
-            parte_2_com2 = parte_2(df_neutro, df_comentario, parte_1_sit2, indice, situacion_2, df_asociado_2)
+            comentario_1 = parte_2(df_neutro, df_comentario, parte_1_sit1, indice, tipo_situacion, df_asociado_1)
+            comentario_2 = parte_2(df_neutro, df_comentario, parte_1_sit2, indice, tipo_situacion_2, df_asociado_2)
             
 # Parte 3  
-            menu_3 = menu_parte_3(df_neutro, df_asociado_1, df_asociado_2, situacion, df_comentario, parte_1_sit1, parte_1_sit2, indice)
+            menu_3 = menu_parte_3(df_neutro, df_asociado_1, df_asociado_2, tipo_situacion, df_comentario, parte_1_sit1, parte_1_sit2, indice, comentario_1)
     
     elif menu_principal == "si": 
         menu_2 = menu_parte2() 
         if menu_2 == "si": 
-            parte_2_com1 = parte_2(df_neutro, df_comentario, parte_1_sit1, indice, situacion, df_asociado_1)
-            parte_2_com2 = parte_2(df_neutro, df_comentario, parte_1_sit2, indice, situacion_2, df_asociado_2)
-            menu_3 = menu_parte_3(df_neutro, df_asociado_1, df_asociado_2, situacion, df_comentario, parte_1_sit1, parte_1_sit2, indice)
+            comentario_1 = parte_2(df_neutro, df_comentario, parte_1_sit1, indice, tipo_situacion, df_asociado_1)
+            comentario_2 = parte_2(df_neutro, df_comentario, parte_1_sit2, indice, tipo_situacion_2, df_asociado_2)
+            menu_3 = menu_parte_3(df_neutro, df_asociado_1, df_asociado_2, tipo_situacion, df_comentario, parte_1_sit1, parte_1_sit2, indice, comentario_1)
 
 except ValueError as e:
     print("Error: ", e)
+    raise
 
 
     
