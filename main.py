@@ -52,12 +52,7 @@ try:
 
     menu_principal = menu_inicio(nombre_grupo, situacion)
     
-<<<<<<< HEAD
-    
-    
-    
-=======
->>>>>>> 0b7c20820e179f21f70f6b4f9b6a55add8fb3fed
+
 
         
 # Parte 1 (interaccion con estudiante 1)
@@ -82,12 +77,10 @@ try:
             menu_3 = menu_parte_3(df_neutro, df_asociado_1, df_asociado_2, situacion, df_comentario, parte_1_sit1, parte_1_sit2, indice)
     
 # Parte 3
-<<<<<<< HEAD
+
     
         menu_3 = menu_parte_3(df_neutro, df_asociado_1, df_asociado_2, situacion, df_comentario, parte_1_sit1, parte_1_sit2, indice)
-=======
 
->>>>>>> 0b7c20820e179f21f70f6b4f9b6a55add8fb3fed
 
 except ValueError as e:
     ("Error: ", e)
