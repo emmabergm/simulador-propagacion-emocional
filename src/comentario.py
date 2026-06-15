@@ -52,10 +52,9 @@ def realizar_pregunta(df_comentario, indice):
     str: respuesta (a,b,c)
     '''
      
-    
    
     
-    situacion= df_comentario.iloc[indice]["comentario profesora"]
+    situacion= df_comentario.iloc[indice]["id_situacion"]
     
 
     opciones = df_comentario[df_comentario["situacion"] == situacion]
@@ -67,7 +66,6 @@ def realizar_pregunta(df_comentario, indice):
         
     print("Ante esta situacion: ", situacion)
    
-
     a= df_comentario.iloc[indice]["a"]
     b= df_comentario.iloc[indice]["b"]
     c= df_comentario.iloc[indice]["c"]
@@ -104,7 +102,7 @@ def guardar_respuesta (respuesta, indice, df, situacion):
 
     '''
     
-    df_respuesta = df.loc[(df["id_pregunta"] == indice) & (df["opcion"] == respuesta), situacion] = True
+    df_respuesta = df.loc[(df["id_situacion"] == indice) & (df["opcion"] == respuesta), situacion] = True
     
     return df_respuesta
     
