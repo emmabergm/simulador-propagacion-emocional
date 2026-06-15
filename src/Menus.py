@@ -33,7 +33,7 @@ def menu_inicio(nombre, situacion):
 
     if dicc_cargados=={}: 
         dicc_cargados[situacion]=nombre
-        return "si"
+        return "no"
         
 
     if situacion not in dicc_cargados:
