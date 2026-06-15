@@ -12,7 +12,7 @@ def situacion():
     
     
     while True: 
-        situacion = input("En que situacion academica se encuentra? (parcailes/ no parciales)")
+        situacion = input("En que situacion academica se encuentra? (parcailes/ no parciales): ")
         situacion = situacion.lower()
         
         
@@ -55,33 +55,31 @@ def realizar_pregunta(df_comentario, indice):
    
     
     situacion= df_comentario.iloc[indice]["id_situacion"]
+    situacion_texto = df_comentario.iloc[indice]["situacion"]
     
 
-    opciones = df_comentario[df_comentario["situacion"] == situacion]
+    opciones = df_comentario[df_comentario["id_situacion"] == situacion]
 
-    for i in range(len(opciones)): 
-        print(
-            opciones.iloc[i]["opcion"],
-            opciones.iloc[i]["comentario"])
+    
         
-    print("Ante esta situacion: ", situacion)
+    
    
-    a= df_comentario.iloc[indice]["a"]
-    b= df_comentario.iloc[indice]["b"]
-    c= df_comentario.iloc[indice]["c"]
+    a = opciones[opciones["opcion"] == "a"]["comentario"].values[0]
+    b = opciones[opciones["opcion"] == "b"]["comentario"].values[0]
+    c = opciones[opciones["opcion"] == "c"]["comentario"].values[0]
     
     
-    print("Si te encontras en el siguiente contexto: ", situacion)
+    print("Si te encontras en el siguiente contexto: ", situacion_texto)
 
     try: 
-        respuesta=input("Que comentario le harias a tu grupo de estudio?: ", a, b, c, "ingresar en minuscula")
+        respuesta = input(f"Que comentario le harias a tu grupo de estudio?\na) {a}\nb) {b}\nc) {c}\n(ingresar en minuscula): ")
     except ValueError: 
         print('Opcion invalida')
-        respuesta = input("Que comentario le harias a tu grupo de estudio?:" , a, b, c, "ingresar en minuscula")
+        respuesta = input(f"Que comentario le harias a tu grupo de estudio?\na) {a}\nb) {b}\nc) {c}\n(ingresar en minuscula): ")
     
     return respuesta 
 
-def guardar_respuesta (respuesta, indice, df, situacion):
+def guardar_respuesta (respuesta, indice, df, situacion_texto):
     '''
     Funcion que guarda la respuesta en el Dataframe 
 
@@ -102,8 +100,11 @@ def guardar_respuesta (respuesta, indice, df, situacion):
 
     '''
     
-    df_respuesta = df.loc[(df["id_situacion"] == indice) & (df["opcion"] == respuesta), situacion] = True
-    
+
+    id_sit = df.iloc[indice]["id_situacion"]
+    df.loc[(df["id_situacion"] == id_sit) & (df["opcion"] == respuesta), situacion_texto] = "True"
+    df_respuesta = df
+   
     return df_respuesta
     
 def asociacion(respuesta, df_tranquilidad, df_motivacion, df_estres): 
