@@ -2,15 +2,24 @@ import random
 
 def situacion(): 
     '''
-    Funcion que pregunta en que contexto se encuentra (parciales/no parciales) 
+ Solicita al usuario el contexto académico en el que se encuentra.
 
-    Returns
-    -------
-    situacion
+ Esta función pregunta si el estudiante se encuentra en una situación de
+ "parciales" o "no parciales". La respuesta se convierte a minúscula para
+ evitar errores por el uso de mayúsculas.
 
-    '''
-    
-    
+ Returns
+ -------
+ situacion : str
+     Contexto académico ingresado por el usuario. Puede ser "parciales"
+     o "no parciales".
+
+ Raises
+ ------
+ ValueError
+     Si el usuario ingresa una situación distinta de "parciales" o
+     "no parciales".
+ '''
     while True: 
         situacion = input("En que situacion academica se encuentra? (parcailes/ no parciales): ")
         situacion = situacion.lower()
@@ -30,8 +39,27 @@ def situacion():
     return situacion 
 
 def numero_random(df_comentario): 
-    indice= random.randint(0, len(df_comentario)-1)
-    return indice 
+   '''
+    Genera un índice aleatorio para seleccionar una situación del DataFrame.
+
+    Esta función utiliza la cantidad de filas del DataFrame de comentarios
+    para generar un número aleatorio. Ese número se usa como índice para elegir
+    una situación académica al azar.
+
+    Parameters
+    ----------
+    df_comentario : DataFrame
+        DataFrame que contiene las situaciones académicas y los comentarios
+        posibles.
+
+    Returns
+    -------
+    indice : int
+        Número entero aleatorio que representa una posición dentro del
+        DataFrame.
+    '''
+   indice= random.randint(0, len(df_comentario)-1)
+   return indice 
     
 
 
@@ -39,19 +67,27 @@ def numero_random(df_comentario):
     
 def realizar_pregunta(df_comentario, indice): 
     '''
-    Presentarle la sitaucion al usuario (que el programa presente una situacion random) y preguntar que comentario haria 
+    Presenta una situación académica y solicita al usuario elegir un comentario.
+
+    Esta función toma una situación del DataFrame usando un índice aleatorio.
+    Luego muestra el contexto al usuario junto con tres posibles comentarios:
+    opción "a", opción "b" y opción "c". Finalmente, solicita al usuario que
+    ingrese la letra del comentario que haría a su grupo de estudio.
 
     Parameters
-    -----------
+    ----------
+    df_comentario : DataFrame
+        DataFrame que contiene las situaciones académicas y las opciones de
+        comentarios disponibles.
 
-    archivo: csv 
-        archivo con situaciones y posibles respuestas 
+    indice : int
+        Índice utilizado para seleccionar una situación dentro del DataFrame.
 
     Returns
-    --------
-    str: respuesta (a,b,c)
+    -------
+    respuesta : str
+        Letra elegida por el usuario. Puede ser "a", "b" o "c".
     '''
-     
    
     
     situacion= df_comentario.iloc[indice]["id_situacion"]
@@ -81,25 +117,33 @@ def realizar_pregunta(df_comentario, indice):
 
 def guardar_respuesta (respuesta, indice, df, situacion_texto):
     '''
-    Funcion que guarda la respuesta en el Dataframe 
+   Guarda en el DataFrame la respuesta elegida por el usuario.
 
-    Parameters
-    ----------
-    respuesta : str
-        a,b,c 
-    indice : int
-        Numero random generado por la computadora
-    df : DataFrame
-        Dataframe que contiene la inofrmacion de los comentarios, es decir la situacion y las posibles respuestas
-    situacion : str
-        situacion en la que se encuentra el estudiante 1, parciales o no parciales 
+   Esta función identifica la situación correspondiente al índice recibido y
+   marca como "True" la opción de comentario elegida por el usuario dentro de
+   la columna que representa la situación académica.
 
-    Returns
-    -------
-    DataFrame: Dataframe con la informacion actualizada, la respuesta elegida aparece como True
+   Parameters
+   ----------
+   respuesta : str
+       Letra elegida por el usuario. Puede ser "a", "b" o "c".
 
-    '''
-    
+   indice : int
+       Índice de la situación seleccionada dentro del DataFrame.
+
+   df : DataFrame
+       DataFrame que contiene las situaciones, las opciones de comentarios y
+       las columnas correspondientes al contexto académico.
+
+   situacion_texto : str
+       Nombre de la columna donde se guardará la respuesta según el contexto
+       académico. Por ejemplo, "parciales" o "no parciales".
+
+   Returns
+   -------
+   df_respuesta : DataFrame
+       DataFrame actualizado con la respuesta elegida marcada como "True".
+   '''
 
     id_sit = df.iloc[indice]["id_situacion"]
     df.loc[(df["id_situacion"] == id_sit) & (df["opcion"] == respuesta), situacion_texto] = "True"
@@ -109,23 +153,33 @@ def guardar_respuesta (respuesta, indice, df, situacion_texto):
     
 def asociacion(respuesta, df_tranquilidad, df_motivacion, df_estres): 
     '''
-    
+    Asocia la respuesta elegida con un DataFrame emocional.
+
+    Esta función relaciona la opción de comentario elegida por el usuario con
+    una emoción principal. Según la respuesta seleccionada, devuelve el
+    DataFrame correspondiente a tranquilidad, motivación o estrés.
 
     Parameters
     ----------
     respuesta : str
-        a, b, c, dependiendo lo que elige el usuario 1
-    df_tranquilidad : DataFrame 
-        Tabla con cambios emocionales predeterminados a partir de el comentario asociado a la emocion
-    df_motivacion : DataFrame 
-        Tabla con cambios emocionales predeterminados a partir de el comentario asociado a la emocion
+        Letra elegida por el usuario. Puede ser "a", "b" o "c".
+
+    df_tranquilidad : DataFrame
+        DataFrame con los datos asociados a comentarios que generan mayor
+        tranquilidad.
+
+    df_motivacion : DataFrame
+        DataFrame con los datos asociados a comentarios que generan mayor
+        motivación.
+
     df_estres : DataFrame
-        Tabla con cambios emocionales predeterminados a partir de el comentario asociado a la emocion
+        DataFrame con los datos asociados a comentarios que generan mayor
+        estrés.
 
     Returns
     -------
-    DataFrame asociado a la respuesta 
-
+    df_asociado : DataFrame
+        DataFrame emocional asociado a la respuesta elegida.
     '''
     
     if respuesta == "a": 
