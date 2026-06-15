@@ -22,9 +22,11 @@ def parte_1(situacion, indice, df_comentario):
         
 def parte_2(df_neutro, df_comentario, respuesta, indice, situacion,df_asociado):
     
-    estudiante_2, edad_2 =info_estudiante2(df_neutro)
+    estudiante_2, edad_2 =info_estudiante2(df_neutro,situacion)
     comentario=presentar_comentario(df_comentario, respuesta, indice, situacion)
-    valoracion_post= valoracion_comentario(estudiante_2, edad_2, respuesta, df_asociado)
+    valoracion_post= valoracion_comentario(estudiante_2, edad_2,comentario,situacion, df_asociado)
+    
+    return comentario
     
     
     
