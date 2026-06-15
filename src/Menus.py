@@ -30,27 +30,27 @@ def menu_inicio(nombre, situacion):
     '''
     
     
+<<<<<<< HEAD
     if dicc_cargados=={}: 
         dicc_cargados[situacion]=nombre
         return "si"
         
+=======
+    if situacion not in dicc_cargados:
+        dicc_cargados[situacion] = nombre
+        return "no"  
+>>>>>>> 0b7c20820e179f21f70f6b4f9b6a55add8fb3fed
     
-    
-    elif dicc_cargados[situacion][nombre] in dicc_cargados:   
-        while True: 
-            eleccion = input("Desea continuar con la informacion ya cargada?: ")
-            eleccion = eleccion.lower()
+    elif dicc_cargados[situacion] == nombre:
+        while True:
+            eleccion = input("Desea continuar con la información ya cargada? (si/no): ").lower()
             return eleccion
-            break 
-        
+            break
+            
             if (eleccion != "si") or (eleccion != "no"): 
                 raise ValueError ("Debe responder con si o con no")
     
             
-    else: 
-            dicc_cargados[situacion] = nombre 
-            return "no"
-
 #
    
 def menu_parte2(): 
@@ -74,6 +74,7 @@ def menu_parte2():
     while True: 
             if eleccion=="si": 
                 return eleccion
+            
             elif eleccion=="no": 
                 print("Muchas gracias por las respuesta!")
                 break
