@@ -150,10 +150,9 @@ def menu_parte_3(df_neutro, df_asociado_1, df_asociado_2, situacion, df_comentar
     feedback2 = feedback_comentario(situacion, comentario, cambio_estres2, cambio_motivacion2, cambio_tranquilidad2)
     
     if accion == 1:
-        agrego_estudiante = parte_2(df_neutro, df_comentario, parte_1_sit1, indice, situacion, df_asociado_1) #COMO LE PASAMOS LA SITUACION?????
-        agrego_estudiante_s2 = parte_2(df_neutro, df_comentario, parte_1_sit2, indice, situacion, df_asociado_2)
-                    
-
+     parte_2(df_neutro, df_comentario, parte_1_sit1, indice, situacion, df_asociado_1)
+     parte_2(df_neutro, df_comentario, parte_1_sit2, indice, situacion, df_asociado_2)
+    
     elif accion == 2:
         print("1. Promedios grupales. ",  "/n", 
               "2. Cambios de las emociones. ","/n", 
@@ -198,7 +197,7 @@ def menu_parte_3(df_neutro, df_asociado_1, df_asociado_2, situacion, df_comentar
 
                     
                             
-
+##
     
             
         
