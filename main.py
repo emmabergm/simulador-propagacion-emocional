@@ -52,8 +52,6 @@ try:
 
     menu_principal = menu_inicio(nombre_grupo, situacion)
     
-    
-    
 
         
 # Parte 1 (interaccion con estudiante 1)
@@ -75,11 +73,10 @@ try:
         if menu_2 == "si": 
             parte_2_com1 = parte_2(df_neutro, df_comentario, parte_1_sit1, indice, situacion, df_asociado_1) #COMO LE PASAMOS LA SITUACION?????
             parte_2_com2 = parte_2(df_neutro, df_comentario, parte_1_sit2, indice, situacion_2, df_asociado_2)
-        
+            menu_3 = menu_parte_3(df_neutro, df_asociado_1, df_asociado_2, situacion, df_comentario, parte_1_sit1, parte_1_sit2, indice)
     
 # Parte 3
 
-    menu_3 = menu_parte_3(df_neutro, df_asociado_1, df_asociado_2, situacion, df_comentario, parte_1_sit1, parte_1_sit2, indice)
 
 except ValueError as e:
     ("Error: ", e)
