@@ -92,7 +92,7 @@ def menu_com2():
         else: 
             return seguir
 
-def menu_parte_3(df_neutro, df_asociado_1, df_asociado_2, situacion, df_comentario, parte_1_sit1, parte_1_sit2, indice, comentario):
+def menu_parte_3(df_neutro, df_asociado_1, df_asociado_2, tipo_situacion,tipo_situacion_2, df_comentario, parte_1_sit1, parte_1_sit2, indice, comentario):
     '''
     Parameters
     ----------
@@ -154,12 +154,12 @@ def menu_parte_3(df_neutro, df_asociado_1, df_asociado_2, situacion, df_comentar
     cambio_estres1, cambio_motivacion1, cambio_tranquilidad1 = comparar_promedios(promedio_neutro, promedio_comentario1) 
     cambio_estres2, cambio_motivacion2, cambio_tranquilidad2 = comparar_promedios(promedio_neutro, promedio_comentario2)
                 
-    feedback1 = feedback_comentario(situacion, comentario, cambio_estres1, cambio_motivacion1, cambio_tranquilidad1)
-    feedback2 = feedback_comentario(situacion, comentario, cambio_estres2, cambio_motivacion2, cambio_tranquilidad2)
+    feedback1 = feedback_comentario(tipo_situacion, comentario, cambio_estres1, cambio_motivacion1, cambio_tranquilidad1)
+    feedback2 = feedback_comentario(tipo_situacion_2, comentario, cambio_estres2, cambio_motivacion2, cambio_tranquilidad2)
     
     if accion == 1:
-     comentario_1, estudiante_2, edad_2 = parte_2(df_neutro, df_comentario, parte_1_sit1, indice, situacion, df_asociado_1)
-     comentario_2 = parte_2_comentario2(df_comentario, parte_1_sit2, indice, situacion, df_asociado_2, estudiante_2, edad_2)
+     comentario_1, estudiante_2, edad_2 = parte_2(df_neutro, df_comentario, parte_1_sit1, indice, tipo_situacion, df_asociado_1)
+     comentario_2 = parte_2_comentario2(df_comentario, parte_1_sit2, indice, tipo_situacion_2, df_asociado_2, estudiante_2, edad_2)
     
     elif accion == 2:
         print("1. Promedios grupales. ",  "/n", 
@@ -180,17 +180,17 @@ def menu_parte_3(df_neutro, df_asociado_1, df_asociado_2, situacion, df_comentar
             elif eleccion == 2:   
                              
                 print("Los cambios emcoionales entre la valoracion neutra y luego del primer comentario son los siguientes: " ,"\n",
-                      "Cambio estres: " , cambio_estres1,"\n",
-                      "Cambio motivacion" , cambio_motivacion1, "\n", 
-                      "Cambio tranquilidad" , cambio_tranquilidad1, "\n",
+                      "Cambio estres: " , cambio_estres1,"/n",
+                      "Cambio motivacion" , cambio_motivacion1, "/n", 
+                      "Cambio tranquilidad" , cambio_tranquilidad1, "/n",
                       "Los cambios emcoionales entre la valoracion neutra y luego del segundo comentario son los siguientes:" , "\n",  
-                      "Cambio estres: " , cambio_estres2,"\n", 
-                      "Cambio motivacion" , cambio_motivacion2, "\n",
+                      "Cambio estres: " , cambio_estres2,"/n", 
+                      "Cambio motivacion" , cambio_motivacion2, "/n",
                       "Cambio tranquilidad" , cambio_tranquilidad2)
                 break
                      
             elif eleccion == 3: 
-                print("El feedback leugo del comentario 1 es: " , feedback1,"\n", 
+                print("El feedback leugo del comentario 1 es: " , feedback1,"/n", 
                       "El feedback luego del comentario 2 es: " , feedback2)
                 break 
                     
