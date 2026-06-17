@@ -25,9 +25,9 @@ def calcualar_promedios_grupales(df):
         
     dicc_promedio = {}
     
-    promedio_estres = df.groupby["estres"].mean()
-    promedio_motivacion = df.groupby["motivacion"].mean()
-    promedio_tranquilidad = df.groupby["tranquilidad"].mean()
+    promedio_estres = df["estres"].mean()
+    promedio_motivacion = df["motivacion"].mean()
+    promedio_tranquilidad = df["tranquilidad"].mean()
     
     
     dicc_promedio["estres"] = promedio_estres 
