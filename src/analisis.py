@@ -30,9 +30,9 @@ def calcualar_promedios_grupales(df):
     promedio_tranquilidad = df["tranquilidad"].mean()
     
     
-    dicc_promedio["estres"] = promedio_estres 
-    dicc_promedio["motivacion"] = promedio_motivacion 
-    dicc_promedio["tranquilidad"] = promedio_tranquilidad
+    dicc_promedio["estres"] = float(promedio_estres) 
+    dicc_promedio["motivacion"] = float(promedio_motivacion) 
+    dicc_promedio["tranquilidad"] = float(promedio_tranquilidad)
     
      
             
@@ -114,6 +114,8 @@ def feedback_comentario( situacion,comentario, cambio_estres, cambio_tranquilida
             mensaje= "Esta buenisimo este tipo de comentario durante la cursada ya que motiva a los alumnos a seguir enfocados"
         else: 
             mensaje= "Comentar algo asi siempre es bienvenido porque tranquiliza el estres!!"
+    else:
+        mensaje = f"Situacion no reconocida: '{situacion}'"
             
     return mensaje 
             
