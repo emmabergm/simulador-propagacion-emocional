@@ -1,4 +1,5 @@
 
+import pandas as pd 
 
 def calcualar_promedios_grupales(df):
     """
@@ -22,24 +23,15 @@ def calcualar_promedios_grupales(df):
     
     if df.empty:
         raise ValueError ("No hay datos para calcular el promedio")
-        
-    dicc_promedio = {}
-    
-    promedio_estres = df["estres"].mean()
-    promedio_motivacion = df["motivacion"].mean()
-    promedio_tranquilidad = df["tranquilidad"].mean()
-    
-    
-    dicc_promedio["estres"] = float(promedio_estres) 
-    dicc_promedio["motivacion"] = float(promedio_motivacion) 
-    dicc_promedio["tranquilidad"] = float(promedio_tranquilidad)
+
+    df_promedio = pd.DataFrame([df[["estres", "motivacion", "tranquilidad"]].mean()])
+
+    return df_promedio
     
      
-            
-    
-    return dicc_promedio 
 
-def comparar_promedios(diccionario_promedio_neutro, diccionario_promedio_post): 
+
+def comparar_promedios(promedio_neutro, promedio_comentario): 
    """
     Recibe como parametro el diccionario del promedio neutro y el diccionario del promedio post el comentario dependiendo de la situacion. 
     
@@ -59,10 +51,9 @@ def comparar_promedios(diccionario_promedio_neutro, diccionario_promedio_post):
         Devuelve la diferencia entre los promedios; para ver el cambio de lso estados emocionales en el grupo. 
 
     """
-
-   cambio_estres= diccionario_promedio_post["estres"] - diccionario_promedio_neutro["estres"] 
-   cambio_tranquilidad= diccionario_promedio_post["tranquilidad"] - diccionario_promedio_neutro["tranquilidad"]
-   cambio_motivacion= diccionario_promedio_post["motivacion"] - diccionario_promedio_neutro["motivacion"]
+   cambio_estres = promedio_comentario["estres"].iloc[0] - promedio_neutro["estres"].iloc[0]
+   cambio_tranquilidad = promedio_comentario["tranquilidad"].iloc[0] - promedio_neutro["tranquilidad"].iloc[0]
+   cambio_motivacion = promedio_comentario["motivacion"].iloc[0] - promedio_neutro["motivacion"].iloc[0]
    
    #print("El cambio en el estres fue: ", cambio_estres)
    #print("El cambio en la tranquilidad fue: ", cambio_tranquilidad)
