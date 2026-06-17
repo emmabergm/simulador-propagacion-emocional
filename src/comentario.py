@@ -31,11 +31,12 @@ def situacion():
         
             
         else: 
+            
+        
+            if situacion == "no parciales": 
+                situacion = "no_parciales"
             break
         
-        if situacion == "no parciales": 
-            situacion = "no_parciales"
-    
     return situacion 
 
 def numero_random(df_comentario): 
