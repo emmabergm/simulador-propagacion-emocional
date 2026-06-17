@@ -126,15 +126,7 @@ def menu_parte_3(df_neutro, df_asociado_1, df_asociado_2, tipo_situacion,tipo_si
     None.
     
     '''
-    promedio_neutro = calcualar_promedios_grupales(df_neutro)
-    promedio_comentario1 = calcualar_promedios_grupales(df_asociado_1)
-    promedio_comentario2 = calcualar_promedios_grupales(df_asociado_2)
-                
-    cambio_estres1, cambio_motivacion1, cambio_tranquilidad1 = comparar_promedios(promedio_neutro, promedio_comentario1) 
-    cambio_estres2, cambio_motivacion2, cambio_tranquilidad2 = comparar_promedios(promedio_neutro, promedio_comentario2)
-                
-    feedback1 = feedback_comentario(tipo_situacion, comentario, cambio_estres1, cambio_motivacion1, cambio_tranquilidad1)
-    feedback2 = feedback_comentario(tipo_situacion_2, comentario, cambio_estres2, cambio_motivacion2, cambio_tranquilidad2)
+    
 
     while True:
             continuar=input("Desea continuar con el programa? (si/no)").lower()
@@ -153,44 +145,27 @@ def menu_parte_3(df_neutro, df_asociado_1, df_asociado_2, tipo_situacion,tipo_si
                print("2. Quiere ver las metricas del experimento (Estas van a incluir datos simulados)")
                
                accion = int(input("Que quiere realizar? : "))
-<<<<<<< HEAD
-=======
-               break
+               promedio_neutro = calcualar_promedios_grupales(df_neutro)
+               promedio_comentario1 = calcualar_promedios_grupales(df_asociado_1)
+               promedio_comentario2 = calcualar_promedios_grupales(df_asociado_2)
+                           
+               cambio_estres1, cambio_motivacion1, cambio_tranquilidad1 = comparar_promedios(promedio_neutro, promedio_comentario1) 
+               cambio_estres2, cambio_motivacion2, cambio_tranquilidad2 = comparar_promedios(promedio_neutro, promedio_comentario2)
+                           
+               feedback1 = feedback_comentario(tipo_situacion, comentario, cambio_estres1, cambio_motivacion1, cambio_tranquilidad1)
+               feedback2 = feedback_comentario(tipo_situacion_2, comentario, cambio_estres2, cambio_motivacion2, cambio_tranquilidad2)
 
-        
-                
-    promedio_neutro = calcualar_promedios_grupales(df_neutro)
-    promedio_comentario1 = calcualar_promedios_grupales(df_asociado_1)
-    promedio_comentario2 = calcualar_promedios_grupales(df_asociado_2)
-                
-    cambio_estres1, cambio_motivacion1, cambio_tranquilidad1 = comparar_promedios(promedio_neutro, promedio_comentario1) 
-    cambio_estres2, cambio_motivacion2, cambio_tranquilidad2 = comparar_promedios(promedio_neutro, promedio_comentario2)
-                
-    feedback1 = feedback_comentario(tipo_situacion, comentario, cambio_estres1, cambio_motivacion1, cambio_tranquilidad1)
-    feedback2 = feedback_comentario(tipo_situacion_2, comentario, cambio_estres2, cambio_motivacion2, cambio_tranquilidad2)
-    
-    if accion == 1:
-     comentario_1, estudiante_2, edad_2 = parte_2(df_neutro, df_comentario, parte_1_sit1, indice, tipo_situacion, df_asociado_1)
-     comentario_2 = parte_2_comentario2(df_comentario, parte_1_sit2, indice, tipo_situacion_2, df_asociado_2, estudiante_2, edad_2)
-    
-    elif accion == 2:
-        print("1. Promedios grupales.\n", 
-              "2. Cambios de las emociones.\n", 
-              "3. Feedback del comentario.\n",
-              "4. Grafico que compara las emociones neutras y despues de cada comentario. ")
->>>>>>> 059bf13d7b2ae98358578a19d24d3d7c72237fc0
                
-    
+           
                if accion == 1:
-                comentario_1, estudiante_2, edad_2 = parte_2(df_neutro, df_comentario, parte_1_sit1, indice, tipo_situacion, df_asociado_1)
-                comentario_2 = parte_2_comentario2(df_comentario, parte_1_sit2, indice, tipo_situacion_2, df_asociado_2, estudiante_2, edad_2)
-                
-<<<<<<< HEAD
+                   comentario_1, estudiante_2, edad_2 = parte_2(df_neutro, df_comentario, parte_1_sit1, indice, tipo_situacion, df_asociado_1)
+                   comentario_2 = parte_2_comentario2(df_comentario, parte_1_sit2, indice, tipo_situacion_2, df_asociado_2, estudiante_2, edad_2)
+                   
                elif accion == 2:
                    print("1. Promedios grupales. ",  "/n", 
-                         "2. Cambios de las emociones. ","/n", 
-                         "3. Feedback del comentario. ", "/n",
-                         "4. Grafico que compara las emociones neutras y despues de cada comentario. ")
+                      "2. Cambios de las emociones. ","/n", 
+                      "3. Feedback del comentario. ", "/n",
+                      "4. Grafico que compara las emociones neutras y despues de cada comentario. ")
                    
                    while True: 
                        eleccion = int(input("Que metrica desea ver? (elija una opcion, luego puede ingresar otra):  "))
@@ -222,31 +197,29 @@ def menu_parte_3(df_neutro, df_asociado_1, df_asociado_2, tipo_situacion,tipo_si
                            return ver_grafico
                        else:
                            raise ValueError("La opción es inválida")
-=======
-            if eleccion == 1: 
-                         
-                print("El promedio de las emociones al inciar, es decir las neutras es: ", promedio_neutro,
-                      "\nEl promedio por emocion luego del primer comentario es el siguiente: ", promedio_comentario1,
-                      "\nPor ultimo el promedio por emocion luego del segundo comentario es el siguiente: ", promedio_comentario2)
-                break
-                            
-            elif eleccion == 2:   
-                             
-                print("Los cambios emcoionales entre la valoracion neutra y luego del primer comentario son los siguientes:\n",
-                      "Cambio estres: " , cambio_estres1, "\n",
-                      "Cambio motivacion" , cambio_motivacion1, "\n", 
-                      "Cambio tranquilidad" , cambio_tranquilidad1, "\n",
-                      "Los cambios emcoionales entre la valoracion neutra y luego del segundo comentario son los siguientes:\n",  
-                      "Cambio estres: " , cambio_estres2,"\n", 
-                      "Cambio motivacion" , cambio_motivacion2, "\n",
-                      "Cambio tranquilidad" , cambio_tranquilidad2)
-                break
-                     
-            elif eleccion == 3: 
-                print("El feedback leugo del comentario 1 es: " , feedback1,"\n", 
-                      "El feedback luego del comentario 2 es: " , feedback2)
-                break 
->>>>>>> 059bf13d7b2ae98358578a19d24d3d7c72237fc0
+           
+          
+               
+                
+
+                
+                 
+                 
+
+          
+        
+                
+    
+    
+    
+
+               
+    
+               
+                   
+                   
+
+
                     
                              
                         
