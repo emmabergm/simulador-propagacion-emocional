@@ -61,7 +61,7 @@ def presentar_comentario(df_comentario, respuesta, indice, situacion ):
 
     '''
     comentario = df_comentario.loc[(df_comentario["opcion"] == respuesta) & (df_comentario[situacion] == "True"), "comentario"].iloc[0]
-    print(comentario)
+    
     
     return comentario
 
