@@ -31,43 +31,33 @@ def menu_inicio(nombre, situacion):
     '''
     
     
-
-    if dicc_cargados=={}: 
-        dicc_cargados[situacion]=nombre
+    if dicc_cargados == {}: 
+        dicc_cargados[situacion] = nombre
         return "no"
-        
 
     if situacion not in dicc_cargados:
         dicc_cargados[situacion] = nombre
         return "no"  
 
-    
     elif dicc_cargados[situacion] == nombre:
         while True:
-            eleccion = input("Desea continuar con la información ya cargada? (si/no): ").lower()
-            return eleccion
-            break
-            
-            if (eleccion != "si") or (eleccion != "no"): 
-                raise ValueError ("Debe responder con si o con no")
-    
-            
-#
+            eleccion = input("Desea continuar con la información ya cargada? (si/no): ").strip().lower()
+            if eleccion == "si" or eleccion == "no":
+                return eleccion
+            else:
+                print("Debe responder con si o con no.")
+
 def menu_situacion(tipo_situacion): 
     print("\nAhora vamos a explorar como reaccionaria tu grupo ante la misma situacion pero en un contexto diferente.")
     print("Si antes elegiste 'parciales', ahora pensá en 'no parciales', y viceversa.\n")
 
     while True:
-        confirmacion = input("Escriba 'continuar' para seguir: ").lower()
-        
+        confirmacion = input("Escriba 'continuar' para seguir: ").strip().lower()
         if confirmacion != "continuar":
-            raise ValueError ("Debe escribir 'continuar' para seguir")
+            print("Debe escribir 'continuar' para seguir.")
         else: 
-            break
-    return confirmacion 
-    
+            return confirmacion
 
-        
 def menu_parte2(): 
     """
     Consulta al usuario si desea seguir con la segunda parte del programa.
@@ -83,38 +73,25 @@ def menu_parte2():
         Devuelve "si" si el usuario desea continuar con la segunda parte.
         Devuelve "no" si el usuario decide finalizar con el programa
     """
-     
-    eleccion=input("Desea seguir con la parte 2? (si/no): ").lower()
-    
     while True: 
-            if eleccion=="si": 
-                return eleccion
-            
-            elif eleccion=="no": 
-                print("Muchas gracias por las respuesta!")
-                break
-            elif (eleccion != "si") or (eleccion != "no"): 
-                   raise ValueError ("Debe responder con si o con no")
-                   
-            return eleccion     
+        eleccion = input("Desea seguir con la parte 2? (si/no): ").strip().lower()
+        if eleccion == "si": 
+            return eleccion
+        elif eleccion == "no": 
+            print("Muchas gracias por las respuestas!")
+            return eleccion
+        else:
+            print("Debe responder con si o con no.")
 
 def menu_com2(): 
-    
     print("\nAhora vamos a evaluar como te impacta un comentario diferente ante la misma situacion.")
     while True: 
-        
-        seguir = input("Ingrese continuar para evaluar el siguiente comentario: ")
-    
+        seguir = input("Ingrese continuar para evaluar el siguiente comentario: ").strip().lower()
         if seguir != "continuar":
-            raise ValueError ("Debe escribir 'continuar' para seguir")
+            print("Debe escribir 'continuar' para seguir.")
         else: 
-            return seguir 
-            break
-    
-        
- 
-    
-    
+            return seguir
+
 def menu_parte_3(df_neutro, df_asociado_1, df_asociado_2, situacion, df_comentario, parte_1_sit1, parte_1_sit2, indice, comentario):
     '''
     Parameters
@@ -226,10 +203,16 @@ def menu_parte_3(df_neutro, df_asociado_1, df_asociado_2, situacion, df_comentar
                 raise ValueError("La opción es inválida")
 
 
-                    
-                            
-##
+
+
     
+            
+
+
+        
+
+    
+
             
         
             
