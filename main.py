@@ -73,11 +73,16 @@ try:
         if menu_sit == "continuar": 
         
             while True:
-                tipo_situacion_2 = situacion()
-                if tipo_situacion_2 == tipo_situacion:
-                    raise ValueError("Debe ingresar una situacion diferente a la anterior")
-                else: 
-                    break 
+                try: 
+                    tipo_situacion_2 = situacion()
+                    if tipo_situacion_2 == tipo_situacion:
+                        raise ValueError("Debe ingresar una situacion diferente a la anterior")
+                    else: 
+                        break 
+                    
+                except ValueError as e: 
+                    print(e)
+                    continue 
             
        
         parte_1_sit2 = parte_1(tipo_situacion_2, indice, df_comentario)
