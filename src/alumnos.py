@@ -27,14 +27,19 @@ def info_estudiante2 (df_neutro,situacion):
         raise ValueError("La edad no puede ser negativa")
 
     while True: 
-        estres = int(input("Ingrese su estado de estres actual: "))
-        motivacion = int(input("Ingrese su estado de motivacion actual: "))
-        tranquilidad = int(input("Ingrese su estado de tranquilidad actual: "))
+        try: 
+            estres = int(input("Ingrese su estado de estres actual: "))
+            motivacion = int(input("Ingrese su estado de motivacion actual: "))
+            tranquilidad = int(input("Ingrese su estado de tranquilidad actual: "))
         
-        if (0 > tranquilidad > 100) or (0 > estres > 100) or (0 > motivacion > 100): 
-            raise ValueError("Los valores deben encontrarse dentro del rango (1 - 100) ")
-        else: 
-            break 
+            if not (1 <= tranquilidad <= 100) or not (1 <= estres <= 100) or not (1 <= motivacion <= 100):
+               raise ValueError("Los valores deben encontrarse dentro del rango (1 - 100)")
+            else: 
+                 break 
+             
+        except ValueError as e: 
+            print(e)
+            continue
         
     df_neutro.loc[len(df_neutro)] = estudiante_2, edad_e_2,situacion, estres, motivacion, tranquilidad
     
@@ -96,12 +101,11 @@ def valoracion_comentario(estudiante_2, edad_e_2, comentario, situacion, df_asoc
         valoracion_tranquilidad = int(input("Ingresa tu valoracion de la emocion tranquilidad: "))
        
         try:
-            if (0 > valoracion_estres > 100) or (0 > valoracion_motivacion > 100) or (0 > valoracion_tranquilidad > 100): 
-             raise ValueError("Los valores deben encontrarse dentro del rango (1 - 100) ")
-             
+          if not (1 <= valoracion_estres <= 100) or not (1 <= valoracion_motivacion <= 100) or not (1 <= valoracion_tranquilidad <= 100):
+              raise ValueError("Los valores deben encontrarse dentro del rango (1 - 100)")
         except ValueError as e:
-         print(e)
-         continue
+          print(e)
+          continue
     
         df_asociado.loc[len(df_asociado)] = estudiante_2, edad_e_2, situacion, valoracion_estres, valoracion_motivacion, valoracion_tranquilidad
         break 
