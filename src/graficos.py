@@ -26,9 +26,9 @@ def grafico(df_neutro, df_asociado_1, df_asociado_2):
     valores_comentario_2= []
     
     for emocion in emociones:
-        valores_neutros=valores_neutros.append(df_neutro[emocion].mean())
-        valores_comentario_1=valores_comentario_1.append(df_asociado_1[emocion].mean())
-        valores_comentario_2=valores_comentario_2.append(df_asociado_2[emocion].mean())
+        valores_neutros.append(df_neutro[emocion].mean())
+        valores_comentario_1.append(df_asociado_1[emocion].mean())
+        valores_comentario_2.append(df_asociado_2[emocion].mean())
         
     x = range(len(emociones))
     ancho = 0.2
