@@ -33,15 +33,20 @@ archivo_comentario = "archivos/archivo_comentario (1).xlsx"
 try: 
      
     df_neutro= pd.read_excel(archivo_neutro)
-    
+    df_neutro.columns = df_neutro.columns.str.strip()
+
  
     df_comentario = pd.read_excel(archivo_comentario)
     df_comentario.columns = df_comentario.columns.str.strip()
     
     df_motivacion= pd.read_excel(archivo_e_comentario1, sheet_name="Comentario_motivacional")
-    df_tranquilidad=pd.read_excel(archivo_e_comentario1, sheet_name="Comentario_tranquilidad")
-    df_estres=pd.read_excel(archivo_e_comentario1, sheet_name= "Comentario_estres")
+    df_motivacion.columns = df_motivacion.columns.str.strip()
     
+    df_tranquilidad=pd.read_excel(archivo_e_comentario1, sheet_name="Comentario_tranquilidad")
+    df_tranquilidad.columns = df_tranquilidad.columns.str.strip()
+
+    df_estres=pd.read_excel(archivo_e_comentario1, sheet_name= "Comentario_estres")
+    df_estres.columns = df_estres.columns.str.strip()
 
     
 
@@ -61,6 +66,9 @@ try:
         indice = numero_random(df_comentario)
         parte_1_sit1 = parte_1(tipo_situacion, indice, df_comentario)
         df_asociado_1 = asociacion(parte_1_sit1, df_tranquilidad, df_motivacion, df_estres)
+        df_asociado_1 = asociacion(parte_1_sit1, df_tranquilidad, df_motivacion, df_estres)
+        print("columnas df_neutro:", df_neutro.columns.tolist())
+        print("columnas df_asociado_1:", df_asociado_1.columns.tolist())
         menu_sit = menu_situacion(tipo_situacion)
         if menu_sit == "continuar": 
         
