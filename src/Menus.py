@@ -3,6 +3,7 @@ from src.analisis import comparar_promedios
 from src.analisis import feedback_comentario 
 from src.graficos import grafico
 from src.Partes import parte_2
+from src.Partes import parte_2_comentario2
 
 dicc_cargados = {}
 
@@ -52,7 +53,21 @@ def menu_inicio(nombre, situacion):
     
             
 #
-   
+def menu_situacion(tipo_situacion): 
+    print("\nAhora vamos a explorar como reaccionaria tu grupo ante la misma situacion pero en un contexto diferente.")
+    print("Si antes elegiste 'parciales', ahora pensá en 'no parciales', y viceversa.\n")
+
+    while True:
+        confirmacion = input("Escriba 'continuar' para seguir: ").lower()
+        
+        if confirmacion != "continuar":
+            raise ValueError ("Debe escribir 'continuar' para seguir")
+        else: 
+            break
+    return confirmacion 
+    
+
+        
 def menu_parte2(): 
     """
     Consulta al usuario si desea seguir con la segunda parte del programa.
@@ -83,7 +98,23 @@ def menu_parte2():
                    
             return eleccion     
 
-
+def menu_com2(): 
+    
+    print("\nAhora vamos a evaluar como te impacta un comentario diferente ante la misma situacion.")
+    while True: 
+        
+        seguir = input("Ingrese continuar para evaluar el siguiente comentario: ")
+    
+        if seguir != "continuar":
+            raise ValueError ("Debe escribir 'continuar' para seguir")
+        else: 
+            return seguir 
+            break
+    
+        
+ 
+    
+    
 def menu_parte_3(df_neutro, df_asociado_1, df_asociado_2, situacion, df_comentario, parte_1_sit1, parte_1_sit2, indice, comentario):
     '''
     Parameters
@@ -150,8 +181,8 @@ def menu_parte_3(df_neutro, df_asociado_1, df_asociado_2, situacion, df_comentar
     feedback2 = feedback_comentario(situacion, comentario, cambio_estres2, cambio_motivacion2, cambio_tranquilidad2)
     
     if accion == 1:
-     parte_2(df_neutro, df_comentario, parte_1_sit1, indice, situacion, df_asociado_1)
-     parte_2(df_neutro, df_comentario, parte_1_sit2, indice, situacion, df_asociado_2)
+     comentario_1, estudiante_2, edad_2 = parte_2(df_neutro, df_comentario, parte_1_sit1, indice, situacion, df_asociado_1)
+     comentario_2 = parte_2_comentario2(df_comentario, parte_1_sit2, indice, situacion, df_asociado_2, estudiante_2, edad_2)
     
     elif accion == 2:
         print("1. Promedios grupales. ",  "/n", 
@@ -159,40 +190,40 @@ def menu_parte_3(df_neutro, df_asociado_1, df_asociado_2, situacion, df_comentar
               "3. Feedback del comentario. ", "/n",
               "4. Grafico que compara las emociones neutras y despues de cada comentario. ")
                
-    while True: 
-        eleccion = int(input("Que metrica desea ver? (elija una opcion, luego puede ingresar otra):  "))
-            
-        if eleccion == 1: 
+        while True: 
+            eleccion = int(input("Que metrica desea ver? (elija una opcion, luego puede ingresar otra):  "))
+                
+            if eleccion == 1: 
                          
-            print("El promedio de las emociones al inciar, es decir las neutras es: ", promedio_neutro, "\n"
-                  "El promedio por emocion luego del primer comentario es el siguiente: ", promedio_comentario1, "\n",
-                  "Por ultimo el promedio por emocion luego del segundo comentario es el siguiente: ", promedio_comentario2)
-            break
-                        
-        elif eleccion == 2:   
-                         
-            print("Los cambios emcoionales entre la valoracion neutra y luego del primer comentario son los siguientes: " ,"\n",
-                  "Cambio estres: " , cambio_estres1,"\n",
-                  "Cambio motivacion" , cambio_motivacion1, "\n", 
-                  "Cambio tranquilidad" , cambio_tranquilidad1, "\n",
-                  "Los cambios emcoionales entre la valoracion neutra y luego del segundo comentario son los siguientes:" , "\n",  
-                  "Cambio estres: " , cambio_estres2,"\n", 
-                  "Cambio motivacion" , cambio_motivacion2, "\n",
-                  "Cambio tranquilidad" , cambio_tranquilidad2)
-            break
+                print("El promedio de las emociones al inciar, es decir las neutras es: ", promedio_neutro, "\n"
+                      "El promedio por emocion luego del primer comentario es el siguiente: ", promedio_comentario1, "\n",
+                      "Por ultimo el promedio por emocion luego del segundo comentario es el siguiente: ", promedio_comentario2)
+                break
+                            
+            elif eleccion == 2:   
+                             
+                print("Los cambios emcoionales entre la valoracion neutra y luego del primer comentario son los siguientes: " ,"\n",
+                      "Cambio estres: " , cambio_estres1,"\n",
+                      "Cambio motivacion" , cambio_motivacion1, "\n", 
+                      "Cambio tranquilidad" , cambio_tranquilidad1, "\n",
+                      "Los cambios emcoionales entre la valoracion neutra y luego del segundo comentario son los siguientes:" , "\n",  
+                      "Cambio estres: " , cambio_estres2,"\n", 
+                      "Cambio motivacion" , cambio_motivacion2, "\n",
+                      "Cambio tranquilidad" , cambio_tranquilidad2)
+                break
                      
-        elif eleccion == 3: 
-            print("El feedback leugo del comentario 1 es: " , feedback1,"\n", 
-                  "El feedback luego del comentario 2 es: " , feedback2)
-            break 
+            elif eleccion == 3: 
+                print("El feedback leugo del comentario 1 es: " , feedback1,"\n", 
+                      "El feedback luego del comentario 2 es: " , feedback2)
+                break 
                     
-        elif eleccion == 4: 
-            ver_grafico = grafico(df_neutro, df_asociado_1, df_asociado_2) #CHEQUEAR SI HAY QUE RENEAR PARA QUE SE VEA
-            return ver_grafico
-            break
-                    
-        else:
-            raise ValueError("La opción es inválida")
+            elif eleccion == 4: 
+                ver_grafico = grafico(df_neutro, df_asociado_1, df_asociado_2) #CHEQUEAR SI HAY QUE RENEAR PARA QUE SE VEA
+                return ver_grafico
+                break
+                        
+            else:
+                raise ValueError("La opción es inválida")
 
 
                     
