@@ -65,7 +65,7 @@ def comparar_promedios(promedio_neutro, promedio_comentario):
 
 
 
-def feedback_comentario( situacion,comentario, cambio_estres, cambio_tranquilidad, cambio_motivacion ): 
+def feedback_comentario( situacion,comentario, cambio_estres, cambio_motivacion, cambio_tranquilidad ): 
     """
     Ante el comentario, que va a depender de la situacion academica, el cambio va a ser disitno. 
     Esta funcion analiza el cambio en cada caso. 
@@ -98,7 +98,7 @@ def feedback_comentario( situacion,comentario, cambio_estres, cambio_tranquilida
         else: 
             mensaje= "Gracias por tu comentario, este ayudo a tranquilizar a tus companeros de clase"
             
-    elif situacion == "no parciales": 
+    elif situacion == "no_parciales": 
         if (cambio_estres > cambio_motivacion) and ( cambio_estres > cambio_tranquilidad): 
             mensaje= "Intenta eviatr un comentario asi ya que estresa al grupo"
         elif (cambio_motivacion > cambio_tranquilidad) and (cambio_motivacion > cambio_estres): 
