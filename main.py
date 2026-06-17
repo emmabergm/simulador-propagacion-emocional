@@ -95,7 +95,7 @@ try:
            
                 
 # Parte 3  
-                menu_3 = menu_parte_3(df_neutro, df_asociado_1, df_asociado_2, tipo_situacion, df_comentario, parte_1_sit1, parte_1_sit2, indice, comentario_1)
+                menu_3 = menu_parte_3(df_neutro, df_asociado_1, df_asociado_2, tipo_situacion,tipo_situacion_2, df_comentario, parte_1_sit1, parte_1_sit2, indice, comentario_1)
     
     elif menu_principal == "si": 
         menu_2 = menu_parte2() 
