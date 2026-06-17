@@ -1,43 +1,42 @@
 import random 
 
 def situacion(): 
-    '''
- Solicita al usuario el contexto académico en el que se encuentra.
+   '''
+   Solicita al usuario el contexto académico en el que se encuentra.
 
- Esta función pregunta si el estudiante se encuentra en una situación de
- "parciales" o "no parciales". La respuesta se convierte a minúscula para
- evitar errores por el uso de mayúsculas.
+    Esta función pregunta si el estudiante se encuentra en una situación de
+     "parciales" o "no parciales". La respuesta se convierte a minúscula para
+     evitar errores por el uso de mayúsculas.
 
- Returns
- -------
- situacion : str
+     Returns
+     -------
+     situacion : str
      Contexto académico ingresado por el usuario. Puede ser "parciales"
      o "no parciales".
 
- Raises
- ------
- ValueError
+     Raises
+     ------
+     ValueError
      Si el usuario ingresa una situación distinta de "parciales" o
-     "no parciales".
- '''
-    while True: 
-        situacion = input("En que situacion academica se encuentra? (parcailes/ no parciales): ")
-        situacion = situacion.lower()
+    "no parciales".
+    
+    '''
+   while True:
+       situacion = input("En que situacion academica se encuentra? (parciales/ no parciales): ")
+       situacion = situacion.lower()
+
+       try:
+           if (situacion != "parciales") and (situacion != "no parciales"):
+                raise ValueError("La situacion ingresada no existe")
+       except ValueError as e:
+            print(e)
+            continue
         
-        
-        if (situacion != "parciales") and (situacion != "no parciales"):
-            raise ValueError("La situacion ingresada no existe")
-        
-        
-            
-        else: 
-            
-        
-            if situacion == "no parciales": 
-                situacion = "no_parciales"
-            break
-        
-    return situacion 
+       if situacion == "no parciales":
+          situacion = "no_parciales"
+          break
+
+       return situacion 
 
 def numero_random(df_comentario): 
    '''
@@ -107,12 +106,17 @@ def realizar_pregunta(df_comentario, indice):
     
     
     print("Si te encontras en el siguiente contexto: ", situacion_texto)
-
-    try: 
-        respuesta = input(f"Que comentario le harias a tu grupo de estudio?\na) {a}\nb) {b}\nc) {c}\n(ingresar en minuscula): ")
-    except ValueError: 
-        print('Opcion invalida')
-        respuesta = input(f"Que comentario le harias a tu grupo de estudio?\na) {a}\nb) {b}\nc) {c}\n(ingresar en minuscula): ")
+    while True: 
+        try: 
+            respuesta = input(f"Que comentario le harias a tu grupo de estudio?\na) {a}\nb) {b}\nc) {c}\n ingrese su respuesta: ").lower()
+            if (respuesta != "a") and (respuesta != "b") and (respuesta != "c"):
+                raise ValueError ("Opcion invalida, elija a, b o c")
+                 
+            else: 
+                break
+        except ValueError as e: 
+            print(e)
+            continue
     
     return respuesta 
 
