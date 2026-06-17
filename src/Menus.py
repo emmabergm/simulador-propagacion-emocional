@@ -139,7 +139,8 @@ def menu_parte_3(df_neutro, df_asociado_1, df_asociado_2, tipo_situacion,tipo_si
             
             elif continuar=="si":
                
-               print("1. Agregar otro estudiante.","\n", "Permite cargar el estado emocional inicial, presentar una situacion y valorar el comentario",'\n')
+               print("1. Agregar otro estudiante.\n"
+                     "Permite cargar el estado emocional inicial, presentar una situacion y valorar el comentario",'\n')
                print("2. Quiere ver las metricas del experimento (Estas van a incluir datos simulados)")
                
                accion = int(input("Que quiere realizar? : "))
@@ -162,9 +163,9 @@ def menu_parte_3(df_neutro, df_asociado_1, df_asociado_2, tipo_situacion,tipo_si
      comentario_2 = parte_2_comentario2(df_comentario, parte_1_sit2, indice, tipo_situacion_2, df_asociado_2, estudiante_2, edad_2)
     
     elif accion == 2:
-        print("1. Promedios grupales. ",  "/n", 
-              "2. Cambios de las emociones. ","/n", 
-              "3. Feedback del comentario. ", "/n",
+        print("1. Promedios grupales.\n", 
+              "2. Cambios de las emociones.\n", 
+              "3. Feedback del comentario.\n",
               "4. Grafico que compara las emociones neutras y despues de cada comentario. ")
                
         while True: 
@@ -172,25 +173,25 @@ def menu_parte_3(df_neutro, df_asociado_1, df_asociado_2, tipo_situacion,tipo_si
                 
             if eleccion == 1: 
                          
-                print("El promedio de las emociones al inciar, es decir las neutras es: ", promedio_neutro, "\n"
-                      "El promedio por emocion luego del primer comentario es el siguiente: ", promedio_comentario1, "\n",
-                      "Por ultimo el promedio por emocion luego del segundo comentario es el siguiente: ", promedio_comentario2)
+                print("El promedio de las emociones al inciar, es decir las neutras es: ", promedio_neutro,
+                      "\nEl promedio por emocion luego del primer comentario es el siguiente: ", promedio_comentario1,
+                      "\nPor ultimo el promedio por emocion luego del segundo comentario es el siguiente: ", promedio_comentario2)
                 break
                             
             elif eleccion == 2:   
                              
-                print("Los cambios emcoionales entre la valoracion neutra y luego del primer comentario son los siguientes: " ,"\n",
-                      "Cambio estres: " , cambio_estres1,"/n",
-                      "Cambio motivacion" , cambio_motivacion1, "/n", 
-                      "Cambio tranquilidad" , cambio_tranquilidad1, "/n",
-                      "Los cambios emcoionales entre la valoracion neutra y luego del segundo comentario son los siguientes:" , "\n",  
-                      "Cambio estres: " , cambio_estres2,"/n", 
-                      "Cambio motivacion" , cambio_motivacion2, "/n",
+                print("Los cambios emcoionales entre la valoracion neutra y luego del primer comentario son los siguientes:\n",
+                      "Cambio estres: " , cambio_estres1, "\n",
+                      "Cambio motivacion" , cambio_motivacion1, "\n", 
+                      "Cambio tranquilidad" , cambio_tranquilidad1, "\n",
+                      "Los cambios emcoionales entre la valoracion neutra y luego del segundo comentario son los siguientes:\n",  
+                      "Cambio estres: " , cambio_estres2,"\n", 
+                      "Cambio motivacion" , cambio_motivacion2, "\n",
                       "Cambio tranquilidad" , cambio_tranquilidad2)
                 break
                      
             elif eleccion == 3: 
-                print("El feedback leugo del comentario 1 es: " , feedback1,"/n", 
+                print("El feedback leugo del comentario 1 es: " , feedback1,"\n", 
                       "El feedback luego del comentario 2 es: " , feedback2)
                 break 
                     
