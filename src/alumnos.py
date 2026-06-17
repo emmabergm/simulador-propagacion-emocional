@@ -94,12 +94,17 @@ def valoracion_comentario(estudiante_2, edad_e_2, comentario, situacion, df_asoc
         valoracion_estres = int(input(f"Cual seria tu valoracion emocional al siguiente comentario:\n{comentario}\nIngresa tu valoracion de estres: "))
         valoracion_motivacion = int(input("Ingresa tu valoracion de la emocion motivacion: "))
         valoracion_tranquilidad = int(input("Ingresa tu valoracion de la emocion tranquilidad: "))
-        df_asociado.loc[len(df_asociado)] = estudiante_2, edad_e_2, situacion, valoracion_estres, valoracion_motivacion, valoracion_tranquilidad
+       
+        try:
+            if (0 > valoracion_estres > 100) or (0 > valoracion_motivacion > 100) or (0 > valoracion_tranquilidad > 100): 
+             raise ValueError("Los valores deben encontrarse dentro del rango (1 - 100) ")
+             
+        except ValueError as e:
+         print(e)
+         continue
     
-        if (0 > valoracion_estres > 100) or (0 > valoracion_motivacion > 100) or (0 > valoracion_tranquilidad > 100): 
-            raise ValueError("Los valores deben encontrarse dentro del rango (1 - 100) ")
-        else: 
-            break 
+        df_asociado.loc[len(df_asociado)] = estudiante_2, edad_e_2, situacion, valoracion_estres, valoracion_motivacion, valoracion_tranquilidad
+        break 
     #ACA va a haber que llamar a la funcion 2 veces, cada vez para un comentario distinto#
     
     
