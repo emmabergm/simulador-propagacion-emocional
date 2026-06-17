@@ -1,10 +1,6 @@
 import pandas as pd
 
-import os
-os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
-from src.comentario import realizar_pregunta
-from src.comentario import guardar_respuesta
 from src.comentario import situacion
 from src.comentario import numero_random
 from src.comentario import asociacion
@@ -18,12 +14,7 @@ from src.Partes import parte_2
 from src.Partes import parte_2_comentario2
 
 
-#from src.validacion_datos import 
-#from src.graficos import 
-#from src.devolucion import 
 
-
-print(os.listdir("archivos"))
 # Abrir archivos: 
 archivo_neutro = "archivos/archivo_e_n.xlsx"
 archivo_e_comentario1 = "archivos/archivo_e_post.xlsx"
