@@ -7,7 +7,21 @@ from src.Partes import parte_2_comentario2
 
 
 def menu_grupos(df_grupos, nombre_grupo):
-    
+    """
+    Busca un grupo por nombre y devuelve la situación asociada.
+
+    Parametros
+    ----------
+    df_grupos: pandas.DataFrame
+        DataFrame que contiene los nombres de los grupos y las situaciones asociadas.
+    nombre_grupo : str
+        Nombre del grupo seleccionado por el usuario.
+
+    Returns
+    -------
+    str
+        Situación correspondiente al grupo seleccionado.
+    """
     if nombre_grupo in df_grupos["nombre"].values: 
         fila = df_grupos[df_grupos["nombre"] == nombre_grupo].iloc[0]
         return fila["situacion"]
