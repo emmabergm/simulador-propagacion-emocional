@@ -21,24 +21,26 @@ def info_estudiante2 (df_neutro,situacion):
     '''
     
     estudiante_2 = input("Ingrese su nombre: ")
-    edad_e_2 = int(input("Ingrese su edad: "))
     
-    if edad_e_2 < 0: 
-        raise ValueError("La edad no puede ser negativa")
 
     while True: 
         try: 
+            edad_e_2 = int(input("Ingrese su edad: "))
+            if edad_e_2 < 0:
+                raise ValueError("La edad no puede ser negativa")
+                
+        
             estres = int(input("Ingrese su estado de estres actual: "))
             motivacion = int(input("Ingrese su estado de motivacion actual: "))
             tranquilidad = int(input("Ingrese su estado de tranquilidad actual: "))
         
             if not (1 <= tranquilidad <= 100) or not (1 <= estres <= 100) or not (1 <= motivacion <= 100):
                raise ValueError("Los valores deben encontrarse dentro del rango (1 - 100)")
-            else: 
-                 break 
              
-        except ValueError as e: 
-            print(e)
+            break 
+             
+        except ValueError: 
+            print("Valor inválido. Intente de nuevo.")
             continue
         
     df_neutro.loc[len(df_neutro)] = estudiante_2, edad_e_2,situacion, estres, motivacion, tranquilidad
