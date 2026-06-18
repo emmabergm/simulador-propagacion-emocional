@@ -32,10 +32,22 @@ Estructura del repositorio:
   - analisis
 3. diagramas
 4. main
-5. requierments
+5. requirements.txt
 6. README
 
-Explicación breve de las funciones principales: 
+## Explicación breve de las funciones principales:
+
+- `situacion()`: pregunta si el estudiante se encuentra en contexto de parciales o no parciales.
+- `numero_random()`: selecciona aleatoriamente una situación del archivo de comentarios.
+- `realizar_pregunta()`: muestra una situación académica y tres comentarios posibles.
+- `guardar_respuesta()`: guarda la respuesta elegida por el estudiante en el DataFrame.
+- `asociacion()`: asocia la respuesta elegida con un DataFrame emocional.
+- `info_estudiante2()`: registra las emociones iniciales del segundo estudiante.
+- `valoracion_comentario()`: registra las emociones posteriores al comentario.
+- `calcular_promedios_grupales()`: calcula promedios de estrés, motivación y tranquilidad.
+- `comparar_promedios()`: compara las emociones neutras con las posteriores.
+- `feedback_comentario()`: genera una devolución sobre el impacto emocional del comentario.
+- `grafico()`: genera gráficos comparativos de las emociones.
 
 Resultados, salidas, metricas, graficos o funcionalidades generadas: 
 
@@ -62,33 +74,14 @@ El código final fue revisado, adaptado y probado por las integrantes del grupo.
 
 Notas o explicaciones adicionales para correr correctamente el programa: 
 
-## Implementación futura de Pandas para lectura del dataset
+## Uso de Pandas
 
-En una próxima etapa del proyecto, implementaríamos la librería Pandas para leer un dataset en formato CSV con la información inicial de los personajes de la simulación.
+El proyecto utiliza Pandas para leer y modificar archivos Excel con información sobre comentarios, emociones neutras y emociones posteriores.
 
-Actualmente, el sistema trabaja con personajes generados dentro del programa o definidos manualmente. Con Pandas, podríamos cargar esos personajes desde un archivo externo, por ejemplo:
+Los archivos utilizados se encuentran en la carpeta `archivos/`:
 
-`data/dataset_emociones.csv`
+- `archivo_comentario.xlsx`
+- `archivo_e_n.xlsx`
+- `archivo_e_post.xlsx`
 
-Este dataset podría incluir columnas como:
-
-- nombre
-- estres
-- calma
-- motivacion
-- resiliencia
-
-Un ejemplo de estructura del dataset sería:
-
-| nombre | estres | calma | motivacion | resiliencia |
-|---|---:|---:|---:|---:|
-| Persona 1 | 70 | 30 | 50 | 0.4 |
-| Persona 2 | 45 | 55 | 65 | 0.7 |
-| Persona 3 | 80 | 20 | 40 | 0.3 |
-
-Para leer el archivo usaríamos la función `read_csv()` de Pandas:
-
-```python
-import pandas as pd
-
-df = pd.read_csv("data/dataset_emociones.csv")
+Con Pandas se cargan estos archivos como DataFrames, se guardan respuestas, se calculan promedios y se comparan cambios emocionales.
