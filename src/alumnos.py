@@ -19,33 +19,57 @@ def info_estudiante2 (df_neutro,situacion):
     edad_e_2: int
         Edad del estudiante 2 
     '''
-    
     estudiante_2 = input("Ingrese su nombre: ")
-    
 
-    while True: 
-        try: 
+    while True:
+        try:
             edad_e_2 = int(input("Ingrese su edad: "))
-            if edad_e_2 < 0:
-                raise ValueError("La edad no puede ser negativa")
-                
         
-            estres = int(input("Ingrese su estado de estres actual: "))
-            motivacion = int(input("Ingrese su estado de motivacion actual: "))
-            tranquilidad = int(input("Ingrese su estado de tranquilidad actual: "))
-        
-            if not (1 <= tranquilidad <= 100) or not (1 <= estres <= 100) or not (1 <= motivacion <= 100):
-               raise ValueError("Los valores deben encontrarse dentro del rango (1 - 100)")
-             
-            break 
-             
-        except ValueError: 
-            print("Valor inválido. Intente de nuevo.")
+        except ValueError:
+            print("Debe ingresar un numero")
             continue
-        
-    df_neutro.loc[len(df_neutro)] = estudiante_2, edad_e_2,situacion, estres, motivacion, tranquilidad
-    
-    return estudiante_2, edad_e_2 
+        if edad_e_2 < 0:
+            print("La edad no puede ser negativa")
+            continue
+        break
+
+    while True:
+        try:
+            estres = int(input("Ingrese su estado de estres actual (rango valido: 1-100): "))
+        except ValueError:
+            print("Debe ingresar un numero")
+            continue
+        if not (1 <= estres <= 100):
+            print("Los valores deben encontrarse dentro del rango (1 - 100)")
+            continue
+        break
+
+    while True:
+        try:
+            motivacion = int(input("Ingrese su estado de motivacion actual (rango valido: 1-100): "))
+        except ValueError:
+            print("Debe ingresar un numero")
+            continue
+        if not (1 <= motivacion <= 100):
+            print("Los valores deben encontrarse dentro del rango (1 - 100)")
+            continue
+        break
+
+    while True:
+        try:
+            tranquilidad = int(input("Ingrese su estado de tranquilidad actual (rango valido: 1-100): "))
+        except ValueError:
+            print("Debe ingresar un numero")
+            continue
+        if not (1 <= tranquilidad <= 100):
+            print("Los valores deben encontrarse dentro del rango (1 - 100)")
+            continue
+        break
+
+    df_neutro.loc[len(df_neutro)] = estudiante_2, edad_e_2, situacion, estres, motivacion, tranquilidad
+    return estudiante_2, edad_e_2
+  
+  
 
 def presentar_comentario(df_comentario, respuesta, indice, situacion ): 
     '''
@@ -98,23 +122,50 @@ def valoracion_comentario(estudiante_2, edad_e_2, comentario, situacion, df_asoc
     None.
 
     '''
-    while True: 
-        situacion_texto = df_comentario.iloc[indice]["situacion"]
-        print(f"Te encontras en el siguiente contexto: '{situacion_texto}'")
-        valoracion_estres = int(input(f"Cual seria tu valoracion emocional al siguiente comentario:\n{comentario}\nIngresa tu valoracion de estres: "))
-        valoracion_motivacion = int(input("Ingresa tu valoracion de la emocion motivacion: "))
-        valoracion_tranquilidad = int(input("Ingresa tu valoracion de la emocion tranquilidad: "))
-       
+  
+    situacion_texto = df_comentario.iloc[indice]["situacion"]
+    print(f"Te encontras en el siguiente contexto: '{situacion_texto}'")
+    print(f"Cual seria tu valoracion emocional al siguiente comentario (rango valido: 1-100):\n{comentario}")
+
+    while True:
         try:
-          if not (1 <= valoracion_estres <= 100) or not (1 <= valoracion_motivacion <= 100) or not (1 <= valoracion_tranquilidad <= 100):
-              raise ValueError("Los valores deben encontrarse dentro del rango (1 - 100)")
-        except ValueError as e:
-          print(e)
-          continue
+            valoracion_estres = int(input("Ingresa tu valoracion de estres: "))
+        except ValueError:
+            print("Debe ingresar un numero")
+            continue
+        if not (1 <= valoracion_estres <= 100):
+            print("Los valores deben encontrarse dentro del rango (1 - 100)")
+            continue
+        break
+
+    while True:
+        try:
+            valoracion_motivacion = int(input("Ingresa tu valoracion de la emocion motivacion: "))
+        except ValueError:
+            print("Debe ingresar un numero")
+            continue
+        if not (1 <= valoracion_motivacion <= 100):
+            print("Los valores deben encontrarse dentro del rango (1 - 100)")
+            continue
+        break
+
+    while True:
+        try:
+            valoracion_tranquilidad = int(input("Ingresa tu valoracion de la emocion tranquilidad: "))
+        except ValueError:
+            print("Debe ingresar un numero")
+            continue
+        if not (1 <= valoracion_tranquilidad <= 100):
+            print("Los valores deben encontrarse dentro del rango (1 - 100)")
+            continue
+        break
+
+    df_asociado.loc[len(df_asociado)] = estudiante_2, edad_e_2, situacion, valoracion_estres, valoracion_motivacion, valoracion_tranquilidad
+   
+  
     
-        df_asociado.loc[len(df_asociado)] = estudiante_2, edad_e_2, situacion, valoracion_estres, valoracion_motivacion, valoracion_tranquilidad
-        break 
-    
+   
+
     
     
                        
