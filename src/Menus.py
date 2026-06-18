@@ -5,7 +5,7 @@ from src.graficos import grafico
 from src.Partes import parte_2
 from src.Partes import parte_2_comentario2
 
-dicc_cargados = {}
+nombres_cargados = []
 
 def menu_inicio(nombre, situacion): 
     '''
@@ -31,21 +31,24 @@ def menu_inicio(nombre, situacion):
     '''
     
     
-    if dicc_cargados == {}: 
-        dicc_cargados[situacion] = nombre
-        return "no"
-
-    if situacion not in dicc_cargados:
-        dicc_cargados[situacion] = nombre
-        return "no"  
-
-    elif dicc_cargados[situacion] == nombre:
+    if nombre not in nombres_cargados:
+        nombres_cargados.append(nombre)
+        return "no"          
+    
+    else:
         while True:
-            eleccion = input("Desea continuar con la información ya cargada? (si/no): ").strip().lower()
-            if eleccion == "si" or eleccion == "no":
-                return eleccion
-            else:
-                print("Debe responder con si o con no.")
+           try:
+               eleccion = input("Ese nombre ya tiene informacion cargada. Desea continuar con ella? (si/no): ").strip().lower()
+            
+               if (eleccion != "si") (eleccion != "no"):
+                  raise ValueError("Debe responder con si o con no.")
+                
+               else: 
+                    return eleccion
+           except ValueError as e: 
+                print(e)
+                
+            
 
 def menu_situacion(tipo_situacion): 
     print("\nAhora vamos a explorar como reaccionaria tu grupo ante la misma situacion pero en un contexto diferente.")
