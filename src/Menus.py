@@ -74,6 +74,7 @@ def menu_parte2():
         Devuelve "si" si el usuario desea continuar con la segunda parte.
         Devuelve "no" si el usuario decide finalizar con el programa
     """
+    print("En la siguiente parte del programa, debe ser realizada por otro usuario. La idea es que juegue el rol desde la persona que recibe esos comentarios y los valore con sus emociones.")
     while True: 
         eleccion = input("Desea seguir con la parte 2? (si/no): ").strip().lower()
         if eleccion == "si": 
