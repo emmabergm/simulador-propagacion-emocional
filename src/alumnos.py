@@ -71,7 +71,7 @@ def info_estudiante2 (df_neutro,situacion):
   
   
 
-def presentar_comentario(df_comentario, respuesta, indice, situacion ): 
+def presentar_comentario(df_comentario, respuesta, situacion ): 
     '''
     La funcion se encarga de encontrar en el DataFrame el comentario y presentarselo al usuario 2 que va a valorar su estado emocional a partir de eso
     Parameters
@@ -92,10 +92,12 @@ def presentar_comentario(df_comentario, respuesta, indice, situacion ):
 
     '''
     
-    comentario = df_comentario.loc[(df_comentario["opcion"] == respuesta) & (df_comentario[situacion] == "True"), "comentario"].iloc[0]
-    
-    
-    return comentario
+    try:
+        comentario = df_comentario.loc[(df_comentario["opcion"] == respuesta) & (df_comentario[situacion] == "True"), "comentario"].iloc[0]
+        return comentario
+    except Exception as e:
+        print(f"Error en presentar_comentario: {e}")
+        raise
 
 def valoracion_comentario(estudiante_2, edad_e_2, comentario, situacion, df_asociado, indice, df_comentario): 
     '''
