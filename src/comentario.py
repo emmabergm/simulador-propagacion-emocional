@@ -22,7 +22,6 @@ def situacion():
     
    '''
    while True:
-       try:
            situacion = input("En que situacion academica se encuentra? (parciales/ no parciales): ").lower()
 
            if (situacion != "parciales") and (situacion != "no parciales"):
@@ -32,14 +31,8 @@ def situacion():
            if situacion == "no parciales":
                situacion = "no_parciales"
            return situacion
-
-       except ValueError as e:
-           print(e)
-           continue
-
       
         
-      
 
 
 def numero_random(df_comentario): 
@@ -62,8 +55,12 @@ def numero_random(df_comentario):
         Número entero aleatorio que representa una posición dentro del
         DataFrame.
     '''
-   indice= random.randint(0, len(df_comentario)-1)
-   return indice 
+   try:
+        indice = random.randint(0, len(df_comentario)-1)
+        return indice
+   except Exception as e:
+        print(f"Error en numero_random: {e}")
+        raise
     
 
 
@@ -149,11 +146,15 @@ def guardar_respuesta (respuesta, indice, df, situacion_texto):
        DataFrame actualizado con la respuesta elegida marcada como "True".
    '''
 
-    id_sit = df.iloc[indice]["id_situacion"]
-    df.loc[(df["id_situacion"] == id_sit) & (df["opcion"] == respuesta), situacion_texto] = "True"
-    df_respuesta = df
-   
-    return df_respuesta
+    try:
+        id_sit = df.iloc[indice]["id_situacion"]
+        df.loc[(df["id_situacion"] == id_sit) & (df["opcion"] == respuesta), situacion_texto] = "True"
+        df_respuesta = df
+        return df_respuesta
+    except Exception as e:
+        print(f"Error en guardar_respuesta: {e}")
+        raise
+        
     
 def asociacion(respuesta, df_tranquilidad, df_motivacion, df_estres): 
     '''
@@ -185,18 +186,19 @@ def asociacion(respuesta, df_tranquilidad, df_motivacion, df_estres):
     df_asociado : DataFrame
         DataFrame emocional asociado a la respuesta elegida.
     '''
-    
-    if respuesta == "a": 
-        df_asociado = df_tranquilidad
-    
-    elif respuesta == "b": 
-        df_asociado = df_motivacion 
-    
-    else: 
-        df_asociado = df_estres
+    try:
+        if respuesta == "a": 
+            df_asociado = df_tranquilidad
+        elif respuesta == "b": 
+            df_asociado = df_motivacion 
+        else: 
+            df_asociado = df_estres
+        return df_asociado
+    except Exception as e:
+        print(f"Error en asociacion: {e}")
+        raise
         
-    return df_asociado 
-    
+
     
     
     
