@@ -21,12 +21,15 @@ def calcualar_promedios_grupales(df):
     """
     
     
-    if df.empty:
-        raise ValueError ("No hay datos para calcular el promedio")
-
-    df_promedio = pd.DataFrame([df[["estres", "motivacion", "tranquilidad"]].mean()])
-
-    return df_promedio
+    try:
+        if df.empty:
+            raise ValueError("No hay datos para calcular el promedio")
+        df_promedio = pd.DataFrame([df[["estres", "motivacion", "tranquilidad"]].mean()])
+        return df_promedio
+    except Exception as e:
+        print(f"Error en calcualar_promedios_grupales: {e}")
+        raise
+        
     
      
 
@@ -51,17 +54,16 @@ def comparar_promedios(promedio_neutro, promedio_comentario):
         Devuelve la diferencia entre los promedios; para ver el cambio de lso estados emocionales en el grupo. 
 
     """
-   cambio_estres = promedio_comentario["estres"].iloc[0] - promedio_neutro["estres"].iloc[0]
-   cambio_tranquilidad = promedio_comentario["tranquilidad"].iloc[0] - promedio_neutro["tranquilidad"].iloc[0]
-   cambio_motivacion = promedio_comentario["motivacion"].iloc[0] - promedio_neutro["motivacion"].iloc[0]
-   
+   try:
+        cambio_estres = promedio_comentario["estres"].iloc[0] - promedio_neutro["estres"].iloc[0]
+        cambio_motivacion = promedio_comentario["motivacion"].iloc[0] - promedio_neutro["motivacion"].iloc[0]
+        cambio_tranquilidad = promedio_comentario["tranquilidad"].iloc[0] - promedio_neutro["tranquilidad"].iloc[0]
+        return cambio_estres, cambio_motivacion, cambio_tranquilidad
+   except Exception as e:
+        print(f"Error en comparar_promedios: {e}")
+        raise
 
-   
-   return cambio_estres, cambio_tranquilidad, cambio_motivacion
-
-       
-
-
+    
 
 def feedback_comentario( situacion,comentario, cambio_estres, cambio_motivacion, cambio_tranquilidad ): 
     """
@@ -88,25 +90,28 @@ def feedback_comentario( situacion,comentario, cambio_estres, cambio_motivacion,
 
     """
     
-    if situacion == "parciales": 
-        if (cambio_estres > cambio_motivacion) and ( cambio_estres > cambio_tranquilidad): 
-            mensaje= "En parciales no esta bueno hacer ese comentario porque genera mucho estres en el grupo"
-        elif (cambio_motivacion > cambio_tranquilidad) and (cambio_motivacion > cambio_estres): 
-            mensaje= "El comentario fue positivo ya que ayudo a motivar a mucha gente para sus proximos examenes!!"
-        else: 
-            mensaje= "Gracias por tu comentario, este ayudo a tranquilizar a tus companeros de clase"
-            
-    elif situacion == "no_parciales": 
-        if (cambio_estres > cambio_motivacion) and ( cambio_estres > cambio_tranquilidad): 
-            mensaje= "Intenta eviatr un comentario asi ya que estresa al grupo"
-        elif (cambio_motivacion > cambio_tranquilidad) and (cambio_motivacion > cambio_estres): 
-            mensaje= "Esta buenisimo este tipo de comentario durante la cursada ya que motiva a los alumnos a seguir enfocados"
-        else: 
-            mensaje= "Comentar algo asi siempre es bienvenido porque tranquiliza el estres!!"
-    else:
-        mensaje = f"Situacion no reconocida: '{situacion}'"
-            
-    return mensaje 
-            
+    try:
+        if situacion == "parciales": 
+            if (cambio_estres > cambio_motivacion) and (cambio_estres > cambio_tranquilidad): 
+                mensaje = "En parciales no esta bueno hacer ese comentario porque genera mucho estres en el grupo"
+            elif (cambio_motivacion > cambio_tranquilidad) and (cambio_motivacion > cambio_estres): 
+                mensaje = "El comentario fue positivo ya que ayudo a motivar a mucha gente para sus proximos examenes!!"
+            else: 
+                mensaje = "Gracias por tu comentario, este ayudo a tranquilizar a tus companeros de clase"
+
+        elif situacion == "no_parciales": 
+            if (cambio_estres > cambio_motivacion) and (cambio_estres > cambio_tranquilidad): 
+                mensaje = "Intenta evitar un comentario asi ya que estresa al grupo"
+            elif (cambio_motivacion > cambio_tranquilidad) and (cambio_motivacion > cambio_estres): 
+                mensaje = "Esta buenisimo este tipo de comentario durante la cursada ya que motiva a los alumnos a seguir enfocados"
+            else: 
+                mensaje = "Comentar algo asi siempre es bienvenido porque tranquiliza el estres!!"
+        else:
+            mensaje = f"Situacion no reconocida: '{situacion}'"
+
+        return mensaje
+    except Exception as e:
+        print(f"Error en feedback_comentario: {e}")
+        raise
         
     
