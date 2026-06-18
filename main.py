@@ -15,7 +15,6 @@ from src.Partes import parte_2_comentario2
 
 
 
-# Abrir archivos: 
 archivo_neutro = "archivos/archivo_e_n.xlsx"
 archivo_e_comentario1 = "archivos/archivo_e_post.xlsx"
 archivo_comentario = "archivos/archivo_comentario (1).xlsx"
@@ -46,7 +45,7 @@ try:
 except FileNotFoundError: 
     print("El archivo no se encontro")
     
-#Parte 1 (interaccion con estudiante 1) - comentarios
+
 
 try: 
     nombre_grupo = input("Ingrese el nombre de su grupo: ")
@@ -76,8 +75,7 @@ try:
        
         parte_1_sit2 = parte_1(tipo_situacion_2, indice, df_comentario)
         df_asociado_2 = asociacion(parte_1_sit2, df_tranquilidad, df_motivacion, df_estres)
-        
-# Parte 2 
+
         menu_2 = menu_parte2() 
         if menu_2 == "si": 
             comentario_1, estudiante_2, edad_2 = parte_2(df_neutro, df_comentario, parte_1_sit1, indice, tipo_situacion, df_asociado_1)
@@ -88,7 +86,7 @@ try:
             
            
                 
-# Parte 3  
+  
                 menu_3 = menu_parte_3(df_neutro, df_asociado_1, df_asociado_2, tipo_situacion,tipo_situacion_2, df_comentario, parte_1_sit1, parte_1_sit2, indice, comentario_1)
     
     elif menu_principal == "si": 
