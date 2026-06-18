@@ -55,9 +55,7 @@ def comparar_promedios(promedio_neutro, promedio_comentario):
    cambio_tranquilidad = promedio_comentario["tranquilidad"].iloc[0] - promedio_neutro["tranquilidad"].iloc[0]
    cambio_motivacion = promedio_comentario["motivacion"].iloc[0] - promedio_neutro["motivacion"].iloc[0]
    
-   #print("El cambio en el estres fue: ", cambio_estres)
-   #print("El cambio en la tranquilidad fue: ", cambio_tranquilidad)
-   #print("El cambio en la motivacion fue: ", cambio_motivacion)
+
    
    return cambio_estres, cambio_tranquilidad, cambio_motivacion
 
