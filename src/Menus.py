@@ -50,6 +50,7 @@ def menu_inicio(nombre, situacion):
 def menu_situacion(tipo_situacion): 
     print("\nAhora vamos a explorar como reaccionaria tu grupo ante la misma situacion pero en un contexto diferente.")
     print("Si antes elegiste 'parciales', ahora pensá en 'no parciales', y viceversa.\n")
+    
 
     while True:
         confirmacion = input("Escriba 'continuar' para seguir: ").strip().lower()
@@ -175,7 +176,7 @@ def menu_metricas(df_neutro, df_asociado_1, df_asociado_2, tipo_situacion, tipo_
               "2. Cambios de las emociones.\n", 
               "3. Feedback del comentario.\n",
               "4. Grafico que compara las emociones neutras y despues de cada comentario.\n ",
-              "5. Terminar")
+              "5. Volver al menu principal")
                         
 
      
