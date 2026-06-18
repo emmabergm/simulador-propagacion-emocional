@@ -3,17 +3,17 @@ Trabajo aplicado de programación: simulador de propagación emocional en Python
 
 Integrantes: Olivia Kemmerer, Camila Iglesias, Emma Bergmann, Athina Lambert, Uma Rodriguez Videla
 
-Objetivo:  El objetivo del trabajo es evaluar como los comentarios se modifican dependiendo de la situacion en la que estamos (parciales o no, en este caso) y como eso termina repercutiendo en las emociones del resto de las personas en un grupo.
+Objetivo:  El objetivo del trabajo es evaluar cómo los comentarios se modifican dependiendo de la situación en la que estamos (parciales o no, en este caso) y cómo eso termina repercutiendo en las emociones del resto de las personas en un grupo.
 
-Partes del programa que realizo cada participante: 
-Olivia, Camila y Athina: se encargaron del codigo y de los archivos 
+Partes del programa que realiza cada participante: 
+Olivia, Camila y Athina: se encargaron del código y de los archivos 
 Emma y Uma: se encargaron de los diagramas de flujo y el docstring
 
 Instrucciones para ejecutar el programa: 
 - Corroborar tener descargados los archivos encontrados en la carpeta de archivos
 - El proyecto necesita de dos usuarios, en caso de ser una sola la que lo corra, asumir el papel de dos.
 
- Librerias utilizadas: 
+ Librerías utilizadas: 
  - pandas
  - random
  - matplotlib
@@ -35,13 +35,30 @@ Estructura del repositorio:
 5. requierments
 6. README
 
-Explicacion breve de las funciones principales: 
+Explicación breve de las funciones principales: 
 
 Resultados, salidas, metricas, graficos o funcionalidades generadas: 
 
-Diagramas de diseño: 
+- Registro de emociones iniciales del Estudiante 2.
+- Registro de emociones posteriores a cada comentario.
+- Promedios grupales de estrés, motivación y tranquilidad.
+- Comparación entre emociones neutras y emociones posteriores.
+- Feedback sobre el impacto emocional de los comentarios.
+- Gráficos que comparan los cambios emocionales.
 
-Declaracion de uso de IA: 
+Diagramas de diseño: El proyecto incluye diagramas de flujo de las funciones principales. Estos diagramas representan la lógica general del programa, las decisiones, los procesos y los posibles errores.
+
+Los diagramas se encuentran en la carpeta `diagramas/`.
+
+Declaración de uso de IA: Durante el desarrollo del proyecto se utilizó inteligencia artificial como herramienta de apoyo para:
+
+- organizar la estructura del proyecto;
+- revisar errores de código;
+- mejorar docstrings;
+- ordenar el README;
+- explicar funciones y corregir problemas de lógica.
+
+El código final fue revisado, adaptado y probado por las integrantes del grupo.
 
 Notas o explicaciones adicionales para correr correctamente el programa: 
 
