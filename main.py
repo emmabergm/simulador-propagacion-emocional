@@ -51,13 +51,20 @@ try:
     nombre_grupo = input("Ingrese el nombre de su grupo: ")
     tipo_situacion = situacion()
     menu_principal = menu_inicio(nombre_grupo, tipo_situacion)
+except ValueError as e:
+    print("Error: ", e)
+
     
-    if menu_principal == "no":  
-        indice = numero_random(df_comentario)
-        parte_1_sit1 = parte_1(tipo_situacion, indice, df_comentario)
-        df_asociado_1 = asociacion(parte_1_sit1, df_tranquilidad, df_motivacion, df_estres)
-        df_asociado_1 = asociacion(parte_1_sit1, df_tranquilidad, df_motivacion, df_estres)
-        menu_sit = menu_situacion(tipo_situacion)
+if menu_principal == "no": 
+        try: 
+            indice = numero_random(df_comentario)
+            parte_1_sit1 = parte_1(tipo_situacion, indice, df_comentario)
+            df_asociado_1 = asociacion(parte_1_sit1, df_tranquilidad, df_motivacion, df_estres)
+            df_asociado_1 = asociacion(parte_1_sit1, df_tranquilidad, df_motivacion, df_estres)
+            menu_sit = menu_situacion(tipo_situacion)
+        except ValueError as e:
+            print("Error: ", e)
+
         if menu_sit == "continuar": 
         
             while True:
@@ -98,7 +105,7 @@ try:
 
 except ValueError as e:
     print("Error: ", e)
-    raise
+    
 
 
     
