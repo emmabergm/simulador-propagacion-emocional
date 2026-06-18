@@ -67,12 +67,13 @@ def presentar_comentario(df_comentario, respuesta, indice, situacion ):
         Comentario del DataFrame elegido por el usuario 1.
 
     '''
+    
     comentario = df_comentario.loc[(df_comentario["opcion"] == respuesta) & (df_comentario[situacion] == "True"), "comentario"].iloc[0]
     
     
     return comentario
 
-def valoracion_comentario(estudiante_2, edad_e_2, comentario, situacion, df_asociado): 
+def valoracion_comentario(estudiante_2, edad_e_2, comentario, situacion, df_asociado, indice, df_comentario): 
     '''
     Presentarle al estudiante_2 el comentario elegido por el estudiante_1 y preguntarle su valoracion
     (Van a presentarse 2 comentarios) (Validar datos)
@@ -98,6 +99,8 @@ def valoracion_comentario(estudiante_2, edad_e_2, comentario, situacion, df_asoc
 
     '''
     while True: 
+        situacion_texto = df_comentario.iloc[indice]["situacion"]
+        print(f"Te encontras en el siguiente contexto: '{situacion_texto}'")
         valoracion_estres = int(input(f"Cual seria tu valoracion emocional al siguiente comentario:\n{comentario}\nIngresa tu valoracion de estres: "))
         valoracion_motivacion = int(input("Ingresa tu valoracion de la emocion motivacion: "))
         valoracion_tranquilidad = int(input("Ingresa tu valoracion de la emocion tranquilidad: "))
