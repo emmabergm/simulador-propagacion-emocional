@@ -58,8 +58,6 @@ try:
         parte_1_sit1 = parte_1(tipo_situacion, indice, df_comentario)
         df_asociado_1 = asociacion(parte_1_sit1, df_tranquilidad, df_motivacion, df_estres)
         df_asociado_1 = asociacion(parte_1_sit1, df_tranquilidad, df_motivacion, df_estres)
-        print("columnas df_neutro:", df_neutro.columns.tolist())
-        print("columnas df_asociado_1:", df_asociado_1.columns.tolist())
         menu_sit = menu_situacion(tipo_situacion)
         if menu_sit == "continuar": 
         
