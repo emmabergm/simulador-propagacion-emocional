@@ -20,23 +20,27 @@ def situacion():
      Si el usuario ingresa una situación distinta de "parciales" o
     "no parciales".
     
-    '''
+   '''
    while True:
-       situacion = input("En que situacion academica se encuentra? (parciales/ no parciales): ")
-       situacion = situacion.lower()
-
        try:
-           if (situacion != "parciales") and (situacion != "no parciales"):
-                raise ValueError("La situacion ingresada no existe")
-       except ValueError as e:
-            print(e)
-            continue
-        
-       if situacion == "no parciales":
-          situacion = "no_parciales"
-          break
+           situacion = input("En que situacion academica se encuentra? (parciales/ no parciales): ").lower()
 
-       return situacion 
+           if (situacion != "parciales") and (situacion != "no parciales"):
+               print("La situacion ingresada no existe")
+               continue
+
+           if situacion == "no parciales":
+               situacion = "no_parciales"
+           return situacion
+
+       except ValueError as e:
+           print(e)
+           continue
+
+      
+        
+      
+
 
 def numero_random(df_comentario): 
    '''
@@ -106,19 +110,14 @@ def realizar_pregunta(df_comentario, indice):
     
     
     print("Si te encontras en el siguiente contexto: ", situacion_texto)
-    while True: 
-        try: 
-            respuesta = input(f"Que comentario le harias a tu grupo de estudio?\na) {a}\nb) {b}\nc) {c}\n ingrese su respuesta: ").lower()
-            if (respuesta != "a") and (respuesta != "b") and (respuesta != "c"):
-                raise ValueError ("Opcion invalida, elija a, b o c")
-                 
-            else: 
-                break
-        except ValueError as e: 
-            print(e)
+    while True:
+        respuesta = input(f"Que comentario le harias a tu grupo de estudio?\na) {a}\nb) {b}\nc) {c}\n ingrese su respuesta: ").lower()
+        if (respuesta != "a") and (respuesta != "b") and (respuesta != "c"):
+            print("Opcion invalida, elija a, b o c")
             continue
-    
-    return respuesta 
+        break
+
+    return respuesta
 
 def guardar_respuesta (respuesta, indice, df, situacion_texto):
     '''
