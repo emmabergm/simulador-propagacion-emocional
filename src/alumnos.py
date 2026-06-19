@@ -7,7 +7,7 @@ def info_estudiante2 (df_neutro,situacion):
     df_neutro: DataFrame 
         Dataframe con la informacion predeterminada de estudiantes en estado neutro  
     situacion: str
-         Contexto académico ingresado por el usuario. Puede ser "parciales"
+        Contexto académico ingresado por el usuario. Puede ser "parciales"
          o "no parciales".
         
     Returns
