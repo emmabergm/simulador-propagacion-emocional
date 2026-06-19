@@ -78,8 +78,10 @@ def presentar_comentario(df_comentario, respuesta, situacion ):
         DataFrame que contiene los comentarios de las distintas situaciones
     respuesta : str
         Respuesta seleccionada por el usuario en la primera parte de la actividad
-    situacion : str
-        Situacion para la cual se desea obtener el comentario asociado
+    situacion: str
+        Contexto académico ingresado por el usuario. Puede ser "parciales"
+        o "no parciales".
+
 
     Raises
     ------
