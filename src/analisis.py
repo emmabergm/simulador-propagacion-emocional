@@ -37,34 +37,28 @@ def calcualar_promedios_grupales(df):
         
     
 
-def comparar_promedios(promedio_neutro, promedio_comentario): 
- """
+def comparar_promedios(promedio_neutro, promedio_comentario):
+    """
     Compara los promedios emocionales neutros con los promedios posteriores
     a un comentario.
-
     Esta función calcula la diferencia entre los promedios posteriores al
     comentario y los promedios neutros. Permite observar si el estrés,
     la motivación y la tranquilidad aumentaron o disminuyeron después
     del comentario.
-
     Parameters
     ----------
     promedio_neutro : DataFrame
         DataFrame con los promedios emocionales iniciales o neutros.
         Debe contener las columnas "estres", "motivacion" y "tranquilidad".
-
     promedio_comentario : DataFrame
         DataFrame con los promedios emocionales posteriores al comentario.
         Debe contener las columnas "estres", "motivacion" y "tranquilidad".
-
     Returns
     -------
     cambio_estres : float
         Diferencia entre el promedio posterior y el promedio neutro de estrés.
-
     cambio_motivacion : float
         Diferencia entre el promedio posterior y el promedio neutro de motivación.
-
     cambio_tranquilidad : float
         Diferencia entre el promedio posterior y el promedio neutro de tranquilidad.
     """
@@ -74,9 +68,13 @@ def comparar_promedios(promedio_neutro, promedio_comentario):
         cambio_motivacion = promedio_comentario["motivacion"].iloc[0] - promedio_neutro["motivacion"].iloc[0]
         cambio_tranquilidad = promedio_comentario["tranquilidad"].iloc[0] - promedio_neutro["tranquilidad"].iloc[0]
         return cambio_estres, cambio_motivacion, cambio_tranquilidad
-   except Exception as e:
+
+    except Exception as e:
         print(f"Error en comparar_promedios: {e}")
         raise
+
+
+     
 
     
 
