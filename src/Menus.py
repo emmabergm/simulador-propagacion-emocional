@@ -21,7 +21,7 @@ def menu_grupos(df_grupos, nombre_grupo):
     Returns
     -------
     str
-        Situación correspondiente al grupo seleccionado.
+        Situación correspondiente al grupo seleccionado ("parciales" o "no parciales")
     """
     if nombre_grupo in df_grupos["nombre"].values: 
         fila = df_grupos[df_grupos["nombre"] == nombre_grupo].iloc[0]
@@ -29,6 +29,19 @@ def menu_grupos(df_grupos, nombre_grupo):
             
 
 def menu_situacion(tipo_situacion): 
+    """
+    Solicita al usuario una confirmacion para continuar con la segunda situacion del programa.
+
+    Paramenters
+    -----------
+    tipo_situacion: str
+        Situacion seleccionada previamente por el usuario.
+
+    Returns
+    -------
+    str
+        La confirmacion ingresada por el usuario para continuar con el programa
+    """
     print("\nAhora vamos a explorar como reaccionaria tu grupo ante la misma situacion pero en un contexto diferente.")
     print("Si antes elegiste 'parciales', ahora pensá en 'no parciales', y viceversa.\n")
     
@@ -42,11 +55,6 @@ def menu_situacion(tipo_situacion):
 def menu_parte2(): 
     """
     Consulta al usuario si desea seguir con la segunda parte del programa.
-
-    Raises
-    ------
-    ValueError
-        Se produce cuando la respuesta ingresada no es "si" ni "no"
 
     Returns
     -------
@@ -66,6 +74,15 @@ def menu_parte2():
             print("Debe responder con si o con no.")
 
 def menu_com2(): 
+    """
+    Le solicita al usuario una confirmacion para continuar con la evaluacion del segundo comentario.
+
+    Returns
+    -------
+    str
+        La confirmacion ingresada por el usuario para continuar con el programa
+    """
+    
     print("\nAhora vamos a evaluar como te impacta un comentario diferente ante la misma situacion.")
     while True: 
         seguir = input("\nIngrese continuar para evaluar el siguiente comentario: ").strip().lower()
@@ -78,30 +95,26 @@ def menu_parte_3(df_neutro, df_asociado_1, df_asociado_2, tipo_situacion,tipo_si
     '''
     Parameters
     ----------
-    df_neutro : pandas.DataFrame
-       DataFrame que contiene las valoraciones emocionales iniciales de los participantes
-    df_asociado_1: pandas.DataFrame
-       DataFrame que contiene las valoraciones emocionales luego del primer comentario
-    df_asociado_2: pandas.DataFrame
-       DataFrame que contiene las valoraciones emocionales luego del segundo comentario
-    situacion : str
-        Situacion seleccionada por el participante durante el programa
-    df.comentario : pandas.DataFrame
+    df_neutro: DataFrame
+        DataFrame que contiene las valoraciones emocionales iniciales de los participantes
+    df_asociado_1: DataFrame
+        DataFrame que contiene las valoraciones emocionales luego del primer comentario
+    df_asociado_2: DataFrame
+        DataFrame que contiene las valoraciones emocionales luego del segundo comentario
+    tipo_situacion: str
+        Situacion academica del usuario ("parciales" o "no parciales")
+    tipo_situacion2:
+        Segunda situacion academica del usuario ("parciales" o "no parciales"), utilizada para comparar los resultados obtenidos anteriormente en la otra situacion
+    df_comentario: DataFrame
         DataFrame que contiene los comentarios asociados a cada situacion
-    parte_1_sit1 : pandas.DataFrame
+    parte_1_sit1: DataFrame
         Datos correspondientes a la primera situacion elegida para agregar nuevos registros
-    parte_1_sit2 : pandas.DataFrame
+    parte_1_sit2: DataFrame
         Datos correspondientes a la segunda situacion elegida para agregar nuevos registros
     indice : int
-        Indice de la situacion o comentario seleccionado
-    Comentario : str
-        Comentario evaluado por el participabnte
-        
-    Raises
-    ------
-    ValueError
-        Si el usuario ingresa una opción no válida en alguno de los
-        menús interactivos.
+        Numero random elegido por el programa correspondiente a la opcion a elegir de las respuestas
+    comentario : str
+        Comentario evaluado por el participante
 
     Returns
     -------
@@ -129,6 +142,29 @@ def menu_parte_3(df_neutro, df_asociado_1, df_asociado_2, tipo_situacion,tipo_si
             print("Opcion invalida")
       
 def menu_metricas(df_neutro, df_asociado_1, df_asociado_2, tipo_situacion, tipo_situacion_2, comentario):                     
+    """
+    Visualiza las distintas metricas obtenidas durante el programa, como los promedios grupales, cambios emocionales, feedback de los comentarios y graficos comparativos.
+
+    Parameters
+    ----------
+    df_neutro: DataFrame
+        DataFrame que contiene las valoraciones emocionales iniciales de los participantes
+    df_asociado_1: DataFrame
+        DataFrame que contiene las valoraciones emocionales luego del primer comentario
+    df_asociado_2: DataFrame
+        DataFrame que contiene las valoraciones emocionales luego del segundo comentario
+    tipo_situacion: str
+        Situacion academica del usuario ("parciales" o "no parciales")
+    tipo_situacion2:
+        Segunda situacion academica del usuario ("parciales" o "no parciales"), utilizada para comparar los resultados obtenidos anteriormente en la otra situacion
+    comentario : str
+        Comentario evaluado por el participante
+
+    Returns
+    -------
+    None
+        Solamente muestra las metricas seleccionadas por los usuarios.
+    """
     promedio_neutro = calcualar_promedios_grupales(df_neutro)
     promedio_comentario1 = calcualar_promedios_grupales(df_asociado_1)
     promedio_comentario2 = calcualar_promedios_grupales(df_asociado_2)
