@@ -105,8 +105,9 @@ Con Pandas se cargan estos archivos como DataFrames, se guardan respuestas, se c
 ## Declaración de uso de IA:
 
 Durante el desarrollo del proyecto se utilizó inteligencia artificial como herramienta de apoyo para:
-- revisar errores de código
--  Ayudarnos con funcionalidades de cada librería.
+- Revisar errores de código
+- Ayudarnos con funcionalidades de cada librería.
+- Ayudarnos a generar linea de codigo del histograma
 
 El código final fue revisado, adaptado y probado por las integrantes del grupo.
 
