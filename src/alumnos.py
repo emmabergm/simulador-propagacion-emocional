@@ -93,7 +93,7 @@ def presentar_comentario(df_comentario, respuesta, situacion ):
     '''
     
     try:
-        comentario = df_comentario.loc[(df_comentario["opcion"] == respuesta) & (df_comentario[situacion] == True), "comentario"].iloc[0]
+        comentario = df_comentario.loc[(df_comentario["opcion"] == respuesta) & (df_comentario[situacion] == "True"), "comentario"].iloc[0]
         return comentario
     except Exception as e:
         print(f"Error en presentar_comentario: {e}")
