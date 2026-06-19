@@ -10,7 +10,9 @@ archivo_comentario = "archivos/archivo_comentario (1).xlsx"
 archivo_grupos = "grupos.csv"
 columnas = ["nombre", "situacion", "situacion_2", "indice", "respuesta_1", "respuesta_2"]
 
-# --- Carga de Excel ---
+
+
+
 try:
     df_neutro = pd.read_excel(archivo_neutro)
     df_neutro.columns = df_neutro.columns.str.strip()
@@ -25,7 +27,7 @@ try:
 except FileNotFoundError:
     print("El archivo no se encontro")
 
-# --- Grupos ---
+
 if os.path.exists(archivo_grupos):
     df_grupos = pd.read_csv(archivo_grupos)
 else:
@@ -78,7 +80,7 @@ if nombre_grupo not in df_grupos["nombre"].values:
     df_grupos.loc[len(df_grupos)] = [nombre_grupo, tipo_situacion, tipo_situacion_2, indice, parte_1_sit1, parte_1_sit2]
     df_grupos.to_csv(archivo_grupos, index=False)
 
-# --- Parte 2 y 3 ---
+
 menu_2 = menu_parte2()
 if menu_2 == "si":
     comentario_1, estudiante_2, edad_2 = parte_2(df_neutro, df_comentario, parte_1_sit1, indice, tipo_situacion, df_asociado_1)
