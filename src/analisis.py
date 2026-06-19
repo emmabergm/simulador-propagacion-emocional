@@ -69,7 +69,7 @@ def comparar_promedios(promedio_neutro, promedio_comentario):
         Diferencia entre el promedio posterior y el promedio neutro de tranquilidad.
     """
 
-   try:
+    try:
         cambio_estres = promedio_comentario["estres"].iloc[0] - promedio_neutro["estres"].iloc[0]
         cambio_motivacion = promedio_comentario["motivacion"].iloc[0] - promedio_neutro["motivacion"].iloc[0]
         cambio_tranquilidad = promedio_comentario["tranquilidad"].iloc[0] - promedio_neutro["tranquilidad"].iloc[0]
