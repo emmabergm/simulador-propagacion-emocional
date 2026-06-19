@@ -111,7 +111,7 @@ def menu_parte_3(df_neutro, df_asociado_1, df_asociado_2, tipo_situacion,tipo_si
         print("1. Agregar otro estudiante.\n"
               "Permite cargar el estado emocional inicial, presentar una situacion y valorar el comentario\n"
               "2. Quiere ver las metricas del experimento (Estas van a incluir datos simulados).\n"
-              "3. Terminar el programa")
+              "3. Terminar el programa\n")
         try:
             accion = int(input("\nQue quiere realizar? : "))
         except ValueError:
@@ -145,19 +145,22 @@ def menu_metricas(df_neutro, df_asociado_1, df_asociado_2, tipo_situacion, tipo_
               "2. Cambios de las emociones.\n", 
               "3. Feedback del comentario.\n",
               "4. Grafico que compara las emociones neutras y despues de cada comentario.\n ",
-              "5. Volver al menu principal")
+              "5. Volver al menu principal\n")
         try: 
-            eleccion = int(input("Que metrica desea ver? (elija una opcion, luego puede ingresar otra):  "))
+            eleccion = int(input("\nQue metrica desea ver? (elija una opcion, luego puede ingresar otra):  "))
         except ValueError:
             print("Debe ingresar un numero")
             continue
 
         if eleccion == 1: 
-            print("El promedio de las emociones al inciar, es decir las neutras es: ", promedio_neutro, "\n"
-                  "El promedio por emocion luego del primer comentario es el siguiente: ", promedio_comentario1, "\n",
-                  "Por ultimo el promedio por emocion luego del segundo comentario es el siguiente: ", promedio_comentario2)
+            print("\nEl promedio de las emociones al inciar, es decir las neutras es: ") 
+            promedio_neutro.display()
+            print("\nEl promedio por emocion luego del primer comentario es el siguiente: ")
+            promedio_comentario1.display()
+            print("\nPor ultimo el promedio por emocion luego del segundo comentario es el siguiente: ")
+            promedio_comentario2.display()
         elif eleccion == 2:   
-            print("Los cambios emcoionales entre la valoracion neutra y luego del primer comentario son los siguientes: ", "\n",
+            print("\nLos cambios emcoionales entre la valoracion neutra y luego del primer comentario son los siguientes: ", "\n",
                   "Cambio estres: ", cambio_estres1, "\n",
                   "Cambio motivacion", cambio_motivacion1, "\n", 
                   "Cambio tranquilidad", cambio_tranquilidad1, "\n",
@@ -167,7 +170,7 @@ def menu_metricas(df_neutro, df_asociado_1, df_asociado_2, tipo_situacion, tipo_
                   "Cambio tranquilidad", cambio_tranquilidad2)
             
         elif eleccion == 3: 
-            print("El feedback leugo del comentario 1 es: ", feedback1, "\n", 
+            print("\nEl feedback leugo del comentario 1 es: ", feedback1, "\n", 
                   "El feedback luego del comentario 2 es: ", feedback2)
         elif eleccion == 4: 
             grafico(df_neutro, df_asociado_1, df_asociado_2)
