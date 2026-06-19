@@ -2,14 +2,14 @@ import matplotlib.pyplot as plt
 
 def grafico(df_neutro, df_asociado_1, df_asociado_2): 
     """
-    Genera un grafico de barras que comapra los promedios de las emociones (estres, motivacion y tranquilidad) en estado neutro, luego del comentario 1 y luego del comentario 2.
+    Genera un grafico de barras que compara los promedios de las emociones (estres, motivacion y tranquilidad) en estado neutro, luego del comentario 1 y luego del comentario 2.
 
     Parametros
     ----------
     df_neutro : pandas.DataFrame
         DataFrame que contiene las valoraciones emocionales iniciales
     df_asociado_1 : pandas.DataFrame
-        DataFrame que contiene las valoraciones emocioanles despues del primer comentario
+        DataFrame que contiene las valoraciones emocionales despues del primer comentario
     df_asociado_2 : pandas.DataFrame
         DataFrame con las valoraciones emocionales despues del segundo comentario
 
@@ -63,7 +63,7 @@ def grafico(df_neutro, df_asociado_1, df_asociado_2):
 
     plt.ylabel("Nivel emocional promedio")
 
-    plt.title("cambios emocionales")
+    plt.title("Cambios emocionales")
 
     plt.legend()
 
