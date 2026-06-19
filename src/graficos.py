@@ -39,21 +39,25 @@ def grafico(df_neutro, df_asociado_1, df_asociado_2):
         x,
         valores_neutros,
         width=ancho,
-        label="Neutro"
+        label="Neutro",
+        color="turquoise"
     )
 
     plt.bar(
         [i + ancho for i in x],
         valores_comentario_1,
         width=ancho,
-        label="Comentario 1"
+        label="Comentario 1",
+        color="gold"
     )
 
     plt.bar(
         [i + ancho*2 for i in x],
         valores_comentario_2,
         width=ancho,
-        label="Comentario 2"
+        label="Comentario 2",
+        color="blueviolet"
+        
     )
 
     plt.xticks(
@@ -70,4 +74,30 @@ def grafico(df_neutro, df_asociado_1, df_asociado_2):
     plt.ylim(0, 100)
 
     plt.show()
-        
+    
+
+
+
+def graficar_comparacion_emociones(df_comentario1, df_comentario2, emocion):
+    '''
+    (docstring igual...)
+    '''
+    try:
+        bins = 5
+        valores_1 = df_comentario1[emocion]
+        valores_2 = df_comentario2[emocion]
+
+        fig, ax = plt.subplots(figsize=(8, 5))
+        ax.hist(valores_1, bins=bins, range=(0, 100), alpha=0.6, label="Comentario 1", color="red", edgecolor="black")
+        ax.hist(valores_2, bins=bins, range=(0, 100), alpha=0.6, label="Comentario 2", color="green", edgecolor="black")
+        ax.set_xlabel(emocion.capitalize())
+        ax.set_ylabel("Cantidad de personas")
+        ax.set_title(f"Distribución de {emocion}: comentario 1 vs comentario 2")
+        ax.legend()
+        ax.grid(axis="y", linestyle="--", alpha=0.4)
+        plt.tight_layout()
+        plt.show()
+
+    except Exception as e:
+        print(f"Error en graficar_comparacion_emociones: {e}")
+        raise
