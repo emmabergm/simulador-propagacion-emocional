@@ -84,7 +84,22 @@ def graficar_comparacion_emociones(df_comentario1, df_comentario2, emocion):
 
     Parameters
     ----------
-    
+    df_comentario1: DataFrame
+        DataFrame que contiene las valoraciones emocionales luego del primer comentario
+    df_comentario2: DataFrame
+        DataFrame que contiene las valoraciones emocionales luego del segundo comentario
+    emocion: str
+        Nombre de la emocion a analizar, sea "tranquilidad", "estres" o "motivacion"
+
+    Raises
+    ------
+    Exception
+        Si ocurre un error al obtener los datos o al generar el grafico
+
+    Returns
+    -------
+    None.
+        La funcion solamente muestra en pantalla un histograma comparativo de cada emocion. 
     """
     try:
         bins = 5
