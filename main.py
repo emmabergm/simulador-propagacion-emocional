@@ -6,7 +6,6 @@ from src.Menus import menu_situacion, menu_com2, menu_parte2, menu_parte_3
 from src.Partes import parte_1, parte_2, parte_2_comentario2
 from src.carga_datos import cargar_datos
 
-from src.carga_datos import cargar_datos
 
 df_neutro, df_comentario, df_motivacion, df_tranquilidad, df_estres, df_grupos, archivo_grupos = cargar_datos()
 
