@@ -152,11 +152,11 @@ def menu_metricas(df_neutro, df_asociado_1, df_asociado_2, tipo_situacion, tipo_
 
         if eleccion == "1": 
             print("\nEl promedio de las emociones al inciar, es decir las neutras es: ") 
-            promedio_neutro.display()
+            print(promedio_neutro)
             print("\nEl promedio por emocion luego del primer comentario es el siguiente: ")
-            promedio_comentario1.display()
+            print(promedio_comentario1)
             print("\nPor ultimo el promedio por emocion luego del segundo comentario es el siguiente: ")
-            promedio_comentario2.display()
+            print(promedio_comentario2)
         elif eleccion == "2":   
             print("\nLos cambios emcoionales entre la valoracion neutra y luego del primer comentario son los siguientes: ", "\n",
                   "Cambio estres: ", cambio_estres1, "\n",
