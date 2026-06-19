@@ -79,9 +79,13 @@ def grafico(df_neutro, df_asociado_1, df_asociado_2):
 
 
 def graficar_comparacion_emociones(df_comentario1, df_comentario2, emocion):
-    '''
-    (docstring igual...)
-    '''
+    """
+    Genera y muestra tres histogramas, uno de cada emocion especifica, comparando los cambios en los valores luego de cada comentario.
+
+    Parameters
+    ----------
+    
+    """
     try:
         bins = 5
         valores_1 = df_comentario1[emocion]
