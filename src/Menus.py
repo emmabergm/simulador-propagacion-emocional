@@ -4,6 +4,7 @@ from src.analisis import feedback_comentario
 from src.graficos import grafico
 from src.Partes import parte_2
 from src.Partes import parte_2_comentario2
+from src.graficos import graficar_comparacion_emociones
 
 
 def menu_grupos(df_grupos, nombre_grupo):
@@ -112,18 +113,16 @@ def menu_parte_3(df_neutro, df_asociado_1, df_asociado_2, tipo_situacion,tipo_si
               "Permite cargar el estado emocional inicial, presentar una situacion y valorar el comentario\n"
               "2. Quiere ver las metricas del experimento (Estas van a incluir datos simulados).\n"
               "3. Terminar el programa\n")
-        try:
-            accion = int(input("\nQue quiere realizar? : "))
-        except ValueError:
-            print("Debe ingresar un numero")
-            continue
+        
+        accion = input("\nQue quiere realizar? : ")
+    
 
-        if accion == 1:
+        if accion == "1":
             comentario_1, estudiante_2, edad_2 = parte_2(df_neutro, df_comentario, parte_1_sit1, indice, tipo_situacion, df_asociado_1)
             comentario_2 = parte_2_comentario2(df_comentario, parte_1_sit2, indice, tipo_situacion_2, df_asociado_2, estudiante_2, edad_2)
-        elif accion == 2:
+        elif accion == "2":
             menu_metricas(df_neutro, df_asociado_1, df_asociado_2, tipo_situacion, tipo_situacion_2, comentario)
-        elif accion == 3:
+        elif accion == "3":
             print("Muchas gracias por participar! ")
             return None
         else:
@@ -144,22 +143,21 @@ def menu_metricas(df_neutro, df_asociado_1, df_asociado_2, tipo_situacion, tipo_
         print("1. Promedios grupales.\n", 
               "2. Cambios de las emociones.\n", 
               "3. Feedback del comentario.\n",
-              "4. Grafico que compara las emociones neutras y despues de cada comentario.\n ",
-              "5. Volver al menu principal\n")
-        try: 
-            eleccion = int(input("\nQue metrica desea ver? (elija una opcion, luego puede ingresar otra):  "))
-        except ValueError:
-            print("Debe ingresar un numero")
-            continue
+              "4. Grafico que compara las emociones neutras y despues de cada comentario.\n "
+              "5. Histogramas de cada emocion para evaluar el imapcto de cada comentario.\n",
+              "6. Volver al menu principal")
+        
+        eleccion = input("\nQue metrica desea ver? (elija una opcion, luego puede ingresar otra):  ")
+        
 
-        if eleccion == 1: 
+        if eleccion == "1": 
             print("\nEl promedio de las emociones al inciar, es decir las neutras es: ") 
             promedio_neutro.display()
             print("\nEl promedio por emocion luego del primer comentario es el siguiente: ")
             promedio_comentario1.display()
             print("\nPor ultimo el promedio por emocion luego del segundo comentario es el siguiente: ")
             promedio_comentario2.display()
-        elif eleccion == 2:   
+        elif eleccion == "2":   
             print("\nLos cambios emcoionales entre la valoracion neutra y luego del primer comentario son los siguientes: ", "\n",
                   "Cambio estres: ", cambio_estres1, "\n",
                   "Cambio motivacion", cambio_motivacion1, "\n", 
@@ -169,13 +167,35 @@ def menu_metricas(df_neutro, df_asociado_1, df_asociado_2, tipo_situacion, tipo_
                   "Cambio motivacion", cambio_motivacion2, "\n",
                   "Cambio tranquilidad", cambio_tranquilidad2)
             
-        elif eleccion == 3: 
+        elif eleccion == "3": 
             print("\nEl feedback leugo del comentario 1 es: ", feedback1, "\n", 
                   "El feedback luego del comentario 2 es: ", feedback2)
-        elif eleccion == 4: 
+        elif eleccion == "4": 
             grafico(df_neutro, df_asociado_1, df_asociado_2)
-        elif eleccion == 5: 
-            break 
+            
+        elif eleccion == "5":
+            while True:
+                print("\n1. Estres\n",
+                      "2. Motivacion\n",
+                      "3. Tranquilidad")
+                emocion_elegida = input("\nQue emocion desea ver?: ").strip()
+
+                if emocion_elegida == "1":
+                    graficar_comparacion_emociones(df_asociado_1, df_asociado_2, "estres")
+                    break
+                elif emocion_elegida == "2":
+                    graficar_comparacion_emociones(df_asociado_1, df_asociado_2, "motivacion")
+                    break
+                elif emocion_elegida == "3":
+                    graficar_comparacion_emociones(df_asociado_1, df_asociado_2, "tranquilidad")
+                    break
+                else:
+                    print("Opcion invalida. Debe elegir 1, 2 o 3.")
+            
+        elif eleccion == "6": 
+            break
+        
+         
         else:
             print("La opción es inválida")
                         
