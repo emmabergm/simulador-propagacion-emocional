@@ -18,44 +18,45 @@ def situacion():
         Contexto académico ingresado por el usuario. Puede ser "parciales"
         o "no_parciales".
     '''
-   while True:
-           situacion = input("En que situacion academica se encuentra? (parciales/ no parciales): ").lower()
+    while True:
+       situacion = input("En que situacion academica se encuentra? (parciales/ no parciales): ").lower()
+       
+       if (situacion != "parciales") and (situacion != "no parciales"):
+           print("La situacion ingresada no existe")
+           continue
 
-           if (situacion != "parciales") and (situacion != "no parciales"):
-               print("La situacion ingresada no existe")
-               continue
+       if situacion == "no parciales":
+           situacion = "no_parciales"
+       return situacion
+       
 
-           if situacion == "no parciales":
-               situacion = "no_parciales"
-           return situacion
+           
       
         
 
 
-def numero_random(df_comentario): 
+def numero_random(df_comentario):
     '''
     Genera un índice aleatorio para seleccionar una situación del DataFrame.
-
     Esta función utiliza la cantidad de filas del DataFrame de comentarios
     para generar un número aleatorio. Ese número se usa como índice para elegir
     una situación académica al azar.
-
     Parameters
     ----------
     df_comentario : DataFrame
         DataFrame que contiene las situaciones académicas y los comentarios
         posibles.
-
     Returns
     -------
     indice : int
         Número entero aleatorio que representa una posición dentro del
         DataFrame.
     '''
-   try:
+    try:
         indice = random.randint(0, len(df_comentario)-1)
         return indice
-   except Exception as e:
+
+    except Exception as e:
         print(f"Error en numero_random: {e}")
         raise
     
@@ -116,7 +117,7 @@ def realizar_pregunta(df_comentario, indice):
 
     return respuesta
 
-def guardar_respuesta (respuesta, indice, df, situacion_texto):
+def guardar_respuesta(respuesta, indice, df, situacion_texto):
    '''
     Guarda en el DataFrame la respuesta elegida por el usuario.
 
@@ -145,12 +146,12 @@ def guardar_respuesta (respuesta, indice, df, situacion_texto):
     df_respuesta : DataFrame
         DataFrame actualizado con la respuesta elegida marcada como "True".
     '''
-    try:
+   try:
         id_sit = df.iloc[indice]["id_situacion"]
         df.loc[(df["id_situacion"] == id_sit) & (df["opcion"] == respuesta), situacion_texto] = "True"
         df_respuesta = df
         return df_respuesta
-    except Exception as e:
+   except Exception as e:
         print(f"Error en guardar_respuesta: {e}")
         raise
         
