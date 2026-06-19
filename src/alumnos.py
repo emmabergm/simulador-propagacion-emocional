@@ -106,21 +106,25 @@ def valoracion_comentario(estudiante_2, edad_e_2, comentario, situacion, df_asoc
     (Van a presentarse 2 comentarios) (Validar datos)
     Parameters
     ----------
-    estudiante_2 : str
+    estudiante_2: str
         Nombre del estudiante 2 que va a valorar sus emociones a partir de los comentarios 
     
-    edad_e_2 : int
+    edad_e_2: int
          Edad del estudiante 2 
+         
+    comentario: str
+        Comentario elegido que se le presentara al usuario
     
-    
+    situacion: str
+        Contexto académico ingresado por el usuario. Puede ser "parciales" o "no parciales".
         
-    df_asociado : pandas.DataFrame
+    df_asociado: pandas.DataFrame
         DataFrame en el que se va a guardar la valoracion que haga el estudiante 2 luego del comentario
 
-    indice : int
+    indice: int
         Numero random elegido por el programa correspondiente a la opcion a elegir de las respuestas
 
-    df_comentario : pandas.DataFrame
+    df_comentario: pandas.DataFrame
         DataFrame que tiene guardado el comentario que eligio el estudiante 1
     
     Raises
