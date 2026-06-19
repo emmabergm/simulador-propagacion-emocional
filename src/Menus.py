@@ -32,7 +32,7 @@ def menu_situacion(tipo_situacion):
     """
     Solicita al usuario una confirmacion para continuar con la segunda situacion del programa.
 
-    Paramenters
+    Parameters
     -----------
     tipo_situacion: str
         Situacion seleccionada previamente por el usuario.
@@ -58,7 +58,7 @@ def menu_parte2():
 
     Returns
     -------
-    str : eleccion 
+    str 
         Devuelve "si" si el usuario desea continuar con la segunda parte.
         Devuelve "no" si el usuario decide finalizar con el programa
     """
@@ -103,7 +103,7 @@ def menu_parte_3(df_neutro, df_asociado_1, df_asociado_2, tipo_situacion,tipo_si
         DataFrame que contiene las valoraciones emocionales luego del segundo comentario
     tipo_situacion: str
         Situacion academica del usuario ("parciales" o "no parciales")
-    tipo_situacion2:
+    tipo_situacion2: str
         Segunda situacion academica del usuario ("parciales" o "no parciales"), utilizada para comparar los resultados obtenidos anteriormente en la otra situacion
     df_comentario: DataFrame
         DataFrame que contiene los comentarios asociados a cada situacion
@@ -155,7 +155,7 @@ def menu_metricas(df_neutro, df_asociado_1, df_asociado_2, tipo_situacion, tipo_
         DataFrame que contiene las valoraciones emocionales luego del segundo comentario
     tipo_situacion: str
         Situacion academica del usuario ("parciales" o "no parciales")
-    tipo_situacion2:
+    tipo_situacion2: str
         Segunda situacion academica del usuario ("parciales" o "no parciales"), utilizada para comparar los resultados obtenidos anteriormente en la otra situacion
     comentario : str
         Comentario evaluado por el participante
