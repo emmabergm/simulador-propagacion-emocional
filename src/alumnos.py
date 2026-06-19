@@ -121,13 +121,13 @@ def valoracion_comentario(estudiante_2, edad_e_2, comentario, situacion, df_asoc
     situacion: str
         Contexto académico ingresado por el usuario. Puede ser "parciales" o "no parciales".
         
-    df_asociado: pandas.DataFrame
+    df_asociado: DataFrame
         DataFrame en el que se va a guardar la valoracion que haga el estudiante 2 luego del comentario
 
     indice: int
         Numero random elegido por el programa correspondiente a la opcion a elegir de las respuestas
 
-    df_comentario: pandas.DataFrame
+    df_comentario: DataFrame
         DataFrame que tiene guardado el comentario que eligio el estudiante 1
     
     Raises
