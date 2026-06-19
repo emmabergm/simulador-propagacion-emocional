@@ -17,12 +17,14 @@ def parte_1(situacion, indice, df_comentario):
 
  Parameters
  ----------
- situacion: function
-     Funcion que representa la situacion elegida en el programa
+ situacion: str
+     Contexto académico ingresado por el usuario. Puede ser "parciales"
+     o "no parciales".
 
  indice: int
-     Indice del comentario que se utiliza en el programa dentro del DataFrame
-
+     Número entero aleatorio que representa una posición dentro del
+     DataFrame.
+    
  df_comentario: pandas.DataFrame
      DataFrame que contiene los comentarios
 
@@ -55,10 +57,12 @@ def parte_2(df_neutro, df_comentario, respuesta, indice, situacion,df_asociado):
      Respuesta elegida por el primer estudiante
 
  indice: int
-     Indice del comentario que se utiliza en el programa dentro del DataFrame
-
- situacion: function
-     Funcion que representa la situacion elegida en el programa
+     Número entero aleatorio que representa una posición dentro del
+     DataFrame.
+        
+ situacion: str
+     Contexto académico ingresado por el usuario. Puede ser "parciales"
+     o "no parciales".
 
  df_asociado: pandas.DataFrame
      DataFrame donde se guardan las valoraciones emocionales luego del comentario
@@ -87,11 +91,13 @@ def parte_2_comentario2(df_comentario, respuesta, indice, situacion, df_asociado
      Respuesta elegida por el primer estudiante
 
  indice: int
-     Indice del comentario que se utiliza en el programa dentro del DataFrame
+     Número entero aleatorio que representa una posición dentro del
+     DataFrame.
 
- situacion: function
-     Funcion que representa la situacion elegida en el programa
-
+ situacion: str
+     Contexto académico ingresado por el usuario. Puede ser "parciales"
+     o "no parciales".
+     
  df_asociado: pandas.DataFrame
      DataFrame donde se guardan las valoraciones emocionales luego del comentario
 
