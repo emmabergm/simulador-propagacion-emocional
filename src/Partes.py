@@ -25,7 +25,7 @@ def parte_1(situacion, indice, df_comentario):
          Número entero aleatorio que representa una posición dentro del
          DataFrame.
     
-    df_comentario: pandas.DataFrame
+     df_comentario: pandas.DataFrame
          DataFrame que contiene los comentarios
 
      Returns
@@ -56,22 +56,22 @@ def parte_2(df_neutro, df_comentario, respuesta, indice, situacion,df_asociado):
          Respuesta elegida por el primer estudiante
 
     indice: int
-     Número entero aleatorio que representa una posición dentro del
-     DataFrame.
+         Número entero aleatorio que representa una posición dentro del
+         DataFrame.
         
     situacion: str
-     Contexto académico ingresado por el usuario. Puede ser "parciales"
-     o "no parciales".
+         Contexto académico ingresado por el usuario. Puede ser "parciales"
+         o "no parciales".
 
     df_asociado: pandas.DataFrame
-     DataFrame donde se guardan las valoraciones emocionales luego del comentario
+         DataFrame donde se guardan las valoraciones emocionales luego del comentario
 
     Returns
     -------
     str
-     Comentario presentado y nombre del estudiante
+         Comentario presentado y nombre del estudiante
     int
-     Edad del estudiante
+         Edad del estudiante
     """
     estudiante_2, edad_2 =info_estudiante2(df_neutro,situacion)
     comentario=presentar_comentario(df_comentario, respuesta, situacion)
@@ -86,31 +86,31 @@ def parte_2_comentario2(df_comentario, respuesta, indice, situacion, df_asociado
    Parameters
    ----------
    df_comentario: pandas.DataFrame
-      DataFrame que contiene los comentarios
+       DataFrame que contiene los comentarios
 
    respuesta: str
-      Respuesta elegida por el primer estudiante
+       Respuesta elegida por el primer estudiante
 
    indice: int
-      Número entero aleatorio que representa una posición dentro del
+       Número entero aleatorio que representa una posición dentro del
       DataFrame.
 
    situacion: str
-      Contexto académico ingresado por el usuario. Puede ser "parciales"
-      o "no parciales".
+       Contexto académico ingresado por el usuario. Puede ser "parciales"
+       o "no parciales".
      
    df_asociado: pandas.DataFrame
-      DataFrame donde se guardan las valoraciones emocionales luego del comentario
+       DataFrame donde se guardan las valoraciones emocionales luego del comentario
 
    estudiante_2: str
-     Nombre del segundo estudiante
+       Nombre del segundo estudiante
    edad_2: int
        Edad del segundo estudiante
 
    Returns
    -------
    str
-      Comentario presentado al estudiante
+       Comentario presentado al estudiante
    """
  
    comentario = presentar_comentario(df_comentario, respuesta, situacion)
