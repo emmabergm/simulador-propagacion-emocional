@@ -93,7 +93,7 @@ def presentar_comentario(df_comentario, respuesta, situacion ):
     '''
     
     try:
-        comentario = df_comentario.loc[(df_comentario["opcion"] == respuesta) & (df_comentario[situacion] == "True"), "comentario"].iloc[0]
+        comentario = df_comentario.loc[(df_comentario["opcion"] == respuesta) & (df_comentario[situacion] == True), "comentario"].iloc[0]
         return comentario
     except Exception as e:
         print(f"Error en presentar_comentario: {e}")
@@ -127,14 +127,14 @@ def valoracion_comentario(estudiante_2, edad_e_2, comentario, situacion, df_asoc
   
         
     if situacion == "parciales":
-        print("\n Contexto: ")
+        print("\nContexto: ")
         print("El siguiente comentario fue hecho por un estudiante en un periodo de PARCIALES.")
         print("Imaginá que vos también estás en esa situación: con examenes proximos, presion academica y poco tiempo libre.")
         print(f"Situacion específica: {df_comentario.iloc[indice]['situacion']}")
         print(f"Comentario: {comentario}")
        
     else:
-        print("\n Contexto: ")
+        print("\nContexto: ")
         print("El siguiente comentario fue hecho por un estudiante en un periodo SIN PARCIALES.")
         print("Imaginá que vos también estás en esa situación: sin examenes proximos, con más tiempo libre y menos presion academica.")
         print(f"Situacion específica: {df_comentario.iloc[indice]['situacion']}")
