@@ -12,6 +12,25 @@ from src.alumnos import valoracion_comentario
  
 
 def parte_1(situacion, indice, df_comentario): 
+ """
+ Ejecuta la primer parte del programa. Presenta una pregunta al usuario, guarda su respuesta y la devuelve
+
+ Parameters
+ ----------
+ situacion: function
+     Funcion que representa la situacion elegida en el programa
+
+ indice: int
+     Indice del comentario que se utiliza en el programa dentro del DataFrame
+
+ df_comentario: pandas.DataFrame
+     DataFrame que contiene los comentarios
+
+ Returns
+ -------
+ respuesta: str
+     Respuesta elegida por el usuario
+ """
     
         respuesta = realizar_pregunta(df_comentario,indice)
         df_respuesta = guardar_respuesta(respuesta, indice, df_comentario, situacion )
@@ -21,8 +40,34 @@ def parte_1(situacion, indice, df_comentario):
         
         
 def parte_2(df_neutro, df_comentario, respuesta, indice, situacion,df_asociado):
-    
+ """
+ Ejecuta la segunda parte del programa. Toma los datos del segundo estudiante, se le presenta el comentario y registra su valoracion emocioanl ante tal comentario.
 
+ Parameters
+ ----------
+ df_neutro: pandas.DataFrame
+     DataFrame que contiene las valoraciones emocionales neutras
+
+ df_comentario: pandas.DataFrame
+     DataFrame que contiene los comentarios
+
+ respuesta: str
+     Respuesta elegida por el primer estudiante
+
+ indice: int
+     Indice del comentario que se utiliza en el programa dentro del DataFrame
+
+ situacion: function
+     Funcion que representa la situacion elegida en el programa
+
+ df_asociado: pandas.DataFrame
+     DataFrame donde se guardan las valoraciones emocionales luego del comentario
+
+ Returns
+ -------
+ tuple
+     Tupla con el comentario presentado, el nombre de estudiante 2 y su edad
+ """
     estudiante_2, edad_2 =info_estudiante2(df_neutro,situacion)
     comentario=presentar_comentario(df_comentario, respuesta, situacion)
     valoracion_post= valoracion_comentario(estudiante_2, edad_2,comentario,situacion, df_asociado, indice, df_comentario)
@@ -30,11 +75,42 @@ def parte_2(df_neutro, df_comentario, respuesta, indice, situacion,df_asociado):
     return comentario, estudiante_2, edad_2
     
 def parte_2_comentario2(df_comentario, respuesta, indice, situacion, df_asociado, estudiante_2, edad_2):
-    comentario = presentar_comentario(df_comentario, respuesta, situacion)
-    valoracion_post = valoracion_comentario(estudiante_2, edad_2, comentario, situacion, df_asociado, indice, df_comentario)
-    return comentario
-    
-    
+ """
+ Presenta un segundo comentario al usuario y registra su valoracion emovional despues de este.
+
+ Parameters
+ ----------
+ df_comentario: pandas.DataFrame
+     DataFrame que contiene los comentarios
+
+ respuesta: str
+     Respuesta elegida por el primer estudiante
+
+ indice: int
+     Indice del comentario que se utiliza en el programa dentro del DataFrame
+
+ situacion: function
+     Funcion que representa la situacion elegida en el programa
+
+ df_asociado: pandas.DataFrame
+     DataFrame donde se guardan las valoraciones emocionales luego del comentario
+
+estudiante_2: str
+    Nombre del segundo estudiante
+edad_2: int
+    Edad del segundo estudiante
+
+Returns
+-------
+comentario: str
+    Comentario presentado al estudiante
+"""
+ 
+ comentario = presentar_comentario(df_comentario, respuesta, situacion)
+ valoracion_post = valoracion_comentario(estudiante_2, edad_2, comentario, situacion, df_asociado, indice, df_comentario)
+ return comentario
+
+
     
     
     
