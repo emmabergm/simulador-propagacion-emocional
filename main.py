@@ -1,5 +1,6 @@
 import pandas as pd
 import os
+
 from src.comentario import situacion, numero_random, asociacion, guardar_respuesta
 from src.Menus import menu_situacion, menu_com2, menu_parte2, menu_parte_3
 from src.Partes import parte_1, parte_2, parte_2_comentario2
