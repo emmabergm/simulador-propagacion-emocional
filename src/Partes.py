@@ -30,7 +30,7 @@ def parte_1(situacion, indice, df_comentario):
 
      Returns
      -------
-     respuesta: str
+     str
          Respuesta elegida por el usuario
          """
     
@@ -68,8 +68,10 @@ def parte_2(df_neutro, df_comentario, respuesta, indice, situacion,df_asociado):
 
     Returns
     -------
-    tuple
-     Tupla con el comentario presentado, el nombre de estudiante 2 y su edad
+    str
+     Comentario presentado y nombre del estudiante
+    int
+     Edad del estudiante
     """
     estudiante_2, edad_2 =info_estudiante2(df_neutro,situacion)
     comentario=presentar_comentario(df_comentario, respuesta, situacion)
@@ -107,7 +109,7 @@ def parte_2_comentario2(df_comentario, respuesta, indice, situacion, df_asociado
 
    Returns
    -------
-   comentario: str
+   str
       Comentario presentado al estudiante
    """
  

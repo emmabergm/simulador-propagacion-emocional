@@ -6,14 +6,15 @@ def info_estudiante2 (df_neutro,situacion):
     ----------
     df_neutro: DataFrame 
         Dataframe con la informacion predeterminada de estudiantes en estado neutro  
-    situacion: function
-        Funcion que representa la situacion elegida en el programa 
+    situacion: str
+        Contexto académico ingresado por el usuario. Puede ser "parciales"
+         o "no parciales".
         
     Returns
     -------
-    estudiante_2 : str
+    str
         Nombre del estudiante dos que va a valorar sus emociones a partir de los comentarios 
-    edad_e_2: int
+    int
         Edad del estudiante 2 
     '''
     estudiante_2 = input("Ingrese su nombre: ")
@@ -77,8 +78,10 @@ def presentar_comentario(df_comentario, respuesta, situacion ):
         DataFrame que contiene los comentarios de las distintas situaciones
     respuesta : str
         Respuesta seleccionada por el usuario en la primera parte de la actividad
-    situacion : str
-        Situacion para la cual se desea obtener el comentario asociado
+    situacion: str
+        Contexto académico ingresado por el usuario. Puede ser "parciales"
+        o "no parciales".
+
 
     Raises
     ------
@@ -87,7 +90,7 @@ def presentar_comentario(df_comentario, respuesta, situacion ):
         
     Returns
     -------
-    str: 
+    str 
         Comentario del DataFrame indice : int
         Numero random elegido por el programa correspondiente a la opcion a elegir de las respuestas
 .
