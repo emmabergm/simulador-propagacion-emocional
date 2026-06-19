@@ -18,6 +18,8 @@ try:
     df_neutro.columns = df_neutro.columns.str.strip()
     df_comentario = pd.read_excel(archivo_comentario)
     df_comentario.columns = df_comentario.columns.str.strip()
+    df_comentario["parciales"] = df_comentario["parciales"].astype(str)
+    df_comentario["no_parciales"] = df_comentario["no_parciales"].astype(str)
     df_motivacion = pd.read_excel(archivo_e_comentario1, sheet_name="Comentario_motivacional")
     df_motivacion.columns = df_motivacion.columns.str.strip()
     df_tranquilidad = pd.read_excel(archivo_e_comentario1, sheet_name="Comentario_tranquilidad")
