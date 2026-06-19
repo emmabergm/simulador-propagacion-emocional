@@ -56,12 +56,12 @@ if nombre_grupo in df_grupos["nombre"].values:
     else:
         df_grupos = df_grupos[df_grupos["nombre"] != nombre_grupo]
         df_grupos.to_csv(archivo_grupos, index=False)
-    while True:
-        nombre_grupo = input("Ingrese el nombre del nuevo grupo: ")
-        if nombre_grupo in df_grupos["nombre"].values:
-            print("Ese nombre ya existe, ingrese uno diferente")
-            continue
-        break
+        while True:  # ← adentro del else
+            nombre_grupo = input("Ingrese el nombre del nuevo grupo: ")
+            if nombre_grupo in df_grupos["nombre"].values:
+                print("Ese nombre ya existe, ingrese uno diferente")
+                continue
+            break
 
 if nombre_grupo not in df_grupos["nombre"].values:
     tipo_situacion = situacion()
