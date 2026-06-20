@@ -50,6 +50,7 @@ simulador-propagacion-emocional/
 │   └── archivo_e_post.xlsx
 │
 ├── src/
+│   ├── carga_datos.py
 │   ├── comentarios.py
 │   ├── alumnos.py
 │   ├── Menus.py
