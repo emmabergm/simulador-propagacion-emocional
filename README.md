@@ -76,6 +76,7 @@ simulador-propagacion-emocional/
 - `comparar_promedios()`: compara las emociones neutras con las posteriores.
 - `feedback_comentario()`: genera una devolución sobre el impacto emocional del comentario.
 - `grafico()`: genera gráficos comparativos de las emociones.
+- cargar_datos(): carga los archivos de datos necesarios (estados emocionales neutros, comentarios asociados y grupos) y aplica las transformaciones iniciales correspondientes.
 
 ## Resultados, salidas, metricas, graficos o funcionalidades generadas: 
 
@@ -100,6 +101,7 @@ Los archivos utilizados se encuentran en la carpeta `archivos/`:
 - `archivo_comentario.xlsx`
 - `archivo_e_n.xlsx`
 - `archivo_e_post.xlsx`
+- grupos.cvs
 
 Con Pandas se cargan estos archivos como DataFrames, se guardan respuestas, se calculan promedios y se comparan cambios emocionales.
 
