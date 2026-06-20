@@ -93,6 +93,8 @@ def menu_com2():
 
 def menu_parte_3(df_neutro, df_asociado_1, df_asociado_2, tipo_situacion,tipo_situacion_2, df_comentario, parte_1_sit1, parte_1_sit2, indice, comentario):
     '''
+    Muestra el menu de la parte 3 del programa, donde permite agregar nuevos estudiantes, visualizar las metricas obtenidas luego del programa o finalizarlo.
+    
     Parameters
     ----------
     df_neutro: DataFrame
@@ -103,7 +105,7 @@ def menu_parte_3(df_neutro, df_asociado_1, df_asociado_2, tipo_situacion,tipo_si
         DataFrame que contiene las valoraciones emocionales luego del segundo comentario
     tipo_situacion: str
         Situacion academica del usuario ("parciales" o "no parciales")
-    tipo_situacion2: str
+    tipo_situacion_2: str
         Segunda situacion academica del usuario ("parciales" o "no parciales"), utilizada para comparar los resultados obtenidos anteriormente en la otra situacion
     df_comentario: DataFrame
         DataFrame que contiene los comentarios asociados a cada situacion
